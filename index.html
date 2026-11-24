@@ -6,16 +6,15 @@
 
 <title>SA Creative Studio | Digital Creative Services</title>
 
-<meta name="description" content="SA Creative Studio provides graphic design, video editing, social media content creation, brand promotion and digital creative services.">
+<meta name="description" content="SA Creative Studio offers graphic design, video editing, social media content creation and digital creative services.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
-/* GENERAL SETTINGS */
+/* GENERAL */
 
 * {
     margin: 0;
@@ -121,7 +120,6 @@ section {
     from {
         transform: translate(0, 0);
     }
-
     to {
         transform: translate(60px, -50px);
     }
@@ -186,7 +184,7 @@ header {
 }
 
 
-/* HERO SECTION */
+/* HERO */
 
 .hero {
     min-height: 100vh;
@@ -265,7 +263,7 @@ header {
 }
 
 
-/* SA LOGO DESIGN */
+/* SA LOGO */
 
 .logo-area {
     display: flex;
@@ -283,8 +281,7 @@ header {
     justify-content: center;
     align-items: center;
     position: relative;
-    background:
-        radial-gradient(circle at 35% 30%, #39205a, #12091f 65%);
+    background: radial-gradient(circle at 35% 30%, #39205a, #12091f 65%);
     border: 2px solid rgba(197, 138, 255, 0.65);
     box-shadow:
         0 0 25px rgba(155, 53, 255, 0.45),
@@ -337,7 +334,6 @@ header {
     0%, 100% {
         transform: translateY(0);
     }
-
     50% {
         transform: translateY(-15px);
     }
@@ -350,7 +346,7 @@ header {
 }
 
 
-/* ABOUT SECTION */
+/* ABOUT */
 
 .about-content {
     max-width: 850px;
@@ -366,6 +362,77 @@ header {
     color: var(--gray);
     line-height: 2;
     font-size: 15px;
+}
+
+
+/* ABOUT ANIMATED STICKER */
+
+.about-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 35px auto;
+    min-height: 230px;
+}
+
+.about-sticker {
+    width: 180px;
+    height: 180px;
+    border-radius: 35px;
+    background: linear-gradient(145deg, #321052, #130b20);
+    border: 1px solid rgba(197, 138, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 85px;
+    position: relative;
+    box-shadow: 0 0 35px rgba(155, 53, 255, 0.3);
+    animation: stickerFloat 3s ease-in-out infinite;
+}
+
+.floating-icon {
+    position: absolute;
+    font-size: 35px;
+    background: #211331;
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid rgba(197, 138, 255, 0.4);
+    animation: iconFloat 2.5s ease-in-out infinite alternate;
+}
+
+.icon-one {
+    top: -20px;
+    right: -25px;
+}
+
+.icon-two {
+    bottom: -20px;
+    left: -25px;
+    animation-delay: 0.7s;
+}
+
+.icon-three {
+    bottom: 15px;
+    right: -35px;
+    animation-delay: 1s;
+}
+
+@keyframes stickerFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(3deg);
+    }
+}
+
+@keyframes iconFloat {
+    from {
+        transform: translateY(0) rotate(-8deg);
+    }
+    to {
+        transform: translateY(-12px) rotate(8deg);
+    }
 }
 
 
@@ -571,7 +638,7 @@ footer span {
 }
 
 
-/* SCROLL ANIMATIONS */
+/* SCROLL ANIMATION */
 
 .reveal {
     opacity: 0;
@@ -598,7 +665,7 @@ footer span {
 }
 
 
-/* RESPONSIVE DESIGN */
+/* RESPONSIVE */
 
 @media (max-width: 900px) {
 
@@ -696,6 +763,16 @@ footer span {
         padding: 28px 20px;
     }
 
+    .about-sticker {
+        width: 150px;
+        height: 150px;
+        font-size: 70px;
+    }
+
+    .floating-icon {
+        font-size: 28px;
+    }
+
     .contact-box h2 {
         font-size: 26px;
     }
@@ -718,26 +795,27 @@ footer span {
 <!-- NAVIGATION -->
 
 <header>
-    <nav class="navbar">
+<nav class="navbar">
 
-        <a href="#home" class="logo">
-            SA<span>.</span> Creative Studio
-        </a>
+    <a href="#home" class="logo">
+        SA<span>.</span> Creative Studio
+    </a>
 
-        <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">
-            ☰
-        </button>
+    <button class="menu-btn" id="menuBtn"
+    aria-label="Toggle navigation" aria-expanded="false">
+        ☰
+    </button>
 
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
 
-    </nav>
+</nav>
 </header>
 
 
@@ -745,52 +823,57 @@ footer span {
 
 <section class="hero" id="home">
 
-    <div class="container hero-content">
+<div class="container hero-content">
 
-        <div class="hero-text reveal">
+    <div class="hero-text reveal">
 
-            <div class="small-heading">
-                WELCOME TO SA CREATIVE STUDIO
-            </div>
+        <div class="small-heading">
+            WELCOME TO SA CREATIVE STUDIO
+        </div>
 
-            <h1>
-                Creativity Meets
-                <span>Innovation.</span>
-            </h1>
+        <h1>
+            Creativity Meets
+            <span>Innovation.</span>
+        </h1>
 
-            <p>
-                We bring ideas to life through creative design,
-                video editing, social media content and digital
-                brand promotion.
-            </p>
+        <p>
+            We bring ideas to life through creative design,
+            video editing, social media content and digital
+            brand promotion.
+        </p>
 
-            <div class="buttons">
-                <a href="#services" class="btn btn-primary">
-                    Explore Services
-                </a>
+        <div class="buttons">
 
-                <a href="#contact" class="btn btn-outline">
-                    Contact Me
-                </a>
-            </div>
+            <a href="#services" class="btn btn-primary">
+                Explore Services
+            </a>
+
+            <a href="#contact" class="btn btn-outline">
+                Contact Me
+            </a>
 
         </div>
 
+    </div>
 
-        <!-- ANIMATED SA LOGO -->
 
-        <div class="logo-area reveal">
+    <!-- SA LOGO -->
 
-            <div class="logo-circle">
-                <div class="sa-text">SA</div>
-                <div class="logo-caption">
-                    CREATIVE STUDIO
-                </div>
+    <div class="logo-area reveal">
+
+        <div class="logo-circle">
+
+            <div class="sa-text">SA</div>
+
+            <div class="logo-caption">
+                CREATIVE STUDIO
             </div>
 
         </div>
 
     </div>
+
+</div>
 
 </section>
 
@@ -799,29 +882,52 @@ footer span {
 
 <section id="about">
 
-    <div class="container">
+<div class="container">
 
-        <div class="section-title reveal">
-            <h2>About <span>Us</span></h2>
-            <p>Creative ideas. Digital solutions.</p>
-        </div>
+    <div class="section-title reveal">
 
-        <div class="about-content reveal">
+        <h2>About <span>Us</span></h2>
 
-            <p>
-                SA Creative Studio is a digital creative platform
-                focused on graphic designing, video editing,
-                social media content creation, brand promotion
-                and other creative services.
-
-                Our goal is to turn ideas into attractive digital
-                content and help brands build a professional
-                online presence.
-            </p>
-
-        </div>
+        <p>Creative ideas. Digital solutions.</p>
 
     </div>
+
+
+    <div class="about-content reveal">
+
+        <!-- ANIMATED LAPTOP STICKER -->
+
+        <div class="about-visual">
+
+            <div class="about-sticker">
+
+                💻
+
+                <div class="floating-icon icon-one">🎨</div>
+
+                <div class="floating-icon icon-two">🎬</div>
+
+                <div class="floating-icon icon-three">✨</div>
+
+            </div>
+
+        </div>
+
+
+        <p>
+            SA Creative Studio is a digital creative platform
+            focused on graphic designing, video editing,
+            social media content creation, brand promotion
+            and other creative services.
+
+            Our goal is to turn ideas into attractive digital
+            content and help brands build a professional
+            online presence.
+        </p>
+
+    </div>
+
+</div>
 
 </section>
 
@@ -830,72 +936,76 @@ footer span {
 
 <section id="services">
 
-    <div class="container">
+<div class="container">
 
-        <div class="section-title reveal">
-            <h2>My <span>Services</span></h2>
-            <p>Creative solutions for digital growth.</p>
+    <div class="section-title reveal">
+
+        <h2>My <span>Services</span></h2>
+
+        <p>Creative solutions for digital growth.</p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+        <div class="service-card reveal">
+            <div class="service-icon">🎨</div>
+            <h3>Graphic Designing</h3>
+            <p>
+                Creative social media posts, banners,
+                promotional graphics and visual designs.
+            </p>
         </div>
 
-        <div class="services-grid">
+        <div class="service-card reveal">
+            <div class="service-icon">🎬</div>
+            <h3>Video Editing</h3>
+            <p>
+                Engaging video edits, reels, transitions
+                and attractive social media videos.
+            </p>
+        </div>
 
-            <div class="service-card reveal">
-                <div class="service-icon">🎨</div>
-                <h3>Graphic Designing</h3>
-                <p>
-                    Creative social media posts, banners,
-                    promotional graphics and visual designs.
-                </p>
-            </div>
+        <div class="service-card reveal">
+            <div class="service-icon">📱</div>
+            <h3>Social Media Content</h3>
+            <p>
+                Creative content ideas, posts and
+                visual material for social media platforms.
+            </p>
+        </div>
 
-            <div class="service-card reveal">
-                <div class="service-icon">🎬</div>
-                <h3>Video Editing</h3>
-                <p>
-                    Engaging video edits, reels, transitions
-                    and attractive social media videos.
-                </p>
-            </div>
+        <div class="service-card reveal">
+            <div class="service-icon">🚀</div>
+            <h3>Brand Promotion</h3>
+            <p>
+                Promotional designs and creative content
+                to introduce brands and their products.
+            </p>
+        </div>
 
-            <div class="service-card reveal">
-                <div class="service-icon">📱</div>
-                <h3>Social Media Content</h3>
-                <p>
-                    Creative content ideas, posts and
-                    visual material for social media platforms.
-                </p>
-            </div>
+        <div class="service-card reveal">
+            <div class="service-icon">✍️</div>
+            <h3>Content Writing</h3>
+            <p>
+                Simple and engaging written content
+                for digital platforms and businesses.
+            </p>
+        </div>
 
-            <div class="service-card reveal">
-                <div class="service-icon">🚀</div>
-                <h3>Brand Promotion</h3>
-                <p>
-                    Promotional designs and creative content
-                    to introduce brands and their products.
-                </p>
-            </div>
-
-            <div class="service-card reveal">
-                <div class="service-icon">✍️</div>
-                <h3>Content Writing</h3>
-                <p>
-                    Simple and engaging written content
-                    for digital platforms and businesses.
-                </p>
-            </div>
-
-            <div class="service-card reveal">
-                <div class="service-icon">💻</div>
-                <h3>Typing & Data Entry</h3>
-                <p>
-                    Document typing, formatting and
-                    basic data entry services.
-                </p>
-            </div>
-
+        <div class="service-card reveal">
+            <div class="service-icon">💻</div>
+            <h3>Typing & Data Entry</h3>
+            <p>
+                Document typing, formatting and
+                basic data entry services.
+            </p>
         </div>
 
     </div>
+
+</div>
 
 </section>
 
@@ -904,77 +1014,87 @@ footer span {
 
 <section id="portfolio">
 
-    <div class="container">
+<div class="container">
 
-        <div class="section-title reveal">
-            <h2>My <span>Portfolio</span></h2>
-            <p>Creative practice projects and design concepts.</p>
+    <div class="section-title reveal">
+
+        <h2>My <span>Portfolio</span></h2>
+
+        <p>Creative practice projects and design concepts.</p>
+
+    </div>
+
+
+    <div class="portfolio-grid">
+
+        <div class="portfolio-card reveal">
+
+            <div class="portfolio-visual">👕</div>
+
+            <div class="portfolio-info">
+
+                <h3>Fashion Brand Concept</h3>
+
+                <p>
+                    A creative promotional concept
+                    for a fashion brand.
+                </p>
+
+                <span class="practice-label">
+                    PRACTICE PROJECT
+                </span>
+
+            </div>
+
         </div>
 
-        <div class="portfolio-grid">
 
-            <div class="portfolio-card reveal">
+        <div class="portfolio-card reveal">
 
-                <div class="portfolio-visual">👕</div>
+            <div class="portfolio-visual">🎨</div>
 
-                <div class="portfolio-info">
-                    <h3>Fashion Brand Concept</h3>
+            <div class="portfolio-info">
 
-                    <p>
-                        A creative promotional concept
-                        for a fashion brand.
-                    </p>
+                <h3>Social Media Design</h3>
 
-                    <span class="practice-label">
-                        PRACTICE PROJECT
-                    </span>
-                </div>
+                <p>
+                    A visual concept for social media
+                    promotional content.
+                </p>
 
-            </div>
-
-
-            <div class="portfolio-card reveal">
-
-                <div class="portfolio-visual">🎨</div>
-
-                <div class="portfolio-info">
-                    <h3>Social Media Design</h3>
-
-                    <p>
-                        A visual concept for social media
-                        promotional content.
-                    </p>
-
-                    <span class="practice-label">
-                        PRACTICE PROJECT
-                    </span>
-                </div>
+                <span class="practice-label">
+                    PRACTICE PROJECT
+                </span>
 
             </div>
 
+        </div>
 
-            <div class="portfolio-card reveal">
 
-                <div class="portfolio-visual">🎥</div>
+        <div class="portfolio-card reveal">
 
-                <div class="portfolio-info">
-                    <h3>Video Editing Concept</h3>
+            <div class="portfolio-visual">🎥</div>
 
-                    <p>
-                        A creative concept for short-form
-                        video and reels content.
-                    </p>
+            <div class="portfolio-info">
 
-                    <span class="practice-label">
-                        PRACTICE PROJECT
-                    </span>
-                </div>
+                <h3>Video Editing Concept</h3>
+
+                <p>
+                    A creative concept for short-form
+                    video and reels content.
+                </p>
+
+                <span class="practice-label">
+                    PRACTICE PROJECT
+                </span>
 
             </div>
 
         </div>
 
     </div>
+
+</div>
 
 </section>
 
@@ -983,73 +1103,77 @@ footer span {
 
 <section id="skills">
 
-    <div class="container">
+<div class="container">
 
-        <div class="section-title reveal">
-            <h2>My <span>Skills</span></h2>
-            <p>Tools and creative skills I am developing.</p>
+    <div class="section-title reveal">
+
+        <h2>My <span>Skills</span></h2>
+
+        <p>Tools and creative skills I am developing.</p>
+
+    </div>
+
+
+    <div class="skills-container reveal">
+
+        <div class="skill">
+
+            <div class="skill-heading">
+                <span>Graphic Designing</span>
+                <span>75%</span>
+            </div>
+
+            <div class="skill-bar">
+                <div class="skill-progress" data-width="75%"></div>
+            </div>
+
         </div>
 
-        <div class="skills-container reveal">
 
-            <div class="skill">
+        <div class="skill">
 
-                <div class="skill-heading">
-                    <span>Graphic Designing</span>
-                    <span>75%</span>
-                </div>
-
-                <div class="skill-bar">
-                    <div class="skill-progress" data-width="75%"></div>
-                </div>
-
+            <div class="skill-heading">
+                <span>Video Editing</span>
+                <span>70%</span>
             </div>
 
-
-            <div class="skill">
-
-                <div class="skill-heading">
-                    <span>Video Editing</span>
-                    <span>70%</span>
-                </div>
-
-                <div class="skill-bar">
-                    <div class="skill-progress" data-width="70%"></div>
-                </div>
-
+            <div class="skill-bar">
+                <div class="skill-progress" data-width="70%"></div>
             </div>
 
+        </div>
 
-            <div class="skill">
 
-                <div class="skill-heading">
-                    <span>Social Media Content</span>
-                    <span>75%</span>
-                </div>
+        <div class="skill">
 
-                <div class="skill-bar">
-                    <div class="skill-progress" data-width="75%"></div>
-                </div>
-
+            <div class="skill-heading">
+                <span>Social Media Content</span>
+                <span>75%</span>
             </div>
 
+            <div class="skill-bar">
+                <div class="skill-progress" data-width="75%"></div>
+            </div>
 
-            <div class="skill">
+        </div>
 
-                <div class="skill-heading">
-                    <span>MS Word & Data Entry</span>
-                    <span>80%</span>
-                </div>
 
-                <div class="skill-bar">
-                    <div class="skill-progress" data-width="80%"></div>
-                </div>
+        <div class="skill">
 
+            <div class="skill-heading">
+                <span>MS Word & Data Entry</span>
+                <span>80%</span>
+            </div>
+
+            <div class="skill-bar">
+                <div class="skill-progress" data-width="80%"></div>
             </div>
 
         </div>
 
     </div>
+
+</div>
 
 </section>
 
@@ -1058,35 +1182,39 @@ footer span {
 
 <section id="contact">
 
-    <div class="container">
+<div class="container">
 
-        <div class="section-title reveal">
-            <h2>Get In <span>Touch</span></h2>
-            <p>Have a project or an idea? Let's connect.</p>
-        </div>
+    <div class="section-title reveal">
 
-        <div class="contact-box reveal">
+        <h2>Get In <span>Touch</span></h2>
 
-            <h2>Let's Work Together!</h2>
-
-            <p>
-                Interested in creative digital services?
-                Feel free to contact me through email.
-            </p>
-
-            <a class="email-text"
-               href="mailto:saifali0011011@gmail.com">
-                saifali0011011@gmail.com
-            </a>
-
-            <a class="btn btn-primary"
-               href="mailto:saifali0011011@gmail.com?subject=Project%20Inquiry">
-                Send an Email
-            </a>
-
-        </div>
+        <p>Have a project or an idea? Let's connect.</p>
 
     </div>
+
+
+    <div class="contact-box reveal">
+
+        <h2>Let's Work Together!</h2>
+
+        <p>
+            Interested in creative digital services?
+            Feel free to contact me through email.
+        </p>
+
+        <a class="email-text"
+           href="mailto:saifali0011011@gmail.com">
+            saifali0011011@gmail.com
+        </a>
+
+        <a class="btn btn-primary"
+           href="mailto:saifali0011011@gmail.com?subject=Project%20Inquiry">
+            Send an Email
+        </a>
+
+    </div>
+
+</div>
 
 </section>
 
@@ -1111,7 +1239,7 @@ footer span {
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 
-menuBtn.addEventListener("click", function () {
+menuBtn.addEventListener("click", function() {
 
     const isOpen = navLinks.classList.toggle("show");
 
@@ -1215,7 +1343,7 @@ document.querySelectorAll(".service-card").forEach(function(card) {
 });
 
 
-/* SCROLL PROGRESS BAR */
+/* SCROLL PROGRESS */
 
 window.addEventListener("scroll", function() {
 
@@ -1235,7 +1363,7 @@ window.addEventListener("scroll", function() {
 });
 
 
-/* AUTOMATIC COPYRIGHT YEAR */
+/* COPYRIGHT YEAR */
 
 document.getElementById("year").textContent =
     new Date().getFullYear();
