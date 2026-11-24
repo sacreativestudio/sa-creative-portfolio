@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="SA Creative Studio provides graphic design, video editing and data entry services.">
+    <meta name="description" content="SA Creative Studio offers graphic design, video editing and data entry services in Lahore, Pakistan.">
+
     <meta name="theme-color" content="#080810">
 
-    <title>SA Creative Studio | Creative Digital Services</title>
+    <title>SA Creative Studio | Creative Digital Solutions</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
-        /* ========== GLOBAL SETTINGS ========== */
+
+        /* ===============================
+           1. GLOBAL SETTINGS
+        =============================== */
 
         :root {
-            --background: #080810;
-            --surface: #11111d;
-            --surface-light: #191927;
+            --bg: #080810;
+            --bg2: #10101b;
+            --card: #141421;
             --purple: #9147ff;
-            --purple-light: #b17aff;
-            --text: #ffffff;
+            --purple2: #bd8cff;
+            --white: #ffffff;
             --muted: #a5a5b5;
             --border: rgba(255,255,255,0.09);
         }
@@ -36,13 +41,13 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 85px;
+            scroll-padding-top: 90px;
         }
 
         body {
+            background: var(--bg);
+            color: var(--white);
             font-family: 'Inter', sans-serif;
-            background: var(--background);
-            color: var(--text);
             line-height: 1.7;
             overflow-x: hidden;
         }
@@ -62,25 +67,49 @@
         }
 
         .section {
-            padding: 100px 0;
+            padding: 110px 0;
+            position: relative;
+        }
+
+        .gradient-text {
+            background: linear-gradient(
+                90deg,
+                #9147ff,
+                #d7baff,
+                #9147ff
+            );
+
+            background-size: 200% auto;
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+
+            animation: gradientMove 5s linear infinite;
+        }
+
+        @keyframes gradientMove {
+            to {
+                background-position: 200% center;
+            }
         }
 
         .section-heading {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 55px;
         }
 
         .section-heading span {
-            color: var(--purple-light);
-            font-size: 13px;
-            font-weight: 700;
+            color: var(--purple2);
+            font-size: 12px;
+            font-weight: 800;
             letter-spacing: 3px;
-            text-transform: uppercase;
         }
 
         .section-heading h2 {
-            font-size: clamp(30px, 5vw, 42px);
+            font-size: clamp(30px, 5vw, 45px);
             margin-top: 10px;
+            line-height: 1.3;
         }
 
         .section-heading p {
@@ -88,28 +117,51 @@
             margin-top: 12px;
         }
 
-        .gradient-text {
-            background: linear-gradient(90deg, #a56aff, #e0c4ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+
+        /* ===============================
+           2. SCROLL PROGRESS BAR
+        =============================== */
+
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(
+                90deg,
+                #9147ff,
+                #d4b5ff
+            );
+            z-index: 2000;
         }
 
-        /* ========== NAVIGATION ========== */
+
+        /* ===============================
+           3. NAVIGATION BAR
+        =============================== */
 
         header {
             position: fixed;
             top: 0;
-            left: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(8,8,16,0.88);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--border);
+
+            background: rgba(8,8,16,0.75);
+            backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid transparent;
+            transition: 0.3s;
+        }
+
+        header.scrolled {
+            background: rgba(8,8,16,0.96);
+            border-bottom-color: var(--border);
+            box-shadow: 0 5px 30px rgba(0,0,0,0.2);
         }
 
         .navbar {
-            height: 75px;
+            height: 78px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -117,65 +169,201 @@
 
         .logo {
             font-size: 23px;
-            font-weight: 800;
+            font-weight: 900;
             letter-spacing: -1px;
         }
 
         .logo span {
-            color: var(--purple-light);
+            color: var(--purple2);
         }
 
         .nav-links {
             display: flex;
-            align-items: center;
-            gap: 30px;
+            gap: 28px;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
+            font-size: 13px;
+            font-weight: 600;
             color: var(--muted);
-            font-size: 14px;
             transition: 0.3s;
         }
 
-        .nav-links a:hover {
-            color: var(--purple-light);
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--purple2);
         }
 
         .nav-contact {
             background: var(--purple);
-            padding: 10px 18px;
+            padding: 10px 19px;
             border-radius: 8px;
             color: white !important;
         }
 
+        .nav-contact:hover {
+            box-shadow: 0 0 25px rgba(145,71,255,0.5);
+        }
+
         .menu-btn {
             display: none;
+            color: white;
             background: none;
             border: none;
-            color: white;
             font-size: 27px;
             cursor: pointer;
         }
 
-        /* ========== BUTTONS ========== */
+
+        /* ===============================
+           4. HERO SECTION
+        =============================== */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 140px 0 90px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+
+            width: 550px;
+            height: 550px;
+
+            right: -130px;
+            top: 100px;
+
+            background: var(--purple);
+            filter: blur(180px);
+            opacity: 0.18;
+
+            animation: glowMove 8s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            left: -180px;
+            bottom: -100px;
+
+            background: #5921a9;
+            filter: blur(160px);
+            opacity: 0.18;
+
+            animation: glowMove 10s ease-in-out infinite alternate-reverse;
+            pointer-events: none;
+        }
+
+        @keyframes glowMove {
+            from {
+                transform: translate(0,0) scale(1);
+            }
+
+            to {
+                transform: translate(-35px,40px) scale(1.2);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 780px;
+            animation: heroEnter 1s ease both;
+        }
+
+        @keyframes heroEnter {
+            from {
+                opacity: 0;
+                transform: translateY(45px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 9px 17px;
+
+            background: rgba(145,71,255,0.12);
+            border: 1px solid rgba(145,71,255,0.4);
+
+            color: var(--purple2);
+            border-radius: 30px;
+
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+
+            margin-bottom: 28px;
+        }
+
+        .hero h1 {
+            font-size: clamp(43px, 7vw, 78px);
+            line-height: 1.13;
+            letter-spacing: -3px;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            max-width: 620px;
+            font-size: 16px;
+            color: var(--muted);
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-bottom {
+            margin-top: 75px;
+            color: var(--muted);
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+
+        /* ===============================
+           5. BUTTONS
+        =============================== */
 
         .btn {
             display: inline-block;
-            padding: 13px 25px;
-            border-radius: 8px;
+            padding: 14px 26px;
+
             background: var(--purple);
             color: white;
-            font-size: 14px;
-            font-weight: 700;
-            transition: 0.3s;
+
             border: 1px solid var(--purple);
+            border-radius: 9px;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            transition: 0.35s;
         }
 
         .btn:hover {
-            background: transparent;
-            box-shadow: 0 0 25px rgba(145,71,255,0.3);
-            transform: translateY(-3px);
+            transform: translateY(-4px);
+            box-shadow: 0 0 30px rgba(145,71,255,0.55);
+            background: #a76aff;
         }
 
         .btn-outline {
@@ -188,197 +376,247 @@
             border-color: var(--purple);
         }
 
-        /* ========== HERO SECTION ========== */
 
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            padding: 120px 0 70px;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            width: 450px;
-            height: 450px;
-            background: var(--purple);
-            filter: blur(180px);
-            opacity: 0.18;
-            right: -100px;
-            top: 100px;
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            max-width: 760px;
-        }
-
-        .hero-label {
-            display: inline-block;
-            border: 1px solid rgba(177,122,255,0.4);
-            background: rgba(145,71,255,0.1);
-            color: var(--purple-light);
-            padding: 8px 15px;
-            border-radius: 30px;
-            font-size: 12px;
-            margin-bottom: 25px;
-        }
-
-        .hero h1 {
-            font-size: clamp(42px, 7vw, 76px);
-            line-height: 1.13;
-            letter-spacing: -3px;
-            margin-bottom: 25px;
-        }
-
-        .hero p {
-            max-width: 600px;
-            color: var(--muted);
-            font-size: 16px;
-            margin-bottom: 32px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        /* ========== ABOUT SECTION ========== */
+        /* ===============================
+           6. ABOUT SECTION
+        =============================== */
 
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
             align-items: center;
+            gap: 65px;
         }
 
-        .about-card {
-            background: linear-gradient(145deg, #1b1430, #11111d);
+        .about-visual {
+            min-height: 330px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(
+                145deg,
+                #291448,
+                #11111d
+            );
+
             border: 1px solid rgba(145,71,255,0.3);
-            border-radius: 20px;
-            padding: 45px;
+            border-radius: 22px;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-visual::before {
+            content: "";
+            position: absolute;
+
+            width: 200px;
+            height: 200px;
+
+            background: var(--purple);
+            filter: blur(100px);
+            opacity: 0.4;
+        }
+
+        .about-logo {
+            position: relative;
             text-align: center;
+            animation: floating 4s ease-in-out infinite;
         }
 
-        .about-icon {
-            font-size: 65px;
-            margin-bottom: 15px;
+        .about-logo .symbol {
+            font-size: 75px;
         }
 
-        .about-card h3 {
-            font-size: 26px;
+        .about-logo h3 {
+            font-size: 25px;
+            font-weight: 900;
         }
 
-        .about-card p {
-            color: var(--muted);
-            font-size: 14px;
+        .about-logo p {
+            color: var(--purple2);
+            font-size: 12px;
+            letter-spacing: 3px;
+        }
+
+        @keyframes floating {
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
         }
 
         .about-text h2 {
-            font-size: 35px;
-            margin-bottom: 20px;
+            font-size: 36px;
+            line-height: 1.3;
+            margin-bottom: 22px;
         }
 
         .about-text p {
             color: var(--muted);
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
 
-        /* ========== SERVICES SECTION ========== */
+
+        /* ===============================
+           7. SERVICES SECTION
+        =============================== */
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
+            grid-template-columns: repeat(3,1fr);
+            gap: 24px;
         }
 
         .service-card {
-            background: var(--surface);
+            padding: 32px;
+
+            background: linear-gradient(
+                145deg,
+                #171725,
+                #10101a
+            );
+
             border: 1px solid var(--border);
-            border-radius: 15px;
-            padding: 30px;
-            transition: 0.3s;
+            border-radius: 17px;
+
+            transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+
+            top: -100px;
+            right: -100px;
+
+            width: 180px;
+            height: 180px;
+
+            background: var(--purple);
+            filter: blur(90px);
+            opacity: 0;
+
+            transition: 0.4s;
         }
 
         .service-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-12px);
             border-color: var(--purple);
-            box-shadow: 0 10px 35px rgba(145,71,255,0.12);
+            box-shadow: 0 15px 40px rgba(145,71,255,0.13);
+        }
+
+        .service-card:hover::before {
+            opacity: 0.25;
         }
 
         .service-icon {
-            font-size: 35px;
-            margin-bottom: 20px;
+            font-size: 40px;
+            margin-bottom: 22px;
+            position: relative;
         }
 
         .service-card h3 {
             font-size: 19px;
-            margin-bottom: 12px;
+            margin-bottom: 13px;
+            position: relative;
         }
 
         .service-card p {
             color: var(--muted);
-            font-size: 14px;
+            font-size: 13px;
+            position: relative;
         }
 
-        /* ========== PORTFOLIO SECTION ========== */
+
+        /* ===============================
+           8. PORTFOLIO SECTION
+        =============================== */
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
+            grid-template-columns: repeat(3,1fr);
+            gap: 24px;
         }
 
         .portfolio-card {
-            background: var(--surface);
+            background: var(--card);
             border: 1px solid var(--border);
-            border-radius: 15px;
+            border-radius: 17px;
             overflow: hidden;
-            transition: 0.3s;
+            transition: 0.4s;
         }
 
         .portfolio-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-10px);
             border-color: var(--purple);
+            box-shadow: 0 15px 35px rgba(145,71,255,0.15);
         }
 
         .portfolio-image {
-            min-height: 190px;
+            height: 210px;
+
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            padding: 20px;
-            background: linear-gradient(135deg, #29134b, #11111d);
+
+            position: relative;
+            overflow: hidden;
         }
 
         .portfolio-image h3 {
-            font-size: 24px;
+            font-size: 26px;
+            font-weight: 900;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 15px;
         }
 
-        .portfolio-image.design {
-            background: linear-gradient(135deg, #442064, #19112a);
+        .portfolio-image::before {
+            content: "";
+            position: absolute;
+
+            width: 170px;
+            height: 170px;
+
+            background: rgba(255,255,255,0.12);
+            border-radius: 50%;
+
+            transition: 0.5s;
         }
 
-        .portfolio-image.video {
-            background: linear-gradient(135deg, #1b3158, #11111d);
+        .portfolio-card:hover .portfolio-image::before {
+            transform: scale(2);
         }
 
-        .portfolio-image.data {
-            background: linear-gradient(135deg, #16483e, #11111d);
+        .fashion {
+            background: linear-gradient(135deg,#51266f,#1d102e);
+        }
+
+        .video {
+            background: linear-gradient(135deg,#254b82,#10101c);
+        }
+
+        .data {
+            background: linear-gradient(135deg,#176b55,#101d1a);
         }
 
         .portfolio-info {
-            padding: 23px;
+            padding: 24px;
         }
 
         .portfolio-info h3 {
-            margin-bottom: 8px;
+            font-size: 17px;
+            margin-bottom: 9px;
         }
 
         .portfolio-info p {
@@ -388,36 +626,48 @@
 
         .practice-label {
             display: inline-block;
-            margin-top: 13px;
-            color: var(--purple-light);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
+            color: var(--purple2);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-top: 15px;
         }
 
-        /* ========== SKILLS SECTION ========== */
+
+        /* ===============================
+           9. SKILLS SECTION
+        =============================== */
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(3,1fr);
+            gap: 23px;
         }
 
         .skill-card {
-            padding: 25px;
+            padding: 28px;
+
+            background: var(--card);
             border: 1px solid var(--border);
-            background: var(--surface);
-            border-radius: 12px;
+
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            border-color: var(--purple);
+            transform: translateY(-5px);
         }
 
         .skill-card h3 {
-            margin-bottom: 15px;
+            margin-bottom: 17px;
             font-size: 17px;
         }
 
         .skill-level {
+            height: 9px;
             width: 100%;
-            height: 8px;
+
             background: #292938;
             border-radius: 20px;
             overflow: hidden;
@@ -426,30 +676,67 @@
         .skill-progress {
             height: 100%;
             width: 0;
-            background: linear-gradient(90deg, #9147ff, #c39aff);
+
+            background: linear-gradient(
+                90deg,
+                #9147ff,
+                #d3b6ff
+            );
+
             border-radius: 20px;
-            transition: width 1.3s ease;
+            transition: width 1.5s ease;
         }
 
         .skill-note {
             color: var(--muted);
             font-size: 12px;
-            margin-top: 10px;
+            margin-top: 12px;
         }
 
-        /* ========== CONTACT SECTION ========== */
+
+        /* ===============================
+           10. CONTACT SECTION
+        =============================== */
 
         .contact-box {
             text-align: center;
-            padding: 55px 25px;
-            background: linear-gradient(135deg, #24123f, #11111d);
-            border: 1px solid rgba(145,71,255,0.3);
-            border-radius: 20px;
+            padding: 70px 25px;
+
+            background: linear-gradient(
+                135deg,
+                #291347,
+                #11111d
+            );
+
+            border: 1px solid rgba(145,71,255,0.35);
+            border-radius: 22px;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-box::before {
+            content: "";
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            left: -120px;
+            top: -120px;
+
+            background: var(--purple);
+            filter: blur(120px);
+            opacity: 0.3;
+        }
+
+        .contact-content {
+            position: relative;
         }
 
         .contact-box h2 {
-            font-size: clamp(28px, 5vw, 40px);
-            margin-bottom: 15px;
+            font-size: clamp(30px,5vw,45px);
+            margin: 15px 0;
         }
 
         .contact-box p {
@@ -459,30 +746,43 @@
 
         .contact-email {
             display: block;
-            color: var(--purple-light);
-            margin-bottom: 25px;
+            color: var(--purple2);
+            margin-bottom: 28px;
             overflow-wrap: anywhere;
         }
 
-        /* ========== FOOTER ========== */
+
+        /* ===============================
+           11. FOOTER
+        =============================== */
 
         footer {
+            padding: 30px 0;
             border-top: 1px solid var(--border);
-            padding: 25px 0;
             text-align: center;
         }
 
         footer p {
             color: var(--muted);
-            font-size: 13px;
+            font-size: 12px;
         }
 
-        /* ========== ANIMATIONS ========== */
+        footer span {
+            color: var(--purple2);
+        }
+
+
+        /* ===============================
+           12. SCROLL REVEAL
+        =============================== */
 
         .reveal {
             opacity: 0;
-            transform: translateY(25px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
+            transform: translateY(35px);
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
         }
 
         .reveal.visible {
@@ -490,7 +790,10 @@
             transform: translateY(0);
         }
 
-        /* ========== RESPONSIVE DESIGN ========== */
+
+        /* ===============================
+           13. RESPONSIVE DESIGN
+        =============================== */
 
         @media (max-width: 850px) {
 
@@ -500,15 +803,19 @@
 
             .nav-links {
                 position: absolute;
-                top: 75px;
+                top: 78px;
                 left: 0;
+
                 width: 100%;
-                background: #10101a;
+
+                display: none;
                 flex-direction: column;
                 gap: 0;
-                padding: 10px 0;
-                display: none;
+
+                background: #10101b;
                 border-bottom: 1px solid var(--border);
+
+                padding: 12px 0;
             }
 
             .nav-links.active {
@@ -528,121 +835,175 @@
             .nav-contact {
                 display: inline-block !important;
                 width: auto !important;
-                margin: 8px auto;
+                margin: 7px auto;
             }
 
             .about-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
             }
 
             .services-grid,
             .portfolio-grid,
             .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2,1fr);
             }
+
         }
+
 
         @media (max-width: 560px) {
 
             .section {
-                padding: 75px 0;
+                padding: 80px 0;
+            }
+
+            .hero {
+                min-height: 90vh;
             }
 
             .hero h1 {
                 letter-spacing: -2px;
             }
 
+            .hero p {
+                font-size: 14px;
+            }
+
+            .hero-bottom {
+                margin-top: 50px;
+            }
+
             .services-grid,
             .portfolio-grid,
             .skills-grid {
                 grid-template-columns: 1fr;
             }
 
-            .about-card {
-                padding: 35px 20px;
+            .about-visual {
+                min-height: 260px;
             }
 
             .hero-buttons .btn {
+                width: 100%;
                 text-align: center;
             }
 
             .contact-box {
-                padding: 40px 18px;
+                padding: 45px 18px;
             }
+
         }
 
-        /* ========== REDUCED MOTION ========== */
+
+        /* ===============================
+           14. ACCESSIBILITY
+        =============================== */
 
         @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
 
             *,
             *::before,
             *::after {
-                transition-duration: 0.01ms !important;
                 animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
             }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+
         }
 
     </style>
+
 </head>
+
 
 <body>
 
+    <!-- SCROLL PROGRESS -->
+
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+
     <!-- NAVIGATION -->
 
-    <header>
+    <header id="header">
+
         <div class="container navbar">
 
             <a href="#home" class="logo">
                 SA<span>.</span> Creative Studio
             </a>
 
-            <button class="menu-btn"
-                    id="menuBtn"
-                    aria-label="Open navigation menu"
-                    aria-expanded="false"
-                    aria-controls="navLinks">
+            <button
+                class="menu-btn"
+                id="menuBtn"
+                aria-label="Open navigation"
+                aria-expanded="false"
+                aria-controls="navLinks">
+
                 ☰
+
             </button>
 
             <ul class="nav-links" id="navLinks">
+
                 <li><a href="#home">Home</a></li>
+
                 <li><a href="#about">About</a></li>
+
                 <li><a href="#services">Services</a></li>
+
                 <li><a href="#portfolio">Portfolio</a></li>
+
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact" class="nav-contact">Contact</a></li>
+
+                <li>
+                    <a href="#contact" class="nav-contact">
+                        Contact
+                    </a>
+                </li>
+
             </ul>
 
         </div>
+
     </header>
 
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
 
     <section class="hero" id="home">
 
         <div class="container">
 
-            <div class="hero-content reveal">
+            <div class="hero-content">
 
                 <span class="hero-label">
                     WELCOME TO SA CREATIVE STUDIO
                 </span>
 
                 <h1>
+
                     Creative Ideas.<br>
-                    <span class="gradient-text">Digital Solutions.</span>
+
+                    <span class="gradient-text">
+                        Digital Solutions.
+                    </span>
+
                 </h1>
 
                 <p>
+
                     We bring ideas to life through creative graphic design,
                     engaging video editing and reliable data entry services.
+
                     Let's create something meaningful together.
+
                 </p>
 
                 <div class="hero-buttons">
@@ -652,11 +1013,15 @@
                     </a>
 
                     <a href="#contact" class="btn btn-outline">
-                        Contact Us
+                        Let's Connect
                     </a>
 
                 </div>
 
+                <div class="hero-bottom">
+                    CREATIVITY · DESIGN · DIGITAL WORK
+                </div>
+
             </div>
 
         </div>
@@ -664,56 +1029,63 @@
     </section>
 
 
-    <!-- ABOUT SECTION -->
+    <!-- ABOUT -->
 
     <section class="section" id="about">
 
-        <div class="container">
+        <div class="container about-grid">
 
-            <div class="about-grid">
+            <div class="about-visual reveal">
 
-                <div class="about-card reveal">
+                <div class="about-logo">
 
-                    <div class="about-icon">💜</div>
+                    <div class="symbol">✦</div>
 
-                    <h3>SA Creative Studio</h3>
+                    <h3>SA CREATIVE</h3>
 
-                    <p>
-                        Creativity, consistency and digital skills.
-                    </p>
+                    <p>DIGITAL STUDIO</p>
 
                 </div>
 
-                <div class="about-text reveal">
+            </div>
 
-                    <div class="section-heading" style="text-align:left; margin-bottom:20px;">
 
-                        <span>ABOUT US</span>
+            <div class="about-text reveal">
 
-                        <h2>
-                            Turning Ideas Into
-                            <span class="gradient-text">Digital Work</span>
-                        </h2>
+                <div class="section-heading" style="text-align:left; margin-bottom:20px;">
 
-                    </div>
+                    <span>ABOUT US</span>
 
-                    <p>
-                        SA Creative Studio is a creative digital services
-                        brand focused on graphic design, video editing
-                        and data entry.
-                    </p>
-
-                    <p>
-                        Our goal is to create clean, useful and visually
-                        appealing digital work while continuously
-                        improving our skills.
-                    </p>
-
-                    <p>
-                        Based in Lahore, Pakistan.
-                    </p>
+                    <h2>
+                        Turning Ideas Into
+                        <span class="gradient-text">
+                            Digital Work
+                        </span>
+                    </h2>
 
                 </div>
+
+                <p>
+
+                    SA Creative Studio is a creative digital services
+                    brand focused on graphic design, video editing
+                    and data entry.
+
+                </p>
+
+                <p>
+
+                    Our goal is to create clean, useful and visually
+                    appealing digital work while continuously
+                    improving our skills.
+
+                </p>
+
+                <p>
+
+                    Based in Lahore, Pakistan.
+
+                </p>
 
             </div>
 
@@ -722,7 +1094,7 @@
     </section>
 
 
-    <!-- SERVICES SECTION -->
+    <!-- SERVICES -->
 
     <section class="section" id="services">
 
@@ -732,14 +1104,22 @@
 
                 <span>WHAT WE DO</span>
 
-                <h2>Our <span class="gradient-text">Services</span></h2>
+                <h2>
+                    Our
+                    <span class="gradient-text">
+                        Services
+                    </span>
+                </h2>
 
-                <p>Creative and digital services for your projects.</p>
+                <p>
+                    Creative and digital services for your projects.
+                </p>
 
             </div>
 
 
             <div class="services-grid">
+
 
                 <div class="service-card reveal">
 
@@ -782,6 +1162,7 @@
 
                 </div>
 
+
             </div>
 
         </div>
@@ -789,7 +1170,7 @@
     </section>
 
 
-    <!-- PORTFOLIO SECTION -->
+    <!-- PORTFOLIO -->
 
     <section class="section" id="portfolio">
 
@@ -799,7 +1180,12 @@
 
                 <span>OUR WORK</span>
 
-                <h2>Creative <span class="gradient-text">Portfolio</span></h2>
+                <h2>
+                    Creative
+                    <span class="gradient-text">
+                        Portfolio
+                    </span>
+                </h2>
 
                 <p>
                     A selection of practice concepts and sample projects.
@@ -813,7 +1199,7 @@
 
                 <div class="portfolio-card reveal">
 
-                    <div class="portfolio-image design">
+                    <div class="portfolio-image fashion">
 
                         <h3>NOORÉ FASHION</h3>
 
@@ -824,8 +1210,7 @@
                         <h3>Fashion Promotion Concept</h3>
 
                         <p>
-                            A sample fashion brand promotional
-                            design concept.
+                            A sample fashion brand promotional design concept.
                         </p>
 
                         <span class="practice-label">
@@ -850,8 +1235,7 @@
                         <h3>Social Media Video Concept</h3>
 
                         <p>
-                            A sample concept for short-form
-                            social media content.
+                            A sample concept for short-form social media content.
                         </p>
 
                         <span class="practice-label">
@@ -876,8 +1260,7 @@
                         <h3>Spreadsheet Organization</h3>
 
                         <p>
-                            A sample spreadsheet organization
-                            and data entry concept.
+                            A sample spreadsheet organization and data entry concept.
                         </p>
 
                         <span class="practice-label">
@@ -896,7 +1279,7 @@
     </section>
 
 
-    <!-- SKILLS SECTION -->
+    <!-- SKILLS -->
 
     <section class="section" id="skills">
 
@@ -906,7 +1289,12 @@
 
                 <span>OUR TOOLKIT</span>
 
-                <h2>Software <span class="gradient-text">Skills</span></h2>
+                <h2>
+                    Software
+                    <span class="gradient-text">
+                        Skills
+                    </span>
+                </h2>
 
                 <p>
                     Tools used for learning and creative work.
@@ -923,10 +1311,15 @@
                     <h3>Canva</h3>
 
                     <div class="skill-level">
-                        <div class="skill-progress" data-width="55%"></div>
+
+                        <div class="skill-progress"
+                             data-width="55%"></div>
+
                     </div>
 
-                    <p class="skill-note">Basic knowledge</p>
+                    <p class="skill-note">
+                        Basic knowledge
+                    </p>
 
                 </div>
 
@@ -936,10 +1329,15 @@
                     <h3>CapCut</h3>
 
                     <div class="skill-level">
-                        <div class="skill-progress" data-width="55%"></div>
+
+                        <div class="skill-progress"
+                             data-width="55%"></div>
+
                     </div>
 
-                    <p class="skill-note">Basic knowledge</p>
+                    <p class="skill-note">
+                        Basic knowledge
+                    </p>
 
                 </div>
 
@@ -949,10 +1347,15 @@
                     <h3>MS Word</h3>
 
                     <div class="skill-level">
-                        <div class="skill-progress" data-width="55%"></div>
+
+                        <div class="skill-progress"
+                             data-width="55%"></div>
+
                     </div>
 
-                    <p class="skill-note">Basic knowledge</p>
+                    <p class="skill-note">
+                        Basic knowledge
+                    </p>
 
                 </div>
 
@@ -964,7 +1367,7 @@
     </section>
 
 
-    <!-- CONTACT SECTION -->
+    <!-- CONTACT -->
 
     <section class="section" id="contact">
 
@@ -972,28 +1375,38 @@
 
             <div class="contact-box reveal">
 
-                <span class="gradient-text">
-                    LET'S CONNECT
-                </span>
+                <div class="contact-content">
 
-                <h2>
-                    Have a Project in Mind?
-                </h2>
+                    <span class="gradient-text">
+                        LET'S CONNECT
+                    </span>
 
-                <p>
-                    Get in touch to discuss your project
-                    or collaboration opportunity.
-                </p>
+                    <h2>
+                        Have a Project in Mind?
+                    </h2>
 
-                <a class="contact-email"
-                   href="mailto:saifali0011011@gmail.com">
-                    saifali0011011@gmail.com
-                </a>
+                    <p>
+                        Get in touch to discuss your project
+                        or collaboration opportunity.
+                    </p>
 
-                <a class="btn"
-                   href="mailto:saifali0011011@gmail.com?subject=Project%20Inquiry">
-                    Send an Email
-                </a>
+                    <a
+                        class="contact-email"
+                        href="mailto:saifali0011011@gmail.com">
+
+                        saifali0011011@gmail.com
+
+                    </a>
+
+                    <a
+                        class="btn"
+                        href="mailto:saifali0011011@gmail.com?subject=Project%20Inquiry">
+
+                        Send an Email
+
+                    </a>
+
+                </div>
 
             </div>
 
@@ -1009,8 +1422,11 @@
         <div class="container">
 
             <p>
-                © <span id="year"></span> SA Creative Studio.
+
+                © <span id="year"></span>
+                SA Creative Studio.
                 All Rights Reserved.
+
             </p>
 
         </div>
@@ -1022,23 +1438,26 @@
 
     <script>
 
-        // MOBILE NAVIGATION
+
+        /* MOBILE MENU */
 
         const menuBtn = document.getElementById("menuBtn");
+
         const navLinks = document.getElementById("navLinks");
 
-        menuBtn.addEventListener("click", function () {
 
-            const isOpen = navLinks.classList.toggle("active");
+        menuBtn.addEventListener("click", function() {
 
-            menuBtn.setAttribute("aria-expanded", isOpen);
+            const open = navLinks.classList.toggle("active");
 
-            menuBtn.textContent = isOpen ? "✕" : "☰";
+            menuBtn.textContent = open ? "✕" : "☰";
+
+            menuBtn.setAttribute("aria-expanded", open);
 
         });
 
 
-        // CLOSE MENU AFTER CLICKING A LINK
+        /* CLOSE MOBILE MENU */
 
         document.querySelectorAll(".nav-links a").forEach(function(link) {
 
@@ -1046,74 +1465,122 @@
 
                 navLinks.classList.remove("active");
 
-                menuBtn.setAttribute("aria-expanded", "false");
-
                 menuBtn.textContent = "☰";
+
+                menuBtn.setAttribute("aria-expanded", "false");
 
             });
 
         });
 
 
-        // AUTOMATIC COPYRIGHT YEAR
+        /* NAVBAR SCROLL EFFECT */
+
+        const header = document.getElementById("header");
+
+        window.addEventListener("scroll", function() {
+
+            header.classList.toggle("scrolled", window.scrollY > 40);
+
+        }, { passive: true });
+
+
+        /* SCROLL PROGRESS */
+
+        window.addEventListener("scroll", function() {
+
+            const scrollTop = window.scrollY;
+
+            const scrollHeight =
+                document.documentElement.scrollHeight -
+                window.innerHeight;
+
+            const progress =
+                scrollHeight > 0
+                    ? (scrollTop / scrollHeight) * 100
+                    : 0;
+
+            document.getElementById("scrollProgress").style.width =
+                progress + "%";
+
+        }, { passive: true });
+
+
+        /* COPYRIGHT YEAR */
 
         document.getElementById("year").textContent =
             new Date().getFullYear();
 
 
-        // SCROLL REVEAL ANIMATION
+        /* SCROLL REVEAL */
 
-        const revealElements = document.querySelectorAll(".reveal");
+        const revealElements =
+            document.querySelectorAll(".reveal");
 
-        const observer = new IntersectionObserver(function(entries) {
 
-            entries.forEach(function(entry) {
+        const revealObserver = new IntersectionObserver(
 
-                if (entry.isIntersecting) {
+            function(entries, observer) {
 
-                    entry.target.classList.add("visible");
+                entries.forEach(function(entry) {
 
-                    observer.unobserve(entry.target);
+                    if (entry.isIntersecting) {
 
-                }
+                        entry.target.classList.add("visible");
 
-            });
+                        observer.unobserve(entry.target);
 
-        }, {
-            threshold: 0.12
-        });
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.12
+            }
+
+        );
 
 
         revealElements.forEach(function(element) {
 
-            observer.observe(element);
+            revealObserver.observe(element);
 
         });
 
 
-        // SKILL BAR ANIMATION
+        /* SKILL BAR ANIMATION */
 
-        const skillBars = document.querySelectorAll(".skill-progress");
+        const skillBars =
+            document.querySelectorAll(".skill-progress");
 
-        const skillObserver = new IntersectionObserver(function(entries) {
 
-            entries.forEach(function(entry) {
+        const skillObserver = new IntersectionObserver(
 
-                if (entry.isIntersecting) {
+            function(entries, observer) {
 
-                    const bar = entry.target;
+                entries.forEach(function(entry) {
 
-                    bar.style.width = bar.dataset.width;
+                    if (entry.isIntersecting) {
 
-                    skillObserver.unobserve(bar);
+                        const bar = entry.target;
 
-                }
+                        bar.style.width = bar.dataset.width;
 
-            });
+                        observer.unobserve(bar);
 
-        }, {
-            threshold: 0.5
-        });
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.5
+            }
+
+        );
 
 
         skillBars.forEach(function(bar) {
@@ -1122,7 +1589,9 @@
 
         });
 
+
     </script>
 
 </body>
+
 </html>
