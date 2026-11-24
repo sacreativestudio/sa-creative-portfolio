@@ -1,856 +1,1128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>SA Creative Studio | Digital Marketing, Design & Freelance Services</title>
-
-  <meta name="description" content="SA Creative Studio offers paid promotions, social media marketing, video editing, graphic design, content writing, data entry and freelance creative services.">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    :root {
-      --bg: #08080c;
-      --card: #121219;
-      --card2: #171720;
-      --border: #292936;
-      --text: #ffffff;
-      --muted: #a5a5b2;
-      --purple: #9b5cff;
-      --purple2: #c084fc;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    /* NAVBAR */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(8, 8, 12, 0.88);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      z-index: 1000;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-
-    .nav-container {
-      max-width: 1150px;
-      margin: auto;
-      padding: 12px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .brand-logo {
-      height: 48px;
-      width: auto;
-      border-radius: 8px;
-      object-fit: contain;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: #ddd;
-      font-size: 14px;
-      transition: .3s;
-    }
-
-    .nav-links a:hover {
-      color: var(--purple2);
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 125px 20px 80px;
-      background:
-        radial-gradient(circle at 50% 0%, #321354 0%, #15101f 25%, var(--bg) 62%);
-    }
-
-    .hero-content {
-      max-width: 900px;
-    }
-
-    .hero-logo {
-      width: min(230px, 65vw);
-      margin: 0 auto 30px;
-      border-radius: 18px;
-      box-shadow: 0 20px 70px rgba(155,92,255,.15);
-    }
-
-    .hero h1 {
-      font-size: clamp(42px, 8vw, 78px);
-      line-height: 1.05;
-      margin-bottom: 24px;
-      letter-spacing: -2px;
-    }
-
-    .hero h1 span {
-      color: var(--purple2);
-    }
-
-    .hero p {
-      color: #bdbdc8;
-      font-size: 18px;
-      max-width: 720px;
-      margin: auto;
-    }
-
-    .buttons {
-      margin-top: 32px;
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 13px 22px;
-      border-radius: 9px;
-      font-weight: bold;
-      transition: .3s;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--purple2), var(--purple));
-      color: #100b15;
-      box-shadow: 0 10px 30px rgba(155,92,255,.18);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 35px rgba(155,92,255,.28);
-    }
-
-    .btn-outline {
-      border: 1px solid #555;
-      color: white;
-    }
-
-    .btn-outline:hover {
-      border-color: var(--purple2);
-      color: var(--purple2);
-      transform: translateY(-3px);
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 95px 20px;
-    }
-
-    .container {
-      max-width: 1150px;
-      margin: auto;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .section-title h2 {
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      color: #999;
-    }
-
-    /* SERVICES */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      background: linear-gradient(145deg, var(--card2), var(--card));
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 27px 21px;
-      transition: .3s;
-    }
-
-    .card:hover {
-      transform: translateY(-7px);
-      border-color: var(--purple);
-      box-shadow: 0 15px 35px rgba(0,0,0,.25);
-    }
-
-    .icon {
-      font-size: 34px;
-      margin-bottom: 15px;
-    }
-
-    .card h3 {
-      margin-bottom: 9px;
-      font-size: 19px;
-    }
-
-    .card p {
-      color: #999;
-      font-size: 14px;
-    }
-
-    /* ABOUT */
-    .about {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 55px;
-      align-items: center;
-    }
-
-    .about h2 {
-      font-size: 42px;
-      margin-bottom: 20px;
-    }
-
-    .about h2 span {
-      color: var(--purple2);
-    }
-
-    .about p {
-      color: #aaa;
-      margin-bottom: 15px;
-    }
-
-    .about-box {
-      background: linear-gradient(135deg, #1d1229, #111116);
-      border: 1px solid #30223b;
-      border-radius: 22px;
-      padding: 35px 25px;
-      text-align: center;
-    }
-
-    .about-box img {
-      width: 190px;
-      margin: 0 auto 20px;
-      border-radius: 14px;
-    }
-
-    .about-box p {
-      margin-top: 8px;
-    }
-
-    /* PORTFOLIO */
-    .portfolio-filters {
-      display: flex;
-      justify-content: center;
-      gap: 9px;
-      flex-wrap: wrap;
-      margin: -20px 0 30px;
-    }
-
-    .filter-btn {
-      border: 1px solid #33333e;
-      background: #111118;
-      color: #bbb;
-      padding: 9px 15px;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: .25s;
-    }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: var(--purple);
-      border-color: var(--purple);
-      color: white;
-    }
-
-    .portfolio {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .project {
-      position: relative;
-      overflow: hidden;
-      border-radius: 15px;
-      background: #101016;
-      border: 1px solid #29202f;
-      cursor: pointer;
-      aspect-ratio: 1 / 1;
-      transition: .3s;
-    }
-
-    .project img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .45s ease;
-    }
-
-    .project::after {
-      content: "View Project ↗";
-      position: absolute;
-      left: 14px;
-      right: 14px;
-      bottom: 14px;
-      padding: 10px 12px;
-      text-align: center;
-      border-radius: 9px;
-      background: rgba(0,0,0,.72);
-      color: white;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: .3s;
-      backdrop-filter: blur(5px);
-    }
-
-    .project:hover {
-      transform: translateY(-5px);
-      border-color: var(--purple);
-      box-shadow: 0 18px 35px rgba(0,0,0,.35);
-    }
-
-    .project:hover img {
-      transform: scale(1.06);
-    }
-
-    .project:hover::after {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .project.hide {
-      display: none;
-    }
-
-    .portfolio-note {
-      text-align: center;
-      color: #777;
-      font-size: 13px;
-      margin-top: 22px;
-    }
-
-    /* LIGHTBOX */
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.92);
-      z-index: 2000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 25px;
-    }
-
-    .lightbox.show {
-      display: flex;
-    }
-
-    .lightbox img {
-      max-width: min(1100px, 95vw);
-      max-height: 88vh;
-      object-fit: contain;
-      border-radius: 10px;
-      box-shadow: 0 25px 80px rgba(0,0,0,.7);
-    }
-
-    .close-lightbox {
-      position: fixed;
-      top: 18px;
-      right: 20px;
-      width: 45px;
-      height: 45px;
-      border: 0;
-      border-radius: 50%;
-      background: #fff;
-      color: #111;
-      font-size: 28px;
-      cursor: pointer;
-      z-index: 2001;
-    }
-
-    /* WHY US */
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .why {
-      padding: 30px;
-      background: #14141a;
-      border-radius: 15px;
-      border: 1px solid #25252e;
-    }
-
-    .why h3 {
-      margin: 10px 0;
-    }
-
-    .why p {
-      color: #999;
-      font-size: 14px;
-    }
-
-    /* PROCESS */
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .step {
-      padding: 25px 20px;
-      background: #121219;
-      border: 1px solid #292936;
-      border-radius: 15px;
-    }
-
-    .step-number {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--purple);
-      color: white;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    .step p {
-      color: #999;
-      font-size: 14px;
-    }
-
-    /* CONTACT */
-    .contact-box {
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-      background: #14141a;
-      padding: 48px 25px;
-      border-radius: 20px;
-      border: 1px solid #292933;
-    }
-
-    .contact-box h2 {
-      font-size: 38px;
-      margin-bottom: 15px;
-    }
-
-    .contact-box p {
-      color: #aaa;
-      margin-bottom: 25px;
-    }
-
-    .contact-info {
-      margin: 25px 0;
-      color: #ddd;
-    }
-
-    .contact-info div {
-      margin: 10px 0;
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      border-top: 1px solid #22222b;
-      color: #777;
-      font-size: 14px;
-    }
-
-    /* WHATSAPP FLOAT */
-    .whatsapp {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      background: #25D366;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      z-index: 999;
-      box-shadow: 0 5px 25px rgba(0,0,0,.4);
-      transition: .25s;
-    }
-
-    .whatsapp:hover {
-      transform: scale(1.1);
-    }
-
-    /* MOBILE */
-    @media (max-width: 950px) {
-      .services {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .portfolio {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .process-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 750px) {
-      .nav-links {
-        display: none;
-      }
-
-      .about {
-        grid-template-columns: 1fr;
-      }
-
-      .portfolio {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .why-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 550px) {
-      .nav-container {
-        padding: 10px 15px;
-      }
-
-      .brand-logo {
-        height: 43px;
-      }
-
-      .hero {
-        padding-top: 110px;
-      }
-
-      .hero-logo {
-        width: 190px;
-      }
-
-      .hero h1 {
-        font-size: 46px;
-        letter-spacing: -1px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      section {
-        padding: 70px 15px;
-      }
-
-      .section-title h2 {
-        font-size: 32px;
-      }
-
-      .services,
-      .portfolio,
-      .process-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .portfolio .project {
-        aspect-ratio: 1.15 / 1;
-      }
-
-      .about h2 {
-        font-size: 34px;
-      }
-
-      .contact-box h2 {
-        font-size: 30px;
-      }
-
-      .whatsapp {
-        width: 54px;
-        height: 54px;
-        right: 15px;
-        bottom: 15px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="SA Creative Studio provides graphic design, video editing and data entry services.">
+    <meta name="theme-color" content="#080810">
+
+    <title>SA Creative Studio | Creative Digital Services</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ========== GLOBAL SETTINGS ========== */
+
+        :root {
+            --background: #080810;
+            --surface: #11111d;
+            --surface-light: #191927;
+            --purple: #9147ff;
+            --purple-light: #b17aff;
+            --text: #ffffff;
+            --muted: #a5a5b5;
+            --border: rgba(255,255,255,0.09);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-heading span {
+            color: var(--purple-light);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(30px, 5vw, 42px);
+            margin-top: 10px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            margin-top: 12px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #a56aff, #e0c4ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* ========== NAVIGATION ========== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(8,8,16,0.88);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar {
+            height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--purple-light);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--purple-light);
+        }
+
+        .nav-contact {
+            background: var(--purple);
+            padding: 10px 18px;
+            border-radius: 8px;
+            color: white !important;
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 27px;
+            cursor: pointer;
+        }
+
+        /* ========== BUTTONS ========== */
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 8px;
+            background: var(--purple);
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.3s;
+            border: 1px solid var(--purple);
+        }
+
+        .btn:hover {
+            background: transparent;
+            box-shadow: 0 0 25px rgba(145,71,255,0.3);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border-color: var(--border);
+        }
+
+        .btn-outline:hover {
+            background: var(--purple);
+            border-color: var(--purple);
+        }
+
+        /* ========== HERO SECTION ========== */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 70px;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: var(--purple);
+            filter: blur(180px);
+            opacity: 0.18;
+            right: -100px;
+            top: 100px;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 760px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            border: 1px solid rgba(177,122,255,0.4);
+            background: rgba(145,71,255,0.1);
+            color: var(--purple-light);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 12px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1.13;
+            letter-spacing: -3px;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            max-width: 600px;
+            color: var(--muted);
+            font-size: 16px;
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* ========== ABOUT SECTION ========== */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-card {
+            background: linear-gradient(145deg, #1b1430, #11111d);
+            border: 1px solid rgba(145,71,255,0.3);
+            border-radius: 20px;
+            padding: 45px;
+            text-align: center;
+        }
+
+        .about-icon {
+            font-size: 65px;
+            margin-bottom: 15px;
+        }
+
+        .about-card h3 {
+            font-size: 26px;
+        }
+
+        .about-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .about-text h2 {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        /* ========== SERVICES SECTION ========== */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .service-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--purple);
+            box-shadow: 0 10px 35px rgba(145,71,255,0.12);
+        }
+
+        .service-icon {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 19px;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* ========== PORTFOLIO SECTION ========== */
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .portfolio-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--purple);
+        }
+
+        .portfolio-image {
+            min-height: 190px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #29134b, #11111d);
+        }
+
+        .portfolio-image h3 {
+            font-size: 24px;
+        }
+
+        .portfolio-image.design {
+            background: linear-gradient(135deg, #442064, #19112a);
+        }
+
+        .portfolio-image.video {
+            background: linear-gradient(135deg, #1b3158, #11111d);
+        }
+
+        .portfolio-image.data {
+            background: linear-gradient(135deg, #16483e, #11111d);
+        }
+
+        .portfolio-info {
+            padding: 23px;
+        }
+
+        .portfolio-info h3 {
+            margin-bottom: 8px;
+        }
+
+        .portfolio-info p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .practice-label {
+            display: inline-block;
+            margin-top: 13px;
+            color: var(--purple-light);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* ========== SKILLS SECTION ========== */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 25px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: 12px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 15px;
+            font-size: 17px;
+        }
+
+        .skill-level {
+            width: 100%;
+            height: 8px;
+            background: #292938;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #9147ff, #c39aff);
+            border-radius: 20px;
+            transition: width 1.3s ease;
+        }
+
+        .skill-note {
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        /* ========== CONTACT SECTION ========== */
+
+        .contact-box {
+            text-align: center;
+            padding: 55px 25px;
+            background: linear-gradient(135deg, #24123f, #11111d);
+            border: 1px solid rgba(145,71,255,0.3);
+            border-radius: 20px;
+        }
+
+        .contact-box h2 {
+            font-size: clamp(28px, 5vw, 40px);
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .contact-email {
+            display: block;
+            color: var(--purple-light);
+            margin-bottom: 25px;
+            overflow-wrap: anywhere;
+        }
+
+        /* ========== FOOTER ========== */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 25px 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* ========== ANIMATIONS ========== */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+
+        @media (max-width: 850px) {
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: #10101a;
+                flex-direction: column;
+                gap: 0;
+                padding: 10px 0;
+                display: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 13px;
+            }
+
+            .nav-contact {
+                display: inline-block !important;
+                width: auto !important;
+                margin: 8px auto;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .services-grid,
+            .portfolio-grid,
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 560px) {
+
+            .section {
+                padding: 75px 0;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .services-grid,
+            .portfolio-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-card {
+                padding: 35px 20px;
+            }
+
+            .hero-buttons .btn {
+                text-align: center;
+            }
+
+            .contact-box {
+                padding: 40px 18px;
+            }
+        }
+
+        /* ========== REDUCED MOTION ========== */
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
-  <nav>
-    <div class="nav-container">
-      <a href="#home" aria-label="SA Creative Studio Home">
-        <img
-          class="brand-logo"
-          src="Images/Logo/483544433_1787056647856706.jpg"
-          alt="SA Creative Studio Logo">
-      </a>
+    <!-- NAVIGATION -->
 
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+    <header>
+        <div class="container navbar">
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-content">
+            <a href="#home" class="logo">
+                SA<span>.</span> Creative Studio
+            </a>
 
-      <img
-        class="hero-logo"
-        src="Images/Logo/483544433_1787056647856706.jpg"
-        alt="SA Creative Studio">
+            <button class="menu-btn"
+                    id="menuBtn"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="navLinks">
+                ☰
+            </button>
 
-      <h1>
-        We Create<br>
-        <span>Ideas That Stand Out.</span>
-      </h1>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact" class="nav-contact">Contact</a></li>
+            </ul>
 
-      <p>
-        Professional digital marketing, advertising, graphic design,
-        video editing and creative freelance services for brands,
-        businesses and creators.
-      </p>
+        </div>
+    </header>
 
-      <div class="buttons">
-        <a
-          href="https://wa.me/923420140184?text=Hello%20SA%20Creative%20Studio%2C%20I%20want%20to%20discuss%20a%20project."
-          class="btn btn-primary"
-          target="_blank"
-          rel="noopener">
-          Hire Me on WhatsApp
-        </a>
 
-        <a href="#portfolio" class="btn btn-outline">
-          View Portfolio
-        </a>
-      </div>
-    </div>
-  </section>
+    <!-- HERO SECTION -->
 
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="container">
+    <section class="hero" id="home">
 
-      <div class="section-title">
-        <h2>Our Services</h2>
-        <p>Creative and digital solutions designed to help your brand grow.</p>
-      </div>
+        <div class="container">
 
-      <div class="services">
+            <div class="hero-content reveal">
 
-        <div class="card">
-          <div class="icon">📢</div>
-          <h3>Paid Promotions & Advertising</h3>
-          <p>Promotional campaigns and advertising creatives designed to reach the right audience.</p>
+                <span class="hero-label">
+                    WELCOME TO SA CREATIVE STUDIO
+                </span>
+
+                <h1>
+                    Creative Ideas.<br>
+                    <span class="gradient-text">Digital Solutions.</span>
+                </h1>
+
+                <p>
+                    We bring ideas to life through creative graphic design,
+                    engaging video editing and reliable data entry services.
+                    Let's create something meaningful together.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#portfolio" class="btn">
+                        Explore Portfolio
+                    </a>
+
+                    <a href="#contact" class="btn btn-outline">
+                        Contact Us
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="card">
-          <div class="icon">📱</div>
-          <h3>Brand Promotion & Social Media Marketing</h3>
-          <p>Professional social media content and marketing support to build a stronger online presence.</p>
+    </section>
+
+
+    <!-- ABOUT SECTION -->
+
+    <section class="section" id="about">
+
+        <div class="container">
+
+            <div class="about-grid">
+
+                <div class="about-card reveal">
+
+                    <div class="about-icon">💜</div>
+
+                    <h3>SA Creative Studio</h3>
+
+                    <p>
+                        Creativity, consistency and digital skills.
+                    </p>
+
+                </div>
+
+                <div class="about-text reveal">
+
+                    <div class="section-heading" style="text-align:left; margin-bottom:20px;">
+
+                        <span>ABOUT US</span>
+
+                        <h2>
+                            Turning Ideas Into
+                            <span class="gradient-text">Digital Work</span>
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        SA Creative Studio is a creative digital services
+                        brand focused on graphic design, video editing
+                        and data entry.
+                    </p>
+
+                    <p>
+                        Our goal is to create clean, useful and visually
+                        appealing digital work while continuously
+                        improving our skills.
+                    </p>
+
+                    <p>
+                        Based in Lahore, Pakistan.
+                    </p>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="card">
-          <div class="icon">🎬</div>
-          <h3>Professional Video Editing</h3>
-          <p>Clean, engaging and modern video editing for social media, promotions and business content.</p>
+    </section>
+
+
+    <!-- SERVICES SECTION -->
+
+    <section class="section" id="services">
+
+        <div class="container">
+
+            <div class="section-heading reveal">
+
+                <span>WHAT WE DO</span>
+
+                <h2>Our <span class="gradient-text">Services</span></h2>
+
+                <p>Creative and digital services for your projects.</p>
+
+            </div>
+
+
+            <div class="services-grid">
+
+                <div class="service-card reveal">
+
+                    <div class="service-icon">🎨</div>
+
+                    <h3>Graphic Designing</h3>
+
+                    <p>
+                        Social media posts, promotional graphics,
+                        banners and creative visual designs.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card reveal">
+
+                    <div class="service-icon">🎬</div>
+
+                    <h3>Video Editing</h3>
+
+                    <p>
+                        Short-form video editing, reels,
+                        basic transitions and engaging content.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card reveal">
+
+                    <div class="service-icon">📊</div>
+
+                    <h3>Data Entry</h3>
+
+                    <p>
+                        Basic data entry, document formatting,
+                        typing and spreadsheet organization.
+                    </p>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="card">
-          <div class="icon">🎨</div>
-          <h3>Graphic Designing</h3>
-          <p>Posts, banners, thumbnails, ads, promotional graphics and other professional designs.</p>
+    </section>
+
+
+    <!-- PORTFOLIO SECTION -->
+
+    <section class="section" id="portfolio">
+
+        <div class="container">
+
+            <div class="section-heading reveal">
+
+                <span>OUR WORK</span>
+
+                <h2>Creative <span class="gradient-text">Portfolio</span></h2>
+
+                <p>
+                    A selection of practice concepts and sample projects.
+                </p>
+
+            </div>
+
+
+            <div class="portfolio-grid">
+
+
+                <div class="portfolio-card reveal">
+
+                    <div class="portfolio-image design">
+
+                        <h3>NOORÉ FASHION</h3>
+
+                    </div>
+
+                    <div class="portfolio-info">
+
+                        <h3>Fashion Promotion Concept</h3>
+
+                        <p>
+                            A sample fashion brand promotional
+                            design concept.
+                        </p>
+
+                        <span class="practice-label">
+                            PRACTICE PROJECT
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="portfolio-card reveal">
+
+                    <div class="portfolio-image video">
+
+                        <h3>VIDEO EDITING</h3>
+
+                    </div>
+
+                    <div class="portfolio-info">
+
+                        <h3>Social Media Video Concept</h3>
+
+                        <p>
+                            A sample concept for short-form
+                            social media content.
+                        </p>
+
+                        <span class="practice-label">
+                            PRACTICE PROJECT
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="portfolio-card reveal">
+
+                    <div class="portfolio-image data">
+
+                        <h3>DATA MANAGEMENT</h3>
+
+                    </div>
+
+                    <div class="portfolio-info">
+
+                        <h3>Spreadsheet Organization</h3>
+
+                        <p>
+                            A sample spreadsheet organization
+                            and data entry concept.
+                        </p>
+
+                        <span class="practice-label">
+                            PRACTICE PROJECT
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
         </div>
 
-        <div class="card">
-          <div class="icon">✍️</div>
-          <h3>Content & Copywriting</h3>
-          <p>Clear, engaging and audience-focused content for brands, businesses and social media.</p>
+    </section>
+
+
+    <!-- SKILLS SECTION -->
+
+    <section class="section" id="skills">
+
+        <div class="container">
+
+            <div class="section-heading reveal">
+
+                <span>OUR TOOLKIT</span>
+
+                <h2>Software <span class="gradient-text">Skills</span></h2>
+
+                <p>
+                    Tools used for learning and creative work.
+                </p>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+
+                <div class="skill-card reveal">
+
+                    <h3>Canva</h3>
+
+                    <div class="skill-level">
+                        <div class="skill-progress" data-width="55%"></div>
+                    </div>
+
+                    <p class="skill-note">Basic knowledge</p>
+
+                </div>
+
+
+                <div class="skill-card reveal">
+
+                    <h3>CapCut</h3>
+
+                    <div class="skill-level">
+                        <div class="skill-progress" data-width="55%"></div>
+                    </div>
+
+                    <p class="skill-note">Basic knowledge</p>
+
+                </div>
+
+
+                <div class="skill-card reveal">
+
+                    <h3>MS Word</h3>
+
+                    <div class="skill-level">
+                        <div class="skill-progress" data-width="55%"></div>
+                    </div>
+
+                    <p class="skill-note">Basic knowledge</p>
+
+                </div>
+
+
+            </div>
+
         </div>
 
-        <div class="card">
-          <div class="icon">⌨️</div>
-          <h3>Typing & Data Entry</h3>
-          <p>Accurate typing, data entry and digital document support for everyday business tasks.</p>
+    </section>
+
+
+    <!-- CONTACT SECTION -->
+
+    <section class="section" id="contact">
+
+        <div class="container">
+
+            <div class="contact-box reveal">
+
+                <span class="gradient-text">
+                    LET'S CONNECT
+                </span>
+
+                <h2>
+                    Have a Project in Mind?
+                </h2>
+
+                <p>
+                    Get in touch to discuss your project
+                    or collaboration opportunity.
+                </p>
+
+                <a class="contact-email"
+                   href="mailto:saifali0011011@gmail.com">
+                    saifali0011011@gmail.com
+                </a>
+
+                <a class="btn"
+                   href="mailto:saifali0011011@gmail.com?subject=Project%20Inquiry">
+                    Send an Email
+                </a>
+
+            </div>
+
         </div>
 
-        <div class="card">
-          <div class="icon">💡</div>
-          <h3>Social Media Content Creation</h3>
-          <p>Creative posts and visual content designed to keep your social media active and professional.</p>
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+                © <span id="year"></span> SA Creative Studio.
+                All Rights Reserved.
+            </p>
+
         </div>
 
-        <div class="card">
-          <div class="icon">💼</div>
-          <h3>Freelancing Services</h3>
-          <p>Flexible creative and digital support tailored to your project requirements.</p>
-        </div>
+    </footer>
 
-      </div>
-    </div>
-  </section>
 
-  <!-- PORTFOLIO -->
-  <section id="portfolio">
-    <div class="container">
+    <!-- JAVASCRIPT -->
 
-      <div class="section-title">
-        <h2>Our Portfolio</h2>
-        <p>Selected examples of our creative design work.</p>
-      </div>
+    <script>
 
-      <div class="portfolio-filters">
-        <button class="filter-btn active" data-filter="all">All Work</button>
-        <button class="filter-btn" data-filter="logo">Logo & Branding</button>
-        <button class="filter-btn" data-filter="social">Social Media</button>
-        <button class="filter-btn" data-filter="banner">Banners & Ads</button>
-        <button class="filter-btn" data-filter="product">Product Designs</button>
-      </div>
+        // MOBILE NAVIGATION
 
-      <div class="portfolio">
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
 
-        <!-- LOGO / BRANDING -->
-        <div class="project" data-category="logo">
-          <img src="Images/Design Logo/333922006_1787054039280612.jpg" alt="Technova brand identity design" loading="lazy">
-        </div>
+        menuBtn.addEventListener("click", function () {
 
-        <div class="project" data-category="logo">
-          <img src="Images/Design Logo/817678396_1787054028402710.jpg" alt="Brew & Bean brand identity design" loading="lazy">
-        </div>
+            const isOpen = navLinks.classList.toggle("active");
 
-        <div class="project" data-category="logo">
-          <img src="Images/Design Logo/988208228_1787054016778239.jpg" alt="Urban Nest brand identity design" loading="lazy">
-        </div>
+            menuBtn.setAttribute("aria-expanded", isOpen);
 
-        <div class="project" data-category="logo">
-          <img src="Images/Design Logo/643098265_1787054047892855.jpg" alt="Zenora brand identity design" loading="lazy">
-        </div>
+            menuBtn.textContent = isOpen ? "✕" : "☰";
 
-        <div class="project" data-category="logo">
-          <img src="Images/Design Logo/706423311_1787054057921887.jpg" alt="Noore Fashion brand identity design" loading="lazy">
-        </div>
+        });
 
-        <div class="project" data-category="logo">
-          <img src="Images/Design Logo/78976548_1787054004973147.jpg" alt="Nova Fit brand identity design" loading="lazy">
-        </div>
 
-        <!-- SOCIAL MEDIA -->
-        <div class="project" data-category="social">
-          <img src="Images/Social Media/207374552_1787055110788990.jpg" alt="Restaurant social media design" loading="lazy">
-        </div>
+        // CLOSE MENU AFTER CLICKING A LINK
 
-        <div class="project" data-category="social">
-          <img src="Images/Social Media/417302842_1787055113921702.jpg" alt="Autumn social media campaign design" loading="lazy">
-        </div>
+        document.querySelectorAll(".nav-links a").forEach(function(link) {
 
-        <div class="project" data-category="social">
-          <img src="Images/Social Media/803178345_1787055114852925.jpg" alt="Bakery social media design" loading="lazy">
-        </div>
+            link.addEventListener("click", function() {
 
-        <div class="project" data-category="social">
-          <img src="Images/Social Media/354103700_1787055109687923.jpg" alt="Urban Essentials social media design" loading="lazy">
-        </div>
+                navLinks.classList.remove("active");
 
-        <div class="project" data-category="social">
-          <img src="Images/Social Media/68556162_1787055111717974.jpg" alt="Beauty social media campaign design" loading="lazy">
-        </div>
+                menuBtn.setAttribute("aria-expanded", "false");
 
-        <div class="project" data-category="social">
-          <img src="Images/Social Media/708804134_1787055112799556.jpg" alt="Technology social media design" loading="lazy">
-        </div>
+                menuBtn.textContent = "☰";
 
-        <!-- BANNERS -->
-        <div class="project" data-category="banner">
-          <img src="Images/Banners/470099712_1787054558142646.jpg" alt="Fashion sale advertising banner" loading="lazy">
-        </div>
+            });
 
-        <div class="project" data-category="banner">
-          <img src="Images/Banners/561878152_1787054555933039.jpg" alt="Fashion advertising banner" loading="lazy">
-        </div>
+        });
 
-        <div class="project" data-category="banner">
-          <img src="Images/Banners/775422108_1787054557100683.jpg" alt="Restaurant advertising banner" loading="lazy">
-        </div>
 
-        <div class="project" data-category="banner">
-          <img src="Images/Banners/506653647_1787054558961843.jpg" alt="Advertising portfolio banner" loading="lazy">
-        </div>
+        // AUTOMATIC COPYRIGHT YEAR
 
-        <!-- PRODUCT DESIGNS -->
-        <div class="project" data-category="product">
-          <img src="Images/Products/1031213535_1787055456868622.jpg" alt="Fashion product promotional design" loading="lazy">
-        </div>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
 
-        <div class="project" data-category="product">
-          <img src="Images/Products/945562769_1787055455756856.jpg" alt="Coffee product promotional design" loading="lazy">
-        </div>
 
-        <div class="project" data-category="product">
-          <img src="Images/Products/808370980_1787055454553961.jpg" alt="Perfume product promotional design" loading="lazy">
-        </div>
+        // SCROLL REVEAL ANIMATION
 
-        <div class="project" data-category="product">
-          <img src="Images/Products/833446410_1787055457877237.jpg" alt="Watch product promotional design" loading="lazy">
-        </div>
+        const revealElements = document.querySelectorAll(".reveal");
 
-      </div>
+        const observer = new IntersectionObserver(function(entries) {
 
-      <p class="portfolio-note">Tap any project to view it in full size.</p>
+            entries.forEach(function(entry) {
 
-    </div>
-  </section>
+                if (entry.isIntersecting) {
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
+                    entry.target.classList.add("visible");
 
-      <div class="about">
+                    observer.unobserve(entry.target);
 
-        <div>
-          <h2>About <span>SA Creative Studio</span></h2>
+                }
+
+            });
+
+        }, {
+            threshold: 0.12
+        });
+
+
+        revealElements.forEach(function(element) {
+
+            observer.observe(element);
+
+        });
+
+
+        // SKILL BAR ANIMATION
+
+        const skillBars = document.querySelectorAll(".skill-progress");
+
+        const skillObserver = new IntersectionObserver(function(entries) {
+
+            entries.forEach(function(entry) {
+
+                if (entry.isIntersecting) {
+
+                    const bar = entry.target;
+
+                    bar.style.width = bar.dataset.width;
+
+                    skillObserver.unobserve(bar);
+
+                }
+
+            });
+
+        }, {
+            threshold: 0.5
+        });
+
+
+        skillBars.forEach(function(bar) {
+
+            skillObserver.observe(bar);
+
+        });
+
+    </script>
+
+</body>
+</html>
