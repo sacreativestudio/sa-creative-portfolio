@@ -4,29 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SA Creative Studio | Digital Creative Services</title>
-
-<meta name="description" content="SA Creative Studio by Saif Ali. Creative services including graphic design, video editing, social media content, brand promotion and data entry.">
+<title>SA Creative Studio | Saif Ali</title>
+<meta name="description" content="SA Creative Studio by Saif Ali. Graphic designing, video editing, social media content, brand promotion, content writing and data entry.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-/* =========================
-   GLOBAL SETTINGS
-========================= */
-
 :root {
-    --bg: #08070d;
-    --card: #12101b;
+    --bg: #08070e;
+    --surface: #12101b;
+    --surface2: #191426;
     --purple: #9b5cff;
-    --purple-light: #c29aff;
-    --white: #ffffff;
-    --muted: #aaa4b8;
-    --border: rgba(180,130,255,0.16);
+    --light: #c7a6ff;
+    --white: #fff;
+    --muted: #aaa3b7;
+    --border: rgba(185,140,255,.18);
 }
 
 * {
@@ -47,9 +41,25 @@ body {
     overflow-x: hidden;
 }
 
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+      linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+    background-size: 55px 55px;
+}
+
 a {
     text-decoration: none;
     color: inherit;
+}
+
+button {
+    font: inherit;
 }
 
 .container {
@@ -64,230 +74,70 @@ section {
 }
 
 .section-tag {
-    color: var(--purple-light);
-    text-transform: uppercase;
-    font-size: 12px;
+    display: inline-block;
+    color: var(--light);
+    font-size: 11px;
     font-weight: 800;
     letter-spacing: 3px;
-    margin-bottom: 14px;
-    display: inline-block;
+    text-transform: uppercase;
+    margin-bottom: 15px;
 }
 
 .section-title {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(32px, 5vw, 48px);
+    font-size: clamp(34px, 5vw, 49px);
+    line-height: 1.15;
     font-weight: 700;
-    line-height: 1.2;
 }
 
-.section-title span {
-    color: var(--purple-light);
-}
-
-.section-description {
-    color: var(--muted);
-    max-width: 650px;
-    line-height: 1.8;
-    margin-top: 15px;
-}
-
+.section-title span,
 .gradient-text {
-    background: linear-gradient(90deg, #ffffff, #b68aff, #8f4dff);
+    background: linear-gradient(100deg, #d7bdff, #9855ff);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
 
-.glow {
-    position: absolute;
-    width: 320px;
-    height: 320px;
-    background: rgba(130,60,255,0.12);
-    filter: blur(110px);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: -1;
-}
-
-/* =========================
-   BACKGROUND
-========================= */
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image:
-        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
-    background-size: 55px 55px;
-    pointer-events: none;
-    z-index: -2;
-}
-
-#scroll-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 3px;
-    width: 0%;
-    background: linear-gradient(90deg, #8745ff, #d4b4ff);
-    z-index: 2000;
-}
-
-/* =========================
-   NAVIGATION
-========================= */
-
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    background: rgba(8,7,13,0.82);
-    backdrop-filter: blur(18px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-.navbar {
-    height: 78px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 25px;
-    font-weight: 800;
-    letter-spacing: -1px;
-}
-
-.logo span {
-    color: var(--purple-light);
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-}
-
-.nav-links a {
-    font-size: 14px;
-    color: #d0cadb;
-    transition: 0.3s;
-}
-
-.nav-links a:hover {
-    color: var(--purple-light);
-}
-
-.nav-contact {
-    padding: 11px 21px;
-    border: 1px solid var(--purple);
-    border-radius: 30px;
-    color: white !important;
-    transition: 0.3s;
-}
-
-.nav-contact:hover {
-    background: var(--purple);
-    box-shadow: 0 0 25px rgba(155,92,255,0.4);
-}
-
-.menu-btn {
-    display: none;
-    font-size: 27px;
-    color: white;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-/* =========================
-   HERO SECTION
-========================= */
-
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding-top: 120px;
-    overflow: hidden;
-}
-
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    align-items: center;
-    gap: 50px;
-}
-
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    padding: 9px 16px;
-    border: 1px solid var(--border);
-    border-radius: 30px;
-    background: rgba(155,92,255,0.08);
-    color: #d4baff;
-    font-size: 12px;
-    letter-spacing: 1px;
-    margin-bottom: 25px;
-}
-
-.status-dot {
-    width: 8px;
-    height: 8px;
-    background: #a77aff;
-    border-radius: 50%;
-    box-shadow: 0 0 12px #a77aff;
-}
-
-.hero h1 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(43px, 6vw, 76px);
-    line-height: 1.08;
-    font-weight: 700;
-    letter-spacing: -2px;
-}
-
-.hero-text {
-    max-width: 560px;
+.section-description {
     color: var(--muted);
-    line-height: 1.9;
-    margin: 25px 0 32px;
-    font-size: 16px;
+    line-height: 1.85;
+    max-width: 650px;
+    margin-top: 15px;
+    font-size: 14px;
 }
 
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
+.section-heading {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.section-heading .section-description {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .btn {
     display: inline-flex;
-    align-items: center;
     justify-content: center;
-    padding: 14px 25px;
+    align-items: center;
+    gap: 9px;
+    padding: 14px 23px;
     border-radius: 9px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
-    transition: 0.35s;
+    transition: .35s ease;
+    cursor: pointer;
 }
 
 .btn-primary {
+    background: linear-gradient(110deg, #783bd7, #ad77ff);
     color: white;
-    background: linear-gradient(110deg, #8140e8, #ae75ff);
-    box-shadow: 0 8px 30px rgba(142,72,255,0.25);
+    box-shadow: 0 8px 30px rgba(145,75,255,.22);
 }
 
 .btn-primary:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 35px rgba(142,72,255,0.5);
+    box-shadow: 0 12px 35px rgba(145,75,255,.48);
 }
 
 .btn-outline {
@@ -297,221 +147,377 @@ header {
 
 .btn-outline:hover {
     border-color: var(--purple);
-    background: rgba(155,92,255,0.1);
+    background: rgba(155,92,255,.1);
     transform: translateY(-4px);
 }
 
-.hero-visual {
-    position: relative;
+/* BACKGROUND EFFECTS */
+
+.ambient {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(135,65,255,.15);
+    filter: blur(110px);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* NAVIGATION */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(8,7,14,.85);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.navbar {
+    height: 76px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--light);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 29px;
+}
+
+.nav-links a {
+    color: #d0cadb;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--light);
+}
+
+.nav-contact {
+    padding: 11px 19px;
+    border: 1px solid var(--purple);
+    border-radius: 30px;
+}
+
+.nav-contact:hover {
+    background: var(--purple);
+    box-shadow: 0 0 22px rgba(155,92,255,.35);
+}
+
+.menu-btn {
+    display: none;
+    border: 0;
+    background: none;
+    color: white;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: linear-gradient(90deg, #8745ff, #d4b4ff);
+    z-index: 2000;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 125px;
+    overflow: hidden;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    align-items: center;
+    gap: 45px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border: 1px solid var(--border);
+    background: rgba(155,92,255,.08);
+    border-radius: 30px;
+    color: #d8c4ff;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    margin-bottom: 25px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #b58aff;
+    box-shadow: 0 0 12px #a66aff;
+    animation: pulse 1.8s infinite;
+}
+
+.hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(43px, 6vw, 72px);
+    line-height: 1.08;
+    letter-spacing: -2px;
+}
+
+.hero-text {
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.9;
+    margin: 24px 0 30px;
+    font-size: 15px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.hero-visual {
     min-height: 390px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .hero-logo {
-    width: 270px;
-    height: 270px;
-    border-radius: 40px;
-    border: 1px solid rgba(190,140,255,0.4);
-    background: linear-gradient(145deg, #211634, #0e0b16);
+    width: 260px;
+    height: 260px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    border-radius: 42px;
+    border: 1px solid rgba(190,140,255,.4);
+    background: linear-gradient(145deg, #261a39, #0e0b16);
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 85px;
+    font-size: 83px;
     font-weight: 800;
-    box-shadow: 0 0 80px rgba(139,72,255,0.2);
-    animation: float 5s ease-in-out infinite;
+    box-shadow: 0 0 80px rgba(139,72,255,.2);
+    animation: floating 5s ease-in-out infinite;
 }
 
 .hero-logo span {
-    color: var(--purple-light);
+    color: var(--light);
 }
 
 .orbit {
     position: absolute;
     width: 350px;
     height: 350px;
-    border: 1px solid rgba(172,120,255,0.2);
+    border: 1px solid rgba(172,120,255,.22);
     border-radius: 50%;
-    animation: rotate 20s linear infinite;
+    animation: rotate 22s linear infinite;
 }
 
-.orbit::before {
+.orbit::after {
     content: "✦";
     position: absolute;
+    right: 40px;
     top: 40px;
-    right: 45px;
-    color: #c49aff;
+    color: var(--light);
     font-size: 25px;
 }
 
 .floating-label {
     position: absolute;
-    padding: 12px 17px;
-    background: rgba(25,20,38,0.95);
+    padding: 12px 16px;
     border: 1px solid var(--border);
     border-radius: 10px;
+    background: rgba(24,19,37,.95);
+    color: #e1d1ff;
     font-size: 12px;
-    color: #e0d1ff;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    animation: float 4s ease-in-out infinite;
+    animation: floating 4s ease-in-out infinite;
 }
 
 .label-one {
-    top: 40px;
     left: 0;
+    top: 45px;
 }
 
 .label-two {
     right: 0;
-    bottom: 65px;
+    bottom: 55px;
     animation-delay: 1s;
 }
 
-/* =========================
-   ABOUT SECTION
-========================= */
+/* ABOUT PROFILE */
 
 .about-grid {
     display: grid;
-    grid-template-columns: 0.95fr 1.05fr;
-    align-items: center;
+    grid-template-columns: .95fr 1.05fr;
     gap: 65px;
+    align-items: center;
     margin-top: 45px;
 }
 
 .about-image-wrap {
     position: relative;
+    padding: 12px;
+    border: 1px solid rgba(176,125,255,.35);
+    border-radius: 24px;
+    background: linear-gradient(145deg, rgba(155,92,255,.17), rgba(255,255,255,.015));
+    box-shadow: 0 20px 70px rgba(112,54,200,.16);
+    transition: .5s;
+}
+
+.about-image-wrap:hover {
+    transform: translateY(-7px) rotate(-.5deg);
+    box-shadow: 0 25px 75px rgba(112,54,200,.27);
 }
 
 .about-image {
-    width: 100%;
-    height: 460px;
-    object-fit: cover;
     display: block;
-    border-radius: 22px;
-    border: 1px solid rgba(176,125,255,0.35);
-    box-shadow: 0 20px 70px rgba(112,54,200,0.18);
-    filter: saturate(0.85);
-    transition: 0.5s;
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 16px;
+    filter: saturate(.85);
+    transition: .5s;
 }
 
 .about-image-wrap:hover .about-image {
-    transform: scale(1.025);
     filter: saturate(1.1);
 }
 
-.image-frame {
+.image-caption {
     position: absolute;
-    inset: 14px -14px -14px 14px;
-    border: 1px solid rgba(173,120,255,0.4);
-    border-radius: 22px;
-    z-index: -1;
+    left: 25px;
+    bottom: 25px;
+    right: 25px;
+    padding: 15px 18px;
+    border: 1px solid rgba(255,255,255,.17);
+    background: rgba(9,7,15,.78);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
 }
 
-.about-content {
-    position: relative;
+.image-caption strong {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+}
+
+.image-caption small {
+    color: #c4a8ed;
+    font-size: 11px;
+    margin-top: 5px;
+    display: block;
 }
 
 .about-brand {
-    color: var(--purple-light);
-    font-size: 13px;
-    font-weight: 800;
+    color: var(--light);
+    font-size: 12px;
     letter-spacing: 3px;
-    margin-bottom: 12px;
+    font-weight: 800;
+    margin-bottom: 13px;
 }
 
 .about-content h3 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 34px;
-    margin-bottom: 12px;
+    font-size: clamp(29px, 4vw, 38px);
+    line-height: 1.2;
 }
 
 .about-content h3 span {
-    color: var(--purple-light);
+    color: var(--light);
 }
 
 .about-role {
-    color: #c3a5ff;
+    color: #c4a5ff;
     font-size: 14px;
-    margin-bottom: 22px;
+    margin: 12px 0 22px;
 }
 
 .about-content p {
     color: var(--muted);
-    line-height: 1.9;
-    margin-bottom: 22px;
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.95;
+    margin-bottom: 15px;
 }
 
 .profile-details {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin: 27px 0;
+    gap: 12px;
+    margin: 25px 0;
 }
 
 .detail-box {
-    padding: 15px;
-    background: rgba(255,255,255,0.035);
+    background: rgba(255,255,255,.035);
     border: 1px solid var(--border);
     border-radius: 11px;
-    transition: 0.3s;
+    padding: 14px;
+    transition: .3s;
 }
 
 .detail-box:hover {
     border-color: var(--purple);
-    background: rgba(155,92,255,0.08);
+    background: rgba(155,92,255,.08);
     transform: translateY(-4px);
 }
 
 .detail-box small {
     display: block;
-    color: #968ca8;
-    font-size: 11px;
+    color: #9d93ad;
+    font-size: 10px;
+    letter-spacing: 1px;
     margin-bottom: 7px;
 }
 
 .detail-box strong {
-    font-size: 13px;
-    font-weight: 700;
+    font-size: 12px;
 }
 
-/* =========================
-   SERVICES SECTION
-========================= */
+/* SERVICES */
 
 .services-section {
-    background: linear-gradient(180deg, transparent, rgba(91,42,150,0.07), transparent);
-}
-
-.section-heading {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.section-heading .section-description {
-    margin-left: auto;
-    margin-right: auto;
+    background: linear-gradient(180deg, transparent, rgba(91,42,150,.08), transparent);
 }
 
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+    gap: 21px;
 }
 
 .service-card {
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    padding: 32px 27px;
-    background: linear-gradient(145deg, #171321, #0e0c15);
-    border: 1px solid var(--border);
+    padding: 30px 26px;
     border-radius: 18px;
-    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    background: linear-gradient(145deg, #191526, #0f0d17);
+    border: 1px solid var(--border);
+    transition: transform .4s, border-color .4s, box-shadow .4s;
 }
 
 .service-card::before {
@@ -520,9 +526,9 @@ header {
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    background: radial-gradient(260px circle at var(--mouse-x,50%) var(--mouse-y,50%), rgba(155,92,255,0.25), transparent 70%);
+    background: radial-gradient(250px circle at var(--mouse-x,50%) var(--mouse-y,50%), rgba(155,92,255,.25), transparent 72%);
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity .3s;
 }
 
 .service-card:hover::before {
@@ -531,94 +537,90 @@ header {
 
 .service-card:hover {
     transform: translateY(-9px);
-    border-color: rgba(174,119,255,0.65);
-    box-shadow: 0 20px 45px rgba(112,55,190,0.15);
+    border-color: rgba(174,119,255,.65);
+    box-shadow: 0 18px 45px rgba(112,55,190,.17);
+}
+
+.service-number {
+    position: absolute;
+    top: 20px;
+    right: 22px;
+    color: rgba(200,170,255,.25);
+    font-size: 13px;
+    font-weight: 800;
 }
 
 .service-icon {
     width: 58px;
     height: 58px;
-    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 27px;
-    background: rgba(155,92,255,0.13);
-    border: 1px solid rgba(155,92,255,0.25);
-    margin-bottom: 25px;
-    transition: 0.4s;
+    border-radius: 15px;
+    background: rgba(155,92,255,.13);
+    border: 1px solid rgba(155,92,255,.25);
+    margin-bottom: 23px;
+    transition: .4s;
 }
 
 .service-card:hover .service-icon {
-    transform: rotate(-8deg) scale(1.12);
-    background: rgba(155,92,255,0.25);
-    box-shadow: 0 0 25px rgba(155,92,255,0.2);
+    transform: rotate(-9deg) scale(1.13);
+    box-shadow: 0 0 25px rgba(155,92,255,.25);
 }
 
 .service-card h3 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 20px;
-    margin-bottom: 13px;
+    font-size: 19px;
+    margin-bottom: 12px;
 }
 
 .service-card p {
     color: var(--muted);
     line-height: 1.8;
-    font-size: 13px;
+    font-size: 12px;
 }
 
-.service-number {
-    position: absolute;
-    right: 22px;
-    top: 20px;
-    color: rgba(200,170,255,0.22);
-    font-size: 13px;
-    font-weight: 800;
-}
-
-/* =========================
-   PORTFOLIO SECTION
-========================= */
+/* PORTFOLIO */
 
 .portfolio-top {
     display: flex;
     justify-content: space-between;
     align-items: end;
     gap: 25px;
-    margin-bottom: 45px;
+    margin-bottom: 43px;
 }
 
 .portfolio-label {
-    display: inline-flex;
+    display: inline-block;
     padding: 8px 14px;
-    border: 1px solid var(--border);
-    background: rgba(155,92,255,0.08);
     color: #d4baff;
+    background: rgba(155,92,255,.08);
+    border: 1px solid var(--border);
     border-radius: 30px;
-    font-size: 11px;
-    letter-spacing: 1px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
     margin-bottom: 17px;
 }
 
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 23px;
+    gap: 22px;
 }
 
 .project-card {
-    position: relative;
     overflow: hidden;
-    background: #15111f;
     border: 1px solid var(--border);
+    background: #15111f;
     border-radius: 17px;
-    transition: 0.4s;
+    transition: .4s;
 }
 
 .project-card:hover {
     transform: translateY(-9px);
     border-color: var(--purple);
-    box-shadow: 0 18px 45px rgba(130,70,220,0.15);
+    box-shadow: 0 18px 45px rgba(130,70,220,.16);
 }
 
 .project-art {
@@ -626,8 +628,8 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     overflow: hidden;
+    position: relative;
 }
 
 .art-fashion {
@@ -645,147 +647,151 @@ header {
 .art-window {
     width: 72%;
     height: 75%;
-    border: 1px solid rgba(255,255,255,0.35);
-    background: rgba(10,8,18,0.65);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     gap: 10px;
+    background: rgba(10,8,18,.66);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 12px;
     transform: rotate(-5deg);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-    transition: 0.5s;
+    box-shadow: 0 15px 40px rgba(0,0,0,.25);
+    transition: .5s;
 }
 
 .project-card:hover .art-window {
-    transform: rotate(0deg) scale(1.05);
+    transform: rotate(0) scale(1.05);
 }
 
 .art-window strong {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 25px;
+    font-size: 24px;
     letter-spacing: 2px;
 }
 
 .art-window span {
-    font-size: 10px;
-    letter-spacing: 3px;
     color: #e5d6ff;
+    font-size: 9px;
+    letter-spacing: 2px;
 }
 
 .art-symbol {
-    font-size: 48px;
+    font-size: 42px;
 }
 
 .project-info {
-    padding: 23px;
+    padding: 22px;
 }
 
 .project-category {
-    color: var(--purple-light);
+    color: var(--light);
     font-size: 10px;
     font-weight: 800;
     letter-spacing: 2px;
-    text-transform: uppercase;
 }
 
 .project-info h3 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 19px;
+    font-size: 18px;
     margin: 10px 0;
 }
 
 .project-info p {
     color: var(--muted);
-    font-size: 13px;
-    line-height: 1.7;
+    font-size: 12px;
+    line-height: 1.8;
 }
 
 .project-note {
     display: inline-block;
-    margin-top: 16px;
     color: #bba0eb;
-    font-size: 11px;
+    font-size: 10px;
+    margin-top: 15px;
 }
 
-/* =========================
-   SKILLS SECTION
-========================= */
+/* SKILLS */
 
 .skills-section {
-    background: rgba(105,55,165,0.045);
+    background: rgba(105,55,165,.045);
 }
 
 .skills-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 65px;
+    gap: 60px;
     align-items: center;
 }
 
 .skill-item {
-    margin-bottom: 27px;
+    margin-top: 24px;
 }
 
 .skill-heading {
     display: flex;
     justify-content: space-between;
+    gap: 12px;
     margin-bottom: 10px;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .skill-heading span:last-child {
     color: #c4a2ff;
+    font-size: 10px;
 }
 
 .skill-bar {
-    width: 100%;
     height: 7px;
-    background: #292333;
+    width: 100%;
     border-radius: 20px;
+    background: #292333;
     overflow: hidden;
 }
 
 .skill-progress {
     height: 100%;
     width: 0;
-    background: linear-gradient(90deg, #7840cf, #c29aff);
     border-radius: 20px;
+    background: linear-gradient(90deg, #7840cf, #c29aff);
     transition: width 1.5s ease;
 }
 
 .skills-note {
-    padding: 30px;
+    padding: 32px;
     background: linear-gradient(145deg, #1a1428, #100d18);
     border: 1px solid var(--border);
     border-radius: 18px;
+    transition: .4s;
+}
+
+.skills-note:hover {
+    transform: translateY(-6px);
+    border-color: var(--purple);
 }
 
 .skills-note h3 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 26px;
-    margin-bottom: 15px;
+    font-size: 25px;
+    margin-bottom: 16px;
 }
 
 .skills-note p {
     color: var(--muted);
+    font-size: 13px;
     line-height: 1.9;
-    font-size: 14px;
+    margin-bottom: 12px;
 }
 
-/* =========================
-   CONTACT SECTION
-========================= */
+/* CONTACT */
 
 .contact-box {
     position: relative;
     overflow: hidden;
-    padding: 65px 35px;
     text-align: center;
-    border: 1px solid rgba(180,130,255,0.28);
+    padding: 65px 30px;
     border-radius: 22px;
+    border: 1px solid rgba(180,130,255,.28);
     background: linear-gradient(135deg, #1c142d, #100d18, #241439);
 }
 
@@ -794,11 +800,11 @@ header {
     position: absolute;
     width: 250px;
     height: 250px;
-    border-radius: 50%;
-    background: rgba(155,92,255,0.18);
-    filter: blur(80px);
-    top: -100px;
+    top: -120px;
     left: 40%;
+    border-radius: 50%;
+    background: rgba(155,92,255,.2);
+    filter: blur(80px);
 }
 
 .contact-box h2 {
@@ -810,12 +816,14 @@ header {
 .contact-box p {
     position: relative;
     color: var(--muted);
-    margin: 17px auto 27px;
-    max-width: 550px;
     line-height: 1.8;
+    max-width: 550px;
+    margin: 17px auto 22px;
+    font-size: 13px;
 }
 
 .contact-email {
+    position: relative;
     display: block;
     color: #d0b3ff;
     font-size: 14px;
@@ -823,45 +831,41 @@ header {
     overflow-wrap: anywhere;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer {
     padding: 30px 0;
-    border-top: 1px solid rgba(255,255,255,0.07);
+    border-top: 1px solid rgba(255,255,255,.07);
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 18px;
     flex-wrap: wrap;
 }
 
 .footer-content p {
     color: #91899e;
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .footer-brand {
     font-family: 'Space Grotesk', sans-serif;
-    font-weight: 800;
     font-size: 18px;
+    font-weight: 800;
 }
 
 .footer-brand span {
-    color: var(--purple-light);
+    color: var(--light);
 }
 
-/* =========================
-   ANIMATIONS
-========================= */
+/* ANIMATIONS */
 
-@keyframes float {
+@keyframes floating {
     0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+    50% { transform: translateY(-14px); }
 }
 
 @keyframes rotate {
@@ -869,10 +873,15 @@ footer {
     to { transform: rotate(360deg); }
 }
 
+@keyframes pulse {
+    0%,100% { opacity: 1; box-shadow: 0 0 12px #a66aff; }
+    50% { opacity: .5; box-shadow: 0 0 3px #a66aff; }
+}
+
 .reveal {
     opacity: 0;
-    transform: translateY(35px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: translateY(30px);
+    transition: opacity .8s ease, transform .8s ease;
 }
 
 .reveal.show {
@@ -880,16 +889,12 @@ footer {
     transform: translateY(0);
 }
 
-.delay-1 { transition-delay: 0.1s; }
-.delay-2 { transition-delay: 0.2s; }
-.delay-3 { transition-delay: 0.3s; }
+.delay-1 { transition-delay: .12s; }
+.delay-2 { transition-delay: .24s; }
 
-/* =========================
-   RESPONSIVE DESIGN
-========================= */
+/* RESPONSIVE */
 
 @media (max-width: 900px) {
-
     .hero-grid,
     .about-grid,
     .skills-grid {
@@ -897,20 +902,16 @@ footer {
     }
 
     .hero-visual {
-        min-height: 360px;
-    }
-
-    .about-grid {
-        gap: 45px;
-    }
-
-    .about-image {
-        height: 380px;
+        min-height: 350px;
     }
 
     .services-grid,
     .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-grid {
+        gap: 45px;
     }
 
     .portfolio-top {
@@ -920,7 +921,6 @@ footer {
 }
 
 @media (max-width: 650px) {
-
     .container {
         width: 90%;
     }
@@ -956,15 +956,11 @@ footer {
 
     .hero {
         min-height: auto;
-        padding: 140px 0 70px;
-    }
-
-    .hero-grid {
-        gap: 25px;
+        padding: 135px 0 70px;
     }
 
     .hero h1 {
-        font-size: 46px;
+        font-size: 45px;
     }
 
     .hero-visual {
@@ -975,7 +971,6 @@ footer {
         width: 205px;
         height: 205px;
         font-size: 65px;
-        border-radius: 30px;
     }
 
     .orbit {
@@ -983,26 +978,8 @@ footer {
         height: 270px;
     }
 
-    .label-one {
-        left: 0;
-        top: 20px;
-    }
-
-    .label-two {
-        right: 0;
-        bottom: 25px;
-    }
-
     .about-image {
-        height: 300px;
-    }
-
-    .about-content h3 {
-        font-size: 28px;
-    }
-
-    .profile-details {
-        grid-template-columns: 1fr 1fr;
+        height: 310px;
     }
 
     .services-grid,
@@ -1010,12 +987,8 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .service-card {
-        padding: 28px 23px;
-    }
-
-    .project-art {
-        height: 210px;
+    .profile-details {
+        grid-template-columns: 1fr 1fr;
     }
 
     .contact-box {
@@ -1030,12 +1003,11 @@ footer {
 
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
         scroll-behavior: auto !important;
     }
 }
-
 </style>
 </head>
 
@@ -1048,7 +1020,9 @@ footer {
 
         <a href="#home" class="logo">SA<span>.</span> CREATIVE</a>
 
-        <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+        <button class="menu-btn" id="menuBtn" aria-label="Open navigation">
+            ☰
+        </button>
 
         <nav class="nav-links" id="navLinks">
             <a href="#home">Home</a>
@@ -1063,17 +1037,15 @@ footer {
 </header>
 
 
-<!-- =========================
-     HOME
-========================= -->
+<!-- HERO SECTION -->
 
 <section class="hero" id="home">
 
-    <div class="glow" style="top:100px;left:-100px;"></div>
+    <div class="ambient" style="top:100px;left:-100px;"></div>
 
     <div class="container hero-grid">
 
-        <div class="hero-content reveal">
+        <div class="reveal">
 
             <div class="hero-badge">
                 <span class="status-dot"></span>
@@ -1086,14 +1058,19 @@ footer {
             </h1>
 
             <p class="hero-text">
-                Welcome to SA Creative Studio. We focus on creative design,
-                engaging video content and digital services that help ideas
-                stand out in the online world.
+                Welcome to SA Creative Studio. I focus on graphic design,
+                video editing, social media content and digital services
+                that help ideas stand out in the online world.
             </p>
 
             <div class="hero-buttons">
-                <a href="#portfolio" class="btn btn-primary">Explore Portfolio ↗</a>
-                <a href="#contact" class="btn btn-outline">Contact Me</a>
+                <a href="#portfolio" class="btn btn-primary">
+                    Explore Portfolio ↗
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Contact Me
+                </a>
             </div>
 
         </div>
@@ -1102,33 +1079,38 @@ footer {
 
             <div class="orbit"></div>
 
-            <div class="hero-logo">
-                SA<span>.</span>
+            <div class="hero-logo">SA<span>.</span></div>
+
+            <div class="floating-label label-one">
+                ✦ Creative Design
             </div>
 
-            <div class="floating-label label-one">✦ Creative Design</div>
-            <div class="floating-label label-two">🎬 Digital Creativity</div>
+            <div class="floating-label label-two">
+                🎬 Digital Creativity
+            </div>
 
         </div>
 
     </div>
-
 </section>
 
 
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- ABOUT / FOUNDER PROFILE -->
 
 <section id="about">
 
     <div class="container">
 
         <div class="section-heading reveal">
-            <span class="section-tag">WHO WE ARE</span>
-            <h2 class="section-title">About <span>SA Creative Studio</span></h2>
+            <span class="section-tag">ABOUT THE BRAND & FOUNDER</span>
+
+            <h2 class="section-title">
+                The Person Behind <span>SA Creative Studio</span>
+            </h2>
+
             <p class="section-description">
-                Get to know the brand, its founder and the creative vision behind it.
+                A closer look at the creative vision, founder and
+                professional direction of the brand.
             </p>
         </div>
 
@@ -1139,11 +1121,14 @@ footer {
                 <img
                     class="about-image"
                     src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1100&q=85"
-                    alt="Modern creative workspace with professional office setup"
+                    alt="Professional creative workspace"
                     loading="lazy"
                 >
 
-                <div class="image-frame"></div>
+                <div class="image-caption">
+                    <strong>SA Creative Studio</strong>
+                    <small>CREATIVITY • DESIGN • DIGITAL WORK</small>
+                </div>
 
             </div>
 
@@ -1151,25 +1136,30 @@ footer {
 
                 <div class="about-brand">SA CREATIVE STUDIO</div>
 
-                <h3>Meet the Founder, <span>Saif Ali</span></h3>
+                <h3>I'm <span>Saif Ali</span></h3>
 
                 <div class="about-role">
-                    Founder | Creative Digital Services
+                    Founder & Creative Digital Professional
                 </div>
 
                 <p>
-                    I'm Saif Ali, the founder of SA Creative Studio, based in
-                    Lahore, Pakistan. I have a strong interest in digital
-                    creativity, graphic design, video editing and online
-                    content creation.
+                    I am Saif Ali, the founder of SA Creative Studio,
+                    a creative digital services brand based in Lahore,
+                    Pakistan. I have a strong interest in graphic design,
+                    video editing, digital creativity and online content creation.
                 </p>
 
                 <p>
                     Through SA Creative Studio, I aim to turn ideas into
-                    attractive digital content and provide creative services
-                    with a focus on quality, consistency and continuous learning.
-                    My goal is to develop my skills and build meaningful
-                    digital experiences.
+                    attractive visual content and provide useful digital
+                    services. I focus on creative presentation, consistency,
+                    attention to detail and continuous improvement.
+                </p>
+
+                <p>
+                    My vision is to develop a professional creative brand
+                    that helps individuals and businesses present their
+                    ideas effectively in the digital world.
                 </p>
 
                 <div class="profile-details">
@@ -1194,10 +1184,20 @@ footer {
                         <strong>Lahore, Pakistan</strong>
                     </div>
 
+                    <div class="detail-box">
+                        <small>DESIGN & EDITING</small>
+                        <strong>Graphics & Video</strong>
+                    </div>
+
+                    <div class="detail-box">
+                        <small>DIGITAL SERVICES</small>
+                        <strong>Content & Data Entry</strong>
+                    </div>
+
                 </div>
 
                 <a href="#services" class="btn btn-primary">
-                    Explore My Services ↗
+                    Discover My Services ↗
                 </a>
 
             </div>
@@ -1205,13 +1205,10 @@ footer {
         </div>
 
     </div>
-
 </section>
 
 
-<!-- =========================
-     SERVICES
-========================= -->
+<!-- SERVICES -->
 
 <section class="services-section" id="services">
 
@@ -1219,52 +1216,52 @@ footer {
 
         <div class="section-heading reveal">
 
-            <span class="section-tag">WHAT I OFFER</span>
+            <span class="section-tag">WHAT I DO</span>
 
             <h2 class="section-title">
-                Creative <span>Services</span>
+                Professional <span>Creative Services</span>
             </h2>
 
             <p class="section-description">
-                Creative and digital solutions designed to help brands,
-                businesses and individuals present their ideas professionally.
+                Digital solutions focused on creative presentation,
+                useful content and professional communication.
             </p>
 
         </div>
 
         <div class="services-grid">
 
-            <div class="service-card reveal">
+            <article class="service-card reveal">
                 <span class="service-number">01</span>
                 <div class="service-icon">🎨</div>
                 <h3>Graphic Designing</h3>
                 <p>
-                    Creative social media posts, promotional graphics,
-                    banners and visually appealing digital designs.
+                    Social media posts, promotional graphics, banners,
+                    brand visuals and attractive digital designs.
                 </p>
-            </div>
+            </article>
 
-            <div class="service-card reveal delay-1">
+            <article class="service-card reveal delay-1">
                 <span class="service-number">02</span>
                 <div class="service-icon">🎬</div>
                 <h3>Video Editing</h3>
                 <p>
-                    Engaging video edits, reels, short-form content,
-                    transitions and polished visual storytelling.
+                    Reels, short-form videos, transitions, visual
+                    storytelling and engaging video content.
                 </p>
-            </div>
+            </article>
 
-            <div class="service-card reveal delay-2">
+            <article class="service-card reveal delay-2">
                 <span class="service-number">03</span>
                 <div class="service-icon">📱</div>
                 <h3>Social Media Content</h3>
                 <p>
-                    Creative content ideas, post designs and visual
-                    material for social media platforms.
+                    Content ideas, creative posts, visual planning
+                    and digital material for social platforms.
                 </p>
-            </div>
+            </article>
 
-            <div class="service-card reveal">
+            <article class="service-card reveal">
                 <span class="service-number">04</span>
                 <div class="service-icon">🚀</div>
                 <h3>Brand Promotion</h3>
@@ -1272,19 +1269,19 @@ footer {
                     Brand introduction posts, promotional creatives,
                     offer designs and digital brand presentation.
                 </p>
-            </div>
+            </article>
 
-            <div class="service-card reveal delay-1">
+            <article class="service-card reveal delay-1">
                 <span class="service-number">05</span>
                 <div class="service-icon">✍️</div>
                 <h3>Content Writing</h3>
                 <p>
-                    Clear and engaging written content for digital
-                    platforms, descriptions and promotional material.
+                    Clear written content, descriptions, captions
+                    and promotional text for digital platforms.
                 </p>
-            </div>
+            </article>
 
-            <div class="service-card reveal delay-2">
+            <article class="service-card reveal delay-2">
                 <span class="service-number">06</span>
                 <div class="service-icon">⌨️</div>
                 <h3>Typing & Data Entry</h3>
@@ -1292,18 +1289,15 @@ footer {
                     Document typing, data organization, formatting
                     and basic digital office support.
                 </p>
-            </div>
+            </article>
 
         </div>
 
     </div>
-
 </section>
 
 
-<!-- =========================
-     PORTFOLIO
-========================= -->
+<!-- PORTFOLIO -->
 
 <section id="portfolio">
 
@@ -1312,110 +1306,107 @@ footer {
         <div class="portfolio-top reveal">
 
             <div>
-                <span class="portfolio-label">✦ SELECTED CREATIVE WORK</span>
+                <span class="portfolio-label">
+                    ✦ SELECTED CREATIVE CONCEPTS
+                </span>
 
                 <h2 class="section-title">
-                    Creative <span>Portfolio</span>
+                    My Creative <span>Portfolio</span>
                 </h2>
 
                 <p class="section-description">
-                    A selection of practice concepts demonstrating
-                    creative ideas, design direction and digital skills.
+                    A showcase of practice concepts and creative
+                    directions demonstrating design and digital skills.
                 </p>
             </div>
 
             <a href="#contact" class="btn btn-outline">
-                Start a Project ↗
+                Discuss a Project ↗
             </a>
 
         </div>
 
         <div class="portfolio-grid">
 
-            <div class="project-card reveal">
+            <article class="project-card reveal">
 
                 <div class="project-art art-fashion">
-
                     <div class="art-window">
                         <span>FASHION COLLECTION</span>
                         <strong>NOORÉ</strong>
                         <span>STYLE • ELEGANCE • BEAUTY</span>
                     </div>
-
                 </div>
 
                 <div class="project-info">
                     <span class="project-category">BRAND DESIGN</span>
                     <h3>NOORÉ Fashion Concept</h3>
                     <p>
-                        A fashion brand visual identity and promotional
-                        design concept.
+                        A fashion brand identity and promotional
+                        visual design concept.
                     </p>
-                    <span class="project-note">Practice Concept / Sample Project</span>
+                    <span class="project-note">
+                        Practice Concept / Sample Project
+                    </span>
                 </div>
 
-            </div>
+            </article>
 
-
-            <div class="project-card reveal delay-1">
+            <article class="project-card reveal delay-1">
 
                 <div class="project-art art-video">
-
                     <div class="art-window">
                         <div class="art-symbol">▶</div>
                         <strong>VIDEO EDIT</strong>
                         <span>CREATIVE STORYTELLING</span>
                     </div>
-
                 </div>
 
                 <div class="project-info">
                     <span class="project-category">VIDEO EDITING</span>
                     <h3>Creative Video Concept</h3>
                     <p>
-                        A sample visual direction for engaging short-form
-                        video and reel content.
+                        A sample visual direction for engaging
+                        short-form videos and reels.
                     </p>
-                    <span class="project-note">Practice Concept / Sample Project</span>
+                    <span class="project-note">
+                        Practice Concept / Sample Project
+                    </span>
                 </div>
 
-            </div>
+            </article>
 
-
-            <div class="project-card reveal delay-2">
+            <article class="project-card reveal delay-2">
 
                 <div class="project-art art-social">
-
                     <div class="art-window">
                         <div class="art-symbol">✦</div>
                         <strong>SOCIAL MEDIA</strong>
                         <span>CONTENT CREATION</span>
                     </div>
-
                 </div>
 
                 <div class="project-info">
                     <span class="project-category">SOCIAL MEDIA DESIGN</span>
                     <h3>Social Media Campaign</h3>
                     <p>
-                        A promotional social media content and campaign
-                        design concept.
+                        A promotional content and campaign
+                        design concept for social platforms.
                     </p>
-                    <span class="project-note">Practice Concept / Sample Project</span>
+                    <span class="project-note">
+                        Practice Concept / Sample Project
+                    </span>
                 </div>
 
-            </div>
+            </article>
 
         </div>
 
     </div>
-
 </section>
 
 
-<!-- =========================
-     SKILLS
-========================= -->
+<!-- SKILLS -->
 
 <section class="skills-section" id="skills">
 
@@ -1423,10 +1414,10 @@ footer {
 
         <div class="reveal">
 
-            <span class="section-tag">MY EXPERTISE</span>
+            <span class="section-tag">MY SKILLS & TOOLS</span>
 
             <h2 class="section-title">
-                Skills & <span>Creative Tools</span>
+                Learning, Creating & <span>Improving</span>
             </h2>
 
             <p class="section-description">
@@ -1434,48 +1425,44 @@ footer {
                 developing through learning and creative practice.
             </p>
 
-            <div style="margin-top:35px;">
-
-                <div class="skill-item">
-                    <div class="skill-heading">
-                        <span>Graphic Designing</span>
-                        <span>Learning & Practice</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="78%"></div>
-                    </div>
+            <div class="skill-item">
+                <div class="skill-heading">
+                    <span>Graphic Designing</span>
+                    <span>Learning & Practice</span>
                 </div>
-
-                <div class="skill-item">
-                    <div class="skill-heading">
-                        <span>Video Editing</span>
-                        <span>Learning & Practice</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="72%"></div>
-                    </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-width="78%"></div>
                 </div>
+            </div>
 
-                <div class="skill-item">
-                    <div class="skill-heading">
-                        <span>Social Media Content</span>
-                        <span>Learning & Practice</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="75%"></div>
-                    </div>
+            <div class="skill-item">
+                <div class="skill-heading">
+                    <span>Video Editing</span>
+                    <span>Learning & Practice</span>
                 </div>
-
-                <div class="skill-item">
-                    <div class="skill-heading">
-                        <span>Typing & Data Entry</span>
-                        <span>Learning & Practice</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="80%"></div>
-                    </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-width="72%"></div>
                 </div>
+            </div>
 
+            <div class="skill-item">
+                <div class="skill-heading">
+                    <span>Social Media Content</span>
+                    <span>Learning & Practice</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-width="75%"></div>
+                </div>
+            </div>
+
+            <div class="skill-item">
+                <div class="skill-heading">
+                    <span>Typing & Data Entry</span>
+                    <span>Learning & Practice</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-width="80%"></div>
+                </div>
             </div>
 
         </div>
@@ -1485,27 +1472,29 @@ footer {
             <h3>Creativity Meets Digital Skills.</h3>
 
             <p>
-                I believe that creativity improves with practice,
-                consistency and continuous learning. I am focused on
-                improving my design, editing and digital productivity
-                skills to create better work.
+                I believe that creativity grows through practice,
+                consistency and continuous learning. I am focused
+                on improving my design, editing and digital
+                productivity skills.
             </p>
 
-            <p style="margin-top:18px;">
-                <strong style="color:#c5a4ff;">Tools:</strong>
+            <p>
+                <strong style="color:#c5a4ff;">Creative Tools:</strong>
                 Canva, CapCut and Microsoft Word.
+            </p>
+
+            <p>
+                My focus is to build practical experience and
+                create useful, attractive and well-organized work.
             </p>
 
         </div>
 
     </div>
-
 </section>
 
 
-<!-- =========================
-     CONTACT
-========================= -->
+<!-- CONTACT -->
 
 <section id="contact">
 
@@ -1519,27 +1508,26 @@ footer {
 
             <p>
                 Let's connect and discuss your next creative project.
-                Feel free to contact SA Creative Studio.
+                For digital services and inquiries, contact SA Creative Studio.
             </p>
 
-            <a class="contact-email" href="mailto:saifali0011011@gmail.com">
+            <a class="contact-email"
+               href="mailto:saifali0011011@gmail.com">
                 saifali0011011@gmail.com
             </a>
 
-            <a href="mailto:saifali0011011@gmail.com" class="btn btn-primary">
+            <a href="mailto:saifali0011011@gmail.com"
+               class="btn btn-primary">
                 Send an Email ↗
             </a>
 
         </div>
 
     </div>
-
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -1550,7 +1538,8 @@ footer {
         </div>
 
         <p>
-            © <span id="year"></span> SA Creative Studio. All rights reserved.
+            © <span id="year"></span> SA Creative Studio.
+            All rights reserved.
         </p>
 
         <p>Designed with creativity by Saif Ali.</p>
@@ -1560,37 +1549,33 @@ footer {
 </footer>
 
 
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
 <script>
 
-// Mobile navigation
+// MOBILE MENU
 
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 
-menuBtn.addEventListener("click", function() {
+menuBtn.addEventListener("click", () => {
     navLinks.classList.toggle("active");
 
     menuBtn.textContent =
         navLinks.classList.contains("active") ? "✕" : "☰";
 });
 
-document.querySelectorAll(".nav-links a").forEach(function(link) {
-    link.addEventListener("click", function() {
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
         navLinks.classList.remove("active");
         menuBtn.textContent = "☰";
     });
 });
 
 
-// Scroll reveal animation
+// SCROLL REVEAL
 
-const revealObserver = new IntersectionObserver(function(entries) {
+const revealObserver = new IntersectionObserver(entries => {
 
-    entries.forEach(function(entry) {
+    entries.forEach(entry => {
 
         if (entry.isIntersecting) {
             entry.target.classList.add("show");
@@ -1603,22 +1588,20 @@ const revealObserver = new IntersectionObserver(function(entries) {
     threshold: 0.12
 });
 
-document.querySelectorAll(".reveal").forEach(function(element) {
+document.querySelectorAll(".reveal").forEach(element => {
     revealObserver.observe(element);
 });
 
 
-// Service card mouse-follow glow
+// SERVICE CARD GLOW
 
-document.querySelectorAll(".service-card").forEach(function(card) {
+document.querySelectorAll(".service-card").forEach(card => {
 
-    card.addEventListener("pointerenter", function() {
+    card.addEventListener("pointerenter", () => {
         card.classList.add("mouse-active");
-        card.style.setProperty("--mouse-x", "50%");
-        card.style.setProperty("--mouse-y", "50%");
     });
 
-    card.addEventListener("pointermove", function(event) {
+    card.addEventListener("pointermove", event => {
 
         const rect = card.getBoundingClientRect();
 
@@ -1630,16 +1613,16 @@ document.querySelectorAll(".service-card").forEach(function(card) {
 
     });
 
-    card.addEventListener("pointerleave", function() {
+    card.addEventListener("pointerleave", () => {
         card.classList.remove("mouse-active");
     });
 
 });
 
 
-// Scroll progress bar
+// SCROLL PROGRESS
 
-window.addEventListener("scroll", function() {
+window.addEventListener("scroll", () => {
 
     const scrollTop = window.scrollY;
 
@@ -1655,11 +1638,11 @@ window.addEventListener("scroll", function() {
 });
 
 
-// Animated skill bars
+// SKILL BAR ANIMATION
 
-const skillObserver = new IntersectionObserver(function(entries) {
+const skillObserver = new IntersectionObserver(entries => {
 
-    entries.forEach(function(entry) {
+    entries.forEach(entry => {
 
         if (entry.isIntersecting) {
 
@@ -1668,7 +1651,6 @@ const skillObserver = new IntersectionObserver(function(entries) {
             bar.style.width = bar.dataset.width;
 
             skillObserver.unobserve(bar);
-
         }
 
     });
@@ -1677,12 +1659,12 @@ const skillObserver = new IntersectionObserver(function(entries) {
     threshold: 0.5
 });
 
-document.querySelectorAll(".skill-progress").forEach(function(bar) {
+document.querySelectorAll(".skill-progress").forEach(bar => {
     skillObserver.observe(bar);
 });
 
 
-// Automatic footer year
+// FOOTER YEAR
 
 document.getElementById("year").textContent =
     new Date().getFullYear();
