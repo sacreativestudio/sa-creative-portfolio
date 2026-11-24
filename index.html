@@ -3,90 +3,157 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SA Creative Studio | Saif Ali</title>
 
-<meta name="description" content="SA Creative Studio - Graphic Designing, Video Editing and Digital Services.">
+<title>SA Creative Studio | Digital Creative Services</title>
+
+<meta name="description" content="SA Creative Studio provides graphic design, video editing, social media content creation, brand promotion and digital creative services.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root {
-    --bg: #080610;
-    --card: #120d20;
-    --purple: #a020f0;
-    --light: #c77dff;
-    --white: #fff;
-    --gray: #b9b2c5;
-}
+
+/* GENERAL SETTINGS */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 85px;
+:root {
+    --bg: #080610;
+    --card: #120d20;
+    --purple: #9b35ff;
+    --light-purple: #c58aff;
+    --white: #ffffff;
+    --gray: #b9b2c5;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
     background: var(--bg);
     color: var(--white);
+    font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
 }
 
 a {
-    color: inherit;
     text-decoration: none;
-}
-
-.container {
-    width: 90%;
-    max-width: 1150px;
-    margin: auto;
+    color: inherit;
 }
 
 section {
-    padding: 100px 0;
+    padding: 100px 8%;
 }
 
-/* SCROLL PROGRESS */
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
 
-.progress {
+.section-title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-title h2 {
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.section-title h2 span {
+    color: var(--purple);
+}
+
+.section-title p {
+    color: var(--gray);
+}
+
+
+/* BACKGROUND ANIMATION */
+
+.background-effects {
     position: fixed;
-    top: 0;
-    left: 0;
-    height: 4px;
-    width: 0;
-    background: linear-gradient(90deg,#8500ff,#e0aaff);
-    box-shadow: 0 0 15px var(--purple);
-    z-index: 2000;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
 }
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.18;
+    animation: float 9s ease-in-out infinite alternate;
+}
+
+.orb-one {
+    width: 350px;
+    height: 350px;
+    background: #8000ff;
+    top: 10%;
+    left: -120px;
+}
+
+.orb-two {
+    width: 300px;
+    height: 300px;
+    background: #c000ff;
+    right: -100px;
+    top: 50%;
+    animation-delay: 2s;
+}
+
+.orb-three {
+    width: 250px;
+    height: 250px;
+    background: #5200aa;
+    bottom: -100px;
+    left: 35%;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(60px, -50px);
+    }
+}
+
 
 /* NAVBAR */
 
 header {
+    width: 100%;
     position: fixed;
     top: 0;
-    width: 100%;
+    left: 0;
     z-index: 1000;
-    background: rgba(8,6,16,.88);
+    background: rgba(8, 6, 16, 0.88);
     backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(160,32,240,.15);
+    border-bottom: 1px solid rgba(155, 53, 255, 0.15);
 }
 
 .navbar {
-    height: 75px;
+    max-width: 1250px;
+    margin: auto;
+    padding: 17px 8%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 25px;
     font-weight: 800;
+    letter-spacing: 1px;
 }
 
 .logo span {
@@ -95,569 +162,571 @@ header {
 
 .nav-links {
     display: flex;
-    gap: 28px;
+    gap: 30px;
     list-style: none;
 }
 
 .nav-links a {
-    color: var(--gray);
     font-size: 14px;
-    transition: .3s;
+    color: var(--gray);
+    transition: 0.3s;
 }
 
 .nav-links a:hover {
-    color: var(--light);
-    text-shadow: 0 0 12px var(--purple);
+    color: var(--light-purple);
 }
 
 .menu-btn {
     display: none;
     font-size: 27px;
     cursor: pointer;
-}
-
-/* BUTTONS */
-
-.btn {
-    display: inline-block;
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-    padding: 14px 30px;
-    border: 1px solid rgba(255,255,255,.15);
-    border-radius: 35px;
-    background: linear-gradient(120deg,#7600d9,#a020f0,#c77dff);
-    background-size: 200% 200%;
     color: white;
-    font-weight: 600;
-    box-shadow: 0 5px 20px rgba(160,32,240,.25);
-    transition: .35s ease;
+    background: none;
+    border: none;
 }
 
-.btn::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -120%;
-    width: 70%;
-    height: 100%;
-    background: linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
-    transform: skewX(-25deg);
-    transition: left .65s ease;
-    z-index: -1;
-}
 
-.btn:hover {
-    transform: translateY(-4px) scale(1.03);
-    background-position: 100% 50%;
-    box-shadow: 0 0 15px rgba(180,70,255,.55),0 0 30px rgba(160,32,240,.4);
-}
-
-.btn:hover::before {
-    left: 150%;
-}
-
-.btn:active {
-    transform: scale(.97);
-}
-
-/* SECTION TITLES */
-
-.section-title {
-    text-align: center;
-    margin-bottom: 55px;
-}
-
-.section-title h2 {
-    font-size: 36px;
-}
-
-.section-title span,
-.highlight {
-    color: var(--light);
-}
-
-.section-title p {
-    color: var(--gray);
-    margin-top: 10px;
-}
-
-/* HERO */
+/* HERO SECTION */
 
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    position: relative;
-    overflow: hidden;
-    background:
-        radial-gradient(circle at 80% 40%,rgba(130,0,255,.22),transparent 35%),
-        var(--bg);
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 450px;
-    height: 450px;
-    right: -150px;
-    top: 20%;
-    background: rgba(140,0,255,.12);
-    filter: blur(100px);
-    border-radius: 50%;
-    animation: floatGlow 7s ease-in-out infinite alternate;
+    padding-top: 120px;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 750px;
-    animation: heroEntrance 1.2s cubic-bezier(.2,.7,.2,1) both;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 50px;
 }
 
-.hero h1 {
-    font-size: clamp(42px,7vw,75px);
-    line-height: 1.15;
-    margin-bottom: 20px;
-}
-
-.hero h1 span {
-    background: linear-gradient(90deg,#a020f0,#e0aaff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.hero p {
-    color: var(--gray);
-    font-size: 17px;
-    line-height: 1.8;
-    max-width: 620px;
-    margin-bottom: 30px;
-}
-
-.hero-tag {
-    color: var(--light);
-    letter-spacing: 4px;
+.small-heading {
+    color: var(--light-purple);
+    letter-spacing: 3px;
     font-size: 13px;
     margin-bottom: 20px;
 }
 
-/* ABOUT */
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 65px;
-    align-items: center;
+.hero-text h1 {
+    font-size: clamp(40px, 5vw, 65px);
+    line-height: 1.2;
+    margin-bottom: 22px;
 }
 
-.about-visual {
+.hero-text h1 span {
+    color: var(--purple);
+    text-shadow: 0 0 25px rgba(155, 53, 255, 0.4);
+}
+
+.hero-text p {
+    color: var(--gray);
+    line-height: 1.9;
+    max-width: 550px;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 27px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #7b20e8, #b44cff);
+    box-shadow: 0 0 22px rgba(155, 53, 255, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px rgba(155, 53, 255, 0.6);
+}
+
+.btn-outline {
+    border: 1px solid var(--purple);
+    color: var(--light-purple);
+}
+
+.btn-outline:hover {
+    background: var(--purple);
+    color: white;
+    transform: translateY(-4px);
+}
+
+
+/* SA LOGO DESIGN */
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 390px;
+}
+
+.logo-circle {
+    width: 290px;
+    height: 290px;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 18px;
-}
-
-/* PROFILE PICTURE */
-
-.profile-frame {
     position: relative;
-    width: 100%;
-    max-width: 390px;
-    aspect-ratio: 4 / 5;
-    overflow: hidden;
-    padding: 5px;
-    border-radius: 28px;
-
-    background: linear-gradient(
-        135deg,
-        #7b00ff,
-        #e0aaff,
-        #6500d4,
-        #b54cff
-    );
-
-    background-size: 300% 300%;
-    animation: borderGlow 5s ease infinite;
-
+    background:
+        radial-gradient(circle at 35% 30%, #39205a, #12091f 65%);
+    border: 2px solid rgba(197, 138, 255, 0.65);
     box-shadow:
-        0 0 25px rgba(160,32,240,.35),
-        0 0 55px rgba(160,32,240,.15);
-
-    transition: .4s ease;
+        0 0 25px rgba(155, 53, 255, 0.45),
+        0 0 75px rgba(155, 53, 255, 0.22),
+        inset 0 0 35px rgba(155, 53, 255, 0.18);
+    animation: logoFloat 4s ease-in-out infinite;
 }
 
-.profile-frame:hover {
-    transform: translateY(-7px);
-    box-shadow:
-        0 0 35px rgba(160,32,240,.6),
-        0 0 65px rgba(160,32,240,.25);
+.logo-circle::before {
+    content: "";
+    position: absolute;
+    inset: -15px;
+    border: 1px solid rgba(197, 138, 255, 0.4);
+    border-radius: 50%;
+    animation: rotate 12s linear infinite;
 }
 
-.profile-frame img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 100% 42%;
-    transform: scale(1.25);
+.logo-circle::after {
+    content: "";
+    position: absolute;
+    inset: -30px;
+    border: 1px dashed rgba(155, 53, 255, 0.35);
+    border-radius: 50%;
+    animation: rotate 20s linear infinite reverse;
+}
+
+.sa-text {
+    font-size: 95px;
+    font-weight: 800;
+    letter-spacing: -12px;
+    padding-right: 12px;
+    background: linear-gradient(135deg, #ffffff, #d7aaff, #8c27ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 18px rgba(177, 90, 255, 0.65));
+}
+
+.logo-caption {
+    position: absolute;
+    bottom: 25px;
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: #d8b7ff;
+    font-weight: 600;
+    text-align: center;
+}
+
+@keyframes logoFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ABOUT SECTION */
+
+.about-content {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+    background: var(--card);
+    padding: 45px;
     border-radius: 22px;
-    transition: transform .6s ease;
+    border: 1px solid rgba(155, 53, 255, 0.2);
 }
 
-.profile-frame:hover img {
-    transform: scale(1.32);
-}
-
-.about-text h3 {
-    font-size: 30px;
-    margin-bottom: 15px;
-}
-
-.about-text p {
+.about-content p {
     color: var(--gray);
-    line-height: 1.9;
-    margin-bottom: 18px;
+    line-height: 2;
+    font-size: 15px;
 }
 
-.about-info {
-    margin-top: 25px;
-    display: grid;
-    gap: 12px;
-}
-
-.about-info div {
-    color: var(--gray);
-}
-
-.about-info strong {
-    color: var(--light);
-}
-
-/* MOUSE FOLLOW CARDS */
-
-.service-card,
-.portfolio-card,
-.contact-box {
-    position: relative;
-    isolation: isolate;
-    background-color: var(--card);
-    background-image: radial-gradient(
-        350px circle at var(--mouse-x,50%) var(--mouse-y,50%),
-        rgba(177,70,255,.23),
-        transparent 70%
-    );
-    border: 1px solid rgba(160,32,240,.18);
-    transition:
-        transform .4s ease,
-        border-color .4s ease,
-        box-shadow .4s ease;
-}
 
 /* SERVICES */
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 }
 
 .service-card {
-    padding: 35px 25px;
+    position: relative;
+    overflow: hidden;
+    background: var(--card);
+    padding: 32px 25px;
+    border: 1px solid rgba(155, 53, 255, 0.17);
     border-radius: 18px;
+    transition: 0.35s;
+}
+
+.service-card::before {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(155,53,255,0.18), transparent 70%);
+    top: var(--mouse-y, 50%);
+    left: var(--mouse-x, 50%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.service-card:hover::before {
+    opacity: 1;
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--light);
-    box-shadow: 0 10px 35px rgba(160,32,240,.25);
+    transform: translateY(-9px);
+    border-color: var(--purple);
+    box-shadow: 0 12px 35px rgba(155, 53, 255, 0.15);
 }
 
 .service-icon {
-    font-size: 38px;
-    margin-bottom: 20px;
+    font-size: 35px;
+    margin-bottom: 18px;
 }
 
 .service-card h3 {
+    font-size: 19px;
     margin-bottom: 12px;
-    font-size: 21px;
 }
 
 .service-card p {
+    font-size: 13px;
     color: var(--gray);
-    line-height: 1.7;
-    font-size: 14px;
+    line-height: 1.8;
 }
+
 
 /* PORTFOLIO */
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 }
 
 .portfolio-card {
-    padding: 30px;
+    background: linear-gradient(145deg, #1d1230, #100b19);
+    border: 1px solid rgba(155, 53, 255, 0.2);
     border-radius: 18px;
+    overflow: hidden;
+    transition: 0.3s;
 }
 
 .portfolio-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--light);
-    box-shadow: 0 10px 35px rgba(160,32,240,.25);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(155, 53, 255, 0.18);
 }
 
-.project-icon {
-    font-size: 40px;
-    margin-bottom: 20px;
+.portfolio-visual {
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    background: radial-gradient(circle, #48206d, #150b22);
 }
 
-.portfolio-card h3 {
-    margin-bottom: 10px;
+.portfolio-info {
+    padding: 22px;
 }
 
-.portfolio-card p {
+.portfolio-info h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.portfolio-info p {
     color: var(--gray);
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.7;
 }
 
-.project-label {
+.practice-label {
     display: inline-block;
-    margin-top: 18px;
-    color: var(--light);
-    font-size: 12px;
+    margin-top: 12px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #d5aaff;
+    border: 1px solid rgba(197, 138, 255, 0.4);
+    padding: 5px 10px;
+    border-radius: 20px;
 }
+
 
 /* SKILLS */
 
-.skills-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+.skills-container {
+    max-width: 750px;
+    margin: auto;
 }
 
 .skill {
-    margin-bottom: 25px;
+    margin-bottom: 28px;
 }
 
-.skill-info {
+.skill-heading {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.skill-heading span:last-child {
+    color: var(--light-purple);
 }
 
 .skill-bar {
+    width: 100%;
     height: 9px;
-    background: #251936;
+    background: #241a30;
     border-radius: 20px;
     overflow: hidden;
 }
 
-.skill-fill {
-    height: 100%;
+.skill-progress {
     width: 0;
-    background: linear-gradient(90deg,#8500ff,#d9a3ff);
+    height: 100%;
     border-radius: 20px;
+    background: linear-gradient(90deg, #7224d6, #c58aff);
     transition: width 1.5s ease;
 }
+
 
 /* CONTACT */
 
 .contact-box {
-    padding: 55px 25px;
-    border-radius: 25px;
+    max-width: 750px;
+    margin: auto;
+    padding: 50px 30px;
     text-align: center;
-}
-
-.contact-box:hover {
-    border-color: var(--purple);
-    box-shadow: 0 0 35px rgba(160,32,240,.2);
+    border-radius: 22px;
+    background: linear-gradient(135deg, #1c1030, #100b1a);
+    border: 1px solid rgba(155, 53, 255, 0.3);
 }
 
 .contact-box h2 {
-    font-size: 34px;
+    font-size: 32px;
     margin-bottom: 15px;
 }
 
 .contact-box p {
     color: var(--gray);
-    margin-bottom: 30px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    font-size: 14px;
 }
+
+.email-text {
+    display: block;
+    margin-bottom: 25px;
+    color: var(--light-purple);
+    word-break: break-word;
+}
+
 
 /* FOOTER */
 
 footer {
-    padding: 30px 0;
+    padding: 25px 8%;
     text-align: center;
-    border-top: 1px solid rgba(160,32,240,.15);
+    border-top: 1px solid rgba(155, 53, 255, 0.2);
     color: var(--gray);
-    font-size: 13px;
+    font-size: 12px;
 }
 
-/* SCROLL ANIMATION */
+footer span {
+    color: var(--light-purple);
+}
+
+
+/* SCROLL ANIMATIONS */
 
 .reveal {
     opacity: 0;
-    transform: translateY(45px) scale(.98);
-    transition:
-        opacity .8s ease,
-        transform .8s cubic-bezier(.2,.7,.2,1);
+    transform: translateY(35px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .reveal.active {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
 }
 
-/* STAGGERED CARDS */
 
-.services-grid .service-card:nth-child(2),
-.portfolio-grid .portfolio-card:nth-child(2) {
-    transition-delay: .12s;
+/* SCROLL PROGRESS */
+
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: linear-gradient(90deg, #8a25ff, #d49aff);
+    z-index: 2000;
 }
 
-.services-grid .service-card:nth-child(3),
-.portfolio-grid .portfolio-card:nth-child(3) {
-    transition-delay: .24s;
-}
 
-.services-grid .service-card:nth-child(4) {
-    transition-delay: .08s;
-}
+/* RESPONSIVE DESIGN */
 
-.services-grid .service-card:nth-child(5) {
-    transition-delay: .16s;
-}
+@media (max-width: 900px) {
 
-.services-grid .service-card:nth-child(6) {
-    transition-delay: .24s;
-}
-
-/* ANIMATIONS */
-
-@keyframes heroEntrance {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-        filter: blur(8px);
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
+
+    .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .logo-area {
+        min-height: 350px;
+    }
+
+    .services-grid,
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@keyframes borderGlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
+@media (max-width: 650px) {
 
-@keyframes floatGlow {
-    from { transform: translateY(-20px); }
-    to { transform: translateY(40px); }
-}
+    section {
+        padding: 80px 6%;
+    }
 
-/* RESPONSIVE */
+    .navbar {
+        padding: 15px 6%;
+    }
 
-@media(max-width:850px) {
     .menu-btn {
         display: block;
     }
 
     .nav-links {
-        display: none;
         position: absolute;
-        top: 75px;
+        top: 70px;
         left: 0;
         width: 100%;
-        background: #100b1a;
+        background: #100b19;
+        display: none;
         flex-direction: column;
         text-align: center;
-        padding: 25px;
-        gap: 22px;
+        gap: 0;
+        border-bottom: 1px solid rgba(155,53,255,0.3);
     }
 
     .nav-links.show {
         display: flex;
     }
 
-    .about-grid {
-        grid-template-columns: 1fr;
+    .nav-links li {
+        padding: 15px;
     }
 
-    .about-visual {
-        order: -1;
+    .hero {
+        padding-top: 125px;
+    }
+
+    .hero-text h1 {
+        font-size: 39px;
+    }
+
+    .logo-circle {
+        width: 220px;
+        height: 220px;
+    }
+
+    .sa-text {
+        font-size: 75px;
+    }
+
+    .logo-caption {
+        bottom: 15px;
+        font-size: 10px;
     }
 
     .services-grid,
     .portfolio-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
-}
-
-@media(max-width:550px) {
-    section {
-        padding: 75px 0;
-    }
-
-    .hero h1 {
-        font-size: 43px;
-    }
-
-    .services-grid,
-    .portfolio-grid,
-    .skills-grid {
         grid-template-columns: 1fr;
     }
 
     .section-title h2 {
-        font-size: 29px;
+        font-size: 30px;
+    }
+
+    .about-content {
+        padding: 28px 20px;
     }
 
     .contact-box h2 {
-        font-size: 27px;
-    }
-
-    .logo {
-        font-size: 19px;
-    }
-
-    .profile-frame {
-        max-width: 330px;
+        font-size: 26px;
     }
 }
 
-/* REDUCED MOTION */
-
-@media(prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
-        scroll-behavior: auto !important;
-    }
-}
 </style>
 </head>
 
 <body>
 
-<div class="progress" id="progress"></div>
+<div class="progress-bar" id="progressBar"></div>
 
-<!-- NAVBAR -->
+<div class="background-effects">
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+    <div class="orb orb-three"></div>
+</div>
+
+
+<!-- NAVIGATION -->
 
 <header>
-    <div class="container navbar">
+    <nav class="navbar">
 
         <a href="#home" class="logo">
             SA<span>.</span> Creative Studio
         </a>
 
-        <div class="menu-btn" id="menuBtn">☰</div>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">
+            ☰
+        </button>
 
         <ul class="nav-links" id="navLinks">
             <li><a href="#home">Home</a></li>
@@ -668,97 +737,104 @@ footer {
             <li><a href="#contact">Contact</a></li>
         </ul>
 
-    </div>
+    </nav>
 </header>
+
 
 <!-- HERO -->
 
 <section class="hero" id="home">
-    <div class="container">
-        <div class="hero-content">
 
-            <div class="hero-tag">
+    <div class="container hero-content">
+
+        <div class="hero-text reveal">
+
+            <div class="small-heading">
                 WELCOME TO SA CREATIVE STUDIO
             </div>
 
             <h1>
-                Design.<br>
-                Edit.<br>
-                <span>Create.</span>
+                Creativity Meets
+                <span>Innovation.</span>
             </h1>
 
             <p>
-                Hi, I'm Saif Ali, founder of SA Creative Studio.
-                I help bring creative ideas to life through graphic
-                designing, video editing and digital services.
+                We bring ideas to life through creative design,
+                video editing, social media content and digital
+                brand promotion.
             </p>
 
-            <a href="#services" class="btn">Explore Services</a>
+            <div class="buttons">
+                <a href="#services" class="btn btn-primary">
+                    Explore Services
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Contact Me
+                </a>
+            </div>
 
         </div>
+
+
+        <!-- ANIMATED SA LOGO -->
+
+        <div class="logo-area reveal">
+
+            <div class="logo-circle">
+                <div class="sa-text">SA</div>
+                <div class="logo-caption">
+                    CREATIVE STUDIO
+                </div>
+            </div>
+
+        </div>
+
     </div>
+
 </section>
+
 
 <!-- ABOUT -->
 
 <section id="about">
+
     <div class="container">
 
         <div class="section-title reveal">
-            <h2>About <span>Me</span></h2>
-            <p>Meet the person behind SA Creative Studio.</p>
+            <h2>About <span>Us</span></h2>
+            <p>Creative ideas. Digital solutions.</p>
         </div>
 
-        <div class="about-grid">
+        <div class="about-content reveal">
 
-            <div class="about-visual reveal">
+            <p>
+                SA Creative Studio is a digital creative platform
+                focused on graphic designing, video editing,
+                social media content creation, brand promotion
+                and other creative services.
 
-                <div class="profile-frame">
-                    <img
-                        src="profile-poster.png"
-                        alt="Saif Ali, founder of SA Creative Studio"
-                    >
-                </div>
+                Our goal is to turn ideas into attractive digital
+                content and help brands build a professional
+                online presence.
+            </p>
 
-            </div>
-
-            <div class="about-text reveal">
-
-                <h3>I'm <span class="highlight">Saif Ali</span></h3>
-
-                <p>
-                    I'm the founder and creator of SA Creative Studio.
-                    My passion is creativity, digital design and
-                    helping ideas become meaningful visual content.
-                </p>
-
-                <p>
-                    I focus on creating attractive graphics,
-                    engaging videos and reliable digital services.
-                    My goal is to keep learning, improving and
-                    delivering quality work.
-                </p>
-
-                <div class="about-info">
-                    <div><strong>Brand:</strong> SA Creative Studio</div>
-                    <div><strong>Founder:</strong> Saif Ali</div>
-                    <div><strong>Location:</strong> Lahore, Pakistan</div>
-                    <div><strong>Focus:</strong> Design, Edit & Create</div>
-                </div>
-
-            </div>
         </div>
+
     </div>
+
 </section>
+
 
 <!-- SERVICES -->
 
 <section id="services">
+
     <div class="container">
 
         <div class="section-title reveal">
             <h2>My <span>Services</span></h2>
-            <p>Creative solutions for your digital needs.</p>
+            <p>Creative solutions for digital growth.</p>
         </div>
 
         <div class="services-grid">
@@ -766,167 +842,267 @@ footer {
             <div class="service-card reveal">
                 <div class="service-icon">🎨</div>
                 <h3>Graphic Designing</h3>
-                <p>Creative social media posts, banners, promotional designs and visual content.</p>
+                <p>
+                    Creative social media posts, banners,
+                    promotional graphics and visual designs.
+                </p>
             </div>
 
             <div class="service-card reveal">
                 <div class="service-icon">🎬</div>
                 <h3>Video Editing</h3>
-                <p>Engaging video edits, short-form content, reels and promotional videos.</p>
-            </div>
-
-            <div class="service-card reveal">
-                <div class="service-icon">📊</div>
-                <h3>Data Entry</h3>
-                <p>Accurate typing, document formatting, spreadsheet work and data organization.</p>
-            </div>
-
-            <div class="service-card reveal">
-                <div class="service-icon">📢</div>
-                <h3>Brand Promotion</h3>
-                <p>Promotional content and creative ideas to introduce brands and products.</p>
+                <p>
+                    Engaging video edits, reels, transitions
+                    and attractive social media videos.
+                </p>
             </div>
 
             <div class="service-card reveal">
                 <div class="service-icon">📱</div>
                 <h3>Social Media Content</h3>
-                <p>Creative posts and content concepts for social media platforms.</p>
+                <p>
+                    Creative content ideas, posts and
+                    visual material for social media platforms.
+                </p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-icon">🚀</div>
+                <h3>Brand Promotion</h3>
+                <p>
+                    Promotional designs and creative content
+                    to introduce brands and their products.
+                </p>
             </div>
 
             <div class="service-card reveal">
                 <div class="service-icon">✍️</div>
                 <h3>Content Writing</h3>
-                <p>Simple and engaging written content for digital platforms and projects.</p>
+                <p>
+                    Simple and engaging written content
+                    for digital platforms and businesses.
+                </p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-icon">💻</div>
+                <h3>Typing & Data Entry</h3>
+                <p>
+                    Document typing, formatting and
+                    basic data entry services.
+                </p>
             </div>
 
         </div>
+
     </div>
+
 </section>
+
 
 <!-- PORTFOLIO -->
 
 <section id="portfolio">
+
     <div class="container">
 
         <div class="section-title reveal">
             <h2>My <span>Portfolio</span></h2>
-            <p>Some creative project concepts and practice work.</p>
+            <p>Creative practice projects and design concepts.</p>
         </div>
 
         <div class="portfolio-grid">
 
             <div class="portfolio-card reveal">
-                <div class="project-icon">👕</div>
-                <h3>Fashion Brand Design</h3>
-                <p>A sample promotional design concept for a fashion brand.</p>
-                <span class="project-label">PRACTICE CONCEPT</span>
+
+                <div class="portfolio-visual">👕</div>
+
+                <div class="portfolio-info">
+                    <h3>Fashion Brand Concept</h3>
+
+                    <p>
+                        A creative promotional concept
+                        for a fashion brand.
+                    </p>
+
+                    <span class="practice-label">
+                        PRACTICE PROJECT
+                    </span>
+                </div>
+
             </div>
 
-            <div class="portfolio-card reveal">
-                <div class="project-icon">🎥</div>
-                <h3>Video Editing Project</h3>
-                <p>A sample short-form video editing and social media content concept.</p>
-                <span class="project-label">PRACTICE CONCEPT</span>
-            </div>
 
             <div class="portfolio-card reveal">
-                <div class="project-icon">📄</div>
-                <h3>Data Entry Project</h3>
-                <p>A sample spreadsheet and document formatting project.</p>
-                <span class="project-label">PRACTICE CONCEPT</span>
+
+                <div class="portfolio-visual">🎨</div>
+
+                <div class="portfolio-info">
+                    <h3>Social Media Design</h3>
+
+                    <p>
+                        A visual concept for social media
+                        promotional content.
+                    </p>
+
+                    <span class="practice-label">
+                        PRACTICE PROJECT
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="portfolio-card reveal">
+
+                <div class="portfolio-visual">🎥</div>
+
+                <div class="portfolio-info">
+                    <h3>Video Editing Concept</h3>
+
+                    <p>
+                        A creative concept for short-form
+                        video and reels content.
+                    </p>
+
+                    <span class="practice-label">
+                        PRACTICE PROJECT
+                    </span>
+                </div>
+
             </div>
 
         </div>
+
     </div>
+
 </section>
+
 
 <!-- SKILLS -->
 
 <section id="skills">
+
     <div class="container">
 
         <div class="section-title reveal">
             <h2>My <span>Skills</span></h2>
-            <p>Tools and creative areas I'm developing.</p>
+            <p>Tools and creative skills I am developing.</p>
         </div>
 
-        <div class="skills-grid">
+        <div class="skills-container reveal">
 
-            <div class="reveal">
+            <div class="skill">
 
-                <div class="skill">
-                    <div class="skill-info">Graphic Designing</div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" data-width="75%"></div>
-                    </div>
+                <div class="skill-heading">
+                    <span>Graphic Designing</span>
+                    <span>75%</span>
                 </div>
 
-                <div class="skill">
-                    <div class="skill-info">Video Editing</div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" data-width="70%"></div>
-                    </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-width="75%"></div>
                 </div>
 
             </div>
 
-            <div class="reveal">
 
-                <div class="skill">
-                    <div class="skill-info">Data Entry</div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" data-width="80%"></div>
-                    </div>
+            <div class="skill">
+
+                <div class="skill-heading">
+                    <span>Video Editing</span>
+                    <span>70%</span>
                 </div>
 
-                <div class="skill">
-                    <div class="skill-info">Content Creation</div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" data-width="70%"></div>
-                    </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-width="70%"></div>
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-heading">
+                    <span>Social Media Content</span>
+                    <span>75%</span>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="skill-progress" data-width="75%"></div>
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-heading">
+                    <span>MS Word & Data Entry</span>
+                    <span>80%</span>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="skill-progress" data-width="80%"></div>
                 </div>
 
             </div>
 
         </div>
+
     </div>
+
 </section>
+
 
 <!-- CONTACT -->
 
 <section id="contact">
+
     <div class="container">
+
+        <div class="section-title reveal">
+            <h2>Get In <span>Touch</span></h2>
+            <p>Have a project or an idea? Let's connect.</p>
+        </div>
 
         <div class="contact-box reveal">
 
-            <h2>
-                Let's Create Something
-                <span class="highlight">Amazing</span>
-            </h2>
+            <h2>Let's Work Together!</h2>
 
             <p>
-                Have a project or creative idea?
-                Let's discuss how we can work together.
+                Interested in creative digital services?
+                Feel free to contact me through email.
             </p>
 
-            <a href="mailto:saifali0011011@gmail.com" class="btn">
-                Contact Me
+            <a class="email-text"
+               href="mailto:saifali0011011@gmail.com">
+                saifali0011011@gmail.com
+            </a>
+
+            <a class="btn btn-primary"
+               href="mailto:saifali0011011@gmail.com?subject=Project%20Inquiry">
+                Send an Email
             </a>
 
         </div>
+
     </div>
+
 </section>
+
 
 <!-- FOOTER -->
 
 <footer>
-    <div class="container">
-        <p>
-            © <span id="year"></span>
-            SA Creative Studio. Created by Saif Ali.
-        </p>
-    </div>
+
+    <p>
+        © <span id="year"></span>
+        <span>SA Creative Studio.</span>
+        All Rights Reserved.
+    </p>
+
 </footer>
+
 
 <script>
 
@@ -935,88 +1111,131 @@ footer {
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 
-menuBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("show");
+menuBtn.addEventListener("click", function () {
+
+    const isOpen = navLinks.classList.toggle("show");
+
+    menuBtn.setAttribute("aria-expanded", isOpen);
+
+    menuBtn.textContent = isOpen ? "✕" : "☰";
+
 });
 
-document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
+document.querySelectorAll(".nav-links a").forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
         navLinks.classList.remove("show");
+
+        menuBtn.setAttribute("aria-expanded", "false");
+
+        menuBtn.textContent = "☰";
+
     });
+
 });
 
-/* SCROLL PROGRESS */
-
-window.addEventListener("scroll", () => {
-    const scrollTop = document.documentElement.scrollTop;
-
-    const height =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
-
-    const progress = height > 0 ? (scrollTop / height) * 100 : 0;
-
-    document.getElementById("progress").style.width =
-        progress + "%";
-});
 
 /* SCROLL REVEAL */
 
-const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
+const revealElements = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(function(entries) {
+
+    entries.forEach(function(entry) {
+
         if (entry.isIntersecting) {
+
             entry.target.classList.add("active");
+
             revealObserver.unobserve(entry.target);
+
         }
+
     });
+
 }, {
-    threshold: 0.12,
-    rootMargin: "0px 0px -40px 0px"
+    threshold: 0.12
 });
 
-document.querySelectorAll(".reveal").forEach(element => {
+revealElements.forEach(function(element) {
+
     revealObserver.observe(element);
+
 });
 
-/* MOUSE FOLLOW LIGHT */
 
-const lightCards = document.querySelectorAll(
-    ".service-card, .portfolio-card, .contact-box"
-);
+/* SKILL BAR ANIMATION */
 
-lightCards.forEach(card => {
-    card.addEventListener("mousemove", event => {
-        const rect = card.getBoundingClientRect();
+const skillsSection = document.getElementById("skills");
 
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
+const skillObserver = new IntersectionObserver(function(entries) {
 
-        card.style.setProperty("--mouse-x", x + "px");
-        card.style.setProperty("--mouse-y", y + "px");
-    });
-});
+    entries.forEach(function(entry) {
 
-/* SKILL ANIMATION */
-
-const skillObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.querySelectorAll(".skill-fill").forEach(fill => {
-                fill.style.width = fill.dataset.width;
+
+            document.querySelectorAll(".skill-progress").forEach(function(bar) {
+
+                bar.style.width = bar.dataset.width;
+
             });
 
             skillObserver.unobserve(entry.target);
+
         }
+
     });
+
 }, {
-    threshold: 0.3
+    threshold: 0.25
 });
 
-document.querySelectorAll(".skills-grid > div").forEach(element => {
-    skillObserver.observe(element);
+skillObserver.observe(skillsSection);
+
+
+/* SERVICE CARD MOUSE GLOW */
+
+document.querySelectorAll(".service-card").forEach(function(card) {
+
+    card.addEventListener("mousemove", function(event) {
+
+        const rect = card.getBoundingClientRect();
+
+        const x = event.clientX - rect.left;
+
+        const y = event.clientY - rect.top;
+
+        card.style.setProperty("--mouse-x", x + "px");
+
+        card.style.setProperty("--mouse-y", y + "px");
+
+    });
+
 });
 
-/* CURRENT YEAR */
+
+/* SCROLL PROGRESS BAR */
+
+window.addEventListener("scroll", function() {
+
+    const scrollTop = document.documentElement.scrollTop;
+
+    const scrollHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+    const progress = scrollHeight > 0
+        ? (scrollTop / scrollHeight) * 100
+        : 0;
+
+    document.getElementById("progressBar").style.width =
+        progress + "%";
+
+});
+
+
+/* AUTOMATIC COPYRIGHT YEAR */
 
 document.getElementById("year").textContent =
     new Date().getFullYear();
