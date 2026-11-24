@@ -6,36 +6,44 @@
 
 <title>SA Creative Studio | Digital Creative Services</title>
 
-<meta name="description" content="SA Creative Studio offers graphic design, video editing, social media content creation and digital creative services.">
+<meta name="description" content="SA Creative Studio by Saif Ali. Creative services including graphic design, video editing, social media content, brand promotion and data entry.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* GENERAL */
+/* =========================
+   GLOBAL SETTINGS
+========================= */
+
+:root {
+    --bg: #08070d;
+    --card: #12101b;
+    --purple: #9b5cff;
+    --purple-light: #c29aff;
+    --white: #ffffff;
+    --muted: #aaa4b8;
+    --border: rgba(180,130,255,0.16);
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 
-:root {
-    --bg: #080610;
-    --card: #120d20;
-    --purple: #9b35ff;
-    --light-purple: #c58aff;
-    --white: #ffffff;
-    --gray: #b9b2c5;
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }
 
 body {
     background: var(--bg);
     color: var(--white);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     overflow-x: hidden;
 }
 
@@ -44,435 +52,467 @@ a {
     color: inherit;
 }
 
-section {
-    padding: 100px 8%;
-}
-
 .container {
-    max-width: 1200px;
+    width: 88%;
+    max-width: 1180px;
     margin: auto;
 }
 
+section {
+    padding: 105px 0;
+    position: relative;
+}
+
+.section-tag {
+    color: var(--purple-light);
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 14px;
+    display: inline-block;
+}
+
 .section-title {
-    text-align: center;
-    margin-bottom: 55px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    line-height: 1.2;
 }
 
-.section-title h2 {
-    font-size: 38px;
-    margin-bottom: 12px;
+.section-title span {
+    color: var(--purple-light);
 }
 
-.section-title h2 span {
-    color: var(--purple);
+.section-description {
+    color: var(--muted);
+    max-width: 650px;
+    line-height: 1.8;
+    margin-top: 15px;
 }
 
-.section-title p {
-    color: var(--gray);
+.gradient-text {
+    background: linear-gradient(90deg, #ffffff, #b68aff, #8f4dff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
-
-/* BACKGROUND ANIMATION */
-
-.background-effects {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
+.glow {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background: rgba(130,60,255,0.12);
+    filter: blur(110px);
+    border-radius: 50%;
     pointer-events: none;
     z-index: -1;
 }
 
-.orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(90px);
-    opacity: 0.18;
-    animation: float 9s ease-in-out infinite alternate;
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+    background-size: 55px 55px;
+    pointer-events: none;
+    z-index: -2;
 }
 
-.orb-one {
-    width: 350px;
-    height: 350px;
-    background: #8000ff;
-    top: 10%;
-    left: -120px;
-}
-
-.orb-two {
-    width: 300px;
-    height: 300px;
-    background: #c000ff;
-    right: -100px;
-    top: 50%;
-    animation-delay: 2s;
-}
-
-.orb-three {
-    width: 250px;
-    height: 250px;
-    background: #5200aa;
-    bottom: -100px;
-    left: 35%;
-    animation-delay: 4s;
-}
-
-@keyframes float {
-    from {
-        transform: translate(0, 0);
-    }
-
-    to {
-        transform: translate(60px, -50px);
-    }
-}
-
-
-/* NAVBAR */
-
-header {
-    width: 100%;
+#scroll-progress {
     position: fixed;
     top: 0;
     left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, #8745ff, #d4b4ff);
+    z-index: 2000;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
     z-index: 1000;
-    background: rgba(8, 6, 16, 0.90);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(155, 53, 255, 0.15);
+    background: rgba(8,7,13,0.82);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 .navbar {
-    max-width: 1250px;
-    margin: auto;
-    padding: 17px 8%;
+    height: 78px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .logo {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 25px;
     font-weight: 800;
-    letter-spacing: 1px;
+    letter-spacing: -1px;
 }
 
 .logo span {
-    color: var(--purple);
+    color: var(--purple-light);
 }
 
 .nav-links {
     display: flex;
-    gap: 30px;
-    list-style: none;
+    align-items: center;
+    gap: 32px;
 }
 
 .nav-links a {
     font-size: 14px;
-    color: var(--gray);
+    color: #d0cadb;
     transition: 0.3s;
 }
 
 .nav-links a:hover {
-    color: var(--light-purple);
+    color: var(--purple-light);
+}
+
+.nav-contact {
+    padding: 11px 21px;
+    border: 1px solid var(--purple);
+    border-radius: 30px;
+    color: white !important;
+    transition: 0.3s;
+}
+
+.nav-contact:hover {
+    background: var(--purple);
+    box-shadow: 0 0 25px rgba(155,92,255,0.4);
 }
 
 .menu-btn {
     display: none;
     font-size: 27px;
-    cursor: pointer;
     color: white;
     background: none;
     border: none;
+    cursor: pointer;
 }
 
-
-/* HERO */
+/* =========================
+   HERO SECTION
+========================= */
 
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     padding-top: 120px;
+    overflow: hidden;
 }
 
-.hero-content {
+.hero-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: 1.2fr 0.8fr;
     align-items: center;
     gap: 50px;
 }
 
-.small-heading {
-    color: var(--light-purple);
-    letter-spacing: 3px;
-    font-size: 13px;
-    margin-bottom: 20px;
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 16px;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    background: rgba(155,92,255,0.08);
+    color: #d4baff;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
 }
 
-.hero-text h1 {
-    font-size: clamp(40px, 5vw, 65px);
-    line-height: 1.2;
-    margin-bottom: 22px;
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #a77aff;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #a77aff;
 }
 
-.hero-text h1 span {
-    color: var(--purple);
-    text-shadow: 0 0 25px rgba(155, 53, 255, 0.4);
+.hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(43px, 6vw, 76px);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -2px;
 }
 
-.hero-text p {
-    color: var(--gray);
+.hero-text {
+    max-width: 560px;
+    color: var(--muted);
     line-height: 1.9;
-    max-width: 550px;
-    font-size: 15px;
-    margin-bottom: 30px;
+    margin: 25px 0 32px;
+    font-size: 16px;
 }
 
-.buttons {
+.hero-buttons {
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
 }
 
 .btn {
-    display: inline-block;
-    padding: 13px 27px;
-    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 25px;
+    border-radius: 9px;
     font-size: 14px;
-    font-weight: 600;
-    transition: 0.35s ease;
+    font-weight: 700;
+    transition: 0.35s;
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #7b20e8, #b44cff);
-    box-shadow: 0 0 22px rgba(155, 53, 255, 0.3);
+    color: white;
+    background: linear-gradient(110deg, #8140e8, #ae75ff);
+    box-shadow: 0 8px 30px rgba(142,72,255,0.25);
 }
 
 .btn-primary:hover {
     transform: translateY(-4px);
-    box-shadow: 0 0 30px rgba(155, 53, 255, 0.6);
+    box-shadow: 0 10px 35px rgba(142,72,255,0.5);
 }
 
 .btn-outline {
-    border: 1px solid var(--purple);
-    color: var(--light-purple);
+    border: 1px solid var(--border);
+    color: white;
 }
 
 .btn-outline:hover {
-    background: var(--purple);
-    color: white;
+    border-color: var(--purple);
+    background: rgba(155,92,255,0.1);
     transform: translateY(-4px);
-    box-shadow: 0 0 20px rgba(155, 53, 255, 0.35);
 }
 
-
-/* SA LOGO */
-
-.logo-area {
+.hero-visual {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
     min-height: 390px;
 }
 
-.logo-circle {
-    width: 290px;
-    height: 290px;
-    border-radius: 50%;
+.hero-logo {
+    width: 270px;
+    height: 270px;
+    border-radius: 40px;
+    border: 1px solid rgba(190,140,255,0.4);
+    background: linear-gradient(145deg, #211634, #0e0b16);
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    background: radial-gradient(circle at 35% 30%, #39205a, #12091f 65%);
-    border: 2px solid rgba(197, 138, 255, 0.65);
-    box-shadow:
-        0 0 25px rgba(155, 53, 255, 0.45),
-        0 0 75px rgba(155, 53, 255, 0.22),
-        inset 0 0 35px rgba(155, 53, 255, 0.18);
-    animation: logoFloat 4s ease-in-out infinite;
-}
-
-.logo-circle::before {
-    content: "";
-    position: absolute;
-    inset: -15px;
-    border: 1px solid rgba(197, 138, 255, 0.4);
-    border-radius: 50%;
-    animation: rotate 12s linear infinite;
-}
-
-.logo-circle::after {
-    content: "";
-    position: absolute;
-    inset: -30px;
-    border: 1px dashed rgba(155, 53, 255, 0.35);
-    border-radius: 50%;
-    animation: rotate 20s linear infinite reverse;
-}
-
-.sa-text {
-    font-size: 95px;
-    font-weight: 800;
-    letter-spacing: -12px;
-    padding-right: 12px;
-    background: linear-gradient(135deg, #ffffff, #d7aaff, #8c27ff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    filter: drop-shadow(0 0 18px rgba(177, 90, 255, 0.65));
-}
-
-.logo-caption {
-    position: absolute;
-    bottom: 25px;
-    font-size: 13px;
-    letter-spacing: 5px;
-    color: #d8b7ff;
-    font-weight: 600;
-    text-align: center;
-}
-
-@keyframes logoFloat {
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-15px);
-    }
-}
-
-@keyframes rotate {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-
-/* ABOUT ME */
-
-.about-content {
-    max-width: 850px;
-    margin: auto;
-    text-align: center;
-    background: linear-gradient(145deg, #171024, #100b1b);
-    padding: 45px;
-    border-radius: 22px;
-    border: 1px solid rgba(155, 53, 255, 0.25);
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
-    transition: 0.35s ease;
-}
-
-.about-content:hover {
-    border-color: rgba(155, 53, 255, 0.55);
-    box-shadow: 0 12px 40px rgba(155, 53, 255, 0.12);
-}
-
-.about-content p {
-    color: var(--gray);
-    line-height: 2;
-    font-size: 15px;
-    max-width: 700px;
-    margin: auto;
-}
-
-
-/* ABOUT ANIMATED STICKER */
-
-.about-visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 35px auto;
-    min-height: 230px;
-}
-
-.about-sticker {
-    width: 180px;
-    height: 180px;
-    border-radius: 35px;
-    background: linear-gradient(145deg, #321052, #130b20);
-    border: 1px solid rgba(197, 138, 255, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 85px;
-    position: relative;
-    box-shadow: 0 0 35px rgba(155, 53, 255, 0.3);
-    animation: stickerFloat 3s ease-in-out infinite;
+    font-weight: 800;
+    box-shadow: 0 0 80px rgba(139,72,255,0.2);
+    animation: float 5s ease-in-out infinite;
 }
 
-.floating-icon {
+.hero-logo span {
+    color: var(--purple-light);
+}
+
+.orbit {
     position: absolute;
-    font-size: 35px;
-    background: #211331;
-    padding: 10px;
-    border-radius: 15px;
-    border: 1px solid rgba(197, 138, 255, 0.4);
-    animation: iconFloat 2.5s ease-in-out infinite alternate;
+    width: 350px;
+    height: 350px;
+    border: 1px solid rgba(172,120,255,0.2);
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
 }
 
-.icon-one {
-    top: -20px;
-    right: -25px;
+.orbit::before {
+    content: "✦";
+    position: absolute;
+    top: 40px;
+    right: 45px;
+    color: #c49aff;
+    font-size: 25px;
 }
 
-.icon-two {
-    bottom: -20px;
-    left: -25px;
-    animation-delay: 0.7s;
+.floating-label {
+    position: absolute;
+    padding: 12px 17px;
+    background: rgba(25,20,38,0.95);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 12px;
+    color: #e0d1ff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: float 4s ease-in-out infinite;
 }
 
-.icon-three {
-    bottom: 15px;
-    right: -35px;
+.label-one {
+    top: 40px;
+    left: 0;
+}
+
+.label-two {
+    right: 0;
+    bottom: 65px;
     animation-delay: 1s;
 }
 
-@keyframes stickerFloat {
-    0%, 100% {
-        transform: translateY(0) rotate(-3deg);
-    }
+/* =========================
+   ABOUT SECTION
+========================= */
 
-    50% {
-        transform: translateY(-12px) rotate(3deg);
-    }
+.about-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    align-items: center;
+    gap: 65px;
+    margin-top: 45px;
 }
 
-@keyframes iconFloat {
-    from {
-        transform: translateY(0) rotate(-8deg);
-    }
-
-    to {
-        transform: translateY(-12px) rotate(8deg);
-    }
+.about-image-wrap {
+    position: relative;
 }
 
+.about-image {
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    display: block;
+    border-radius: 22px;
+    border: 1px solid rgba(176,125,255,0.35);
+    box-shadow: 0 20px 70px rgba(112,54,200,0.18);
+    filter: saturate(0.85);
+    transition: 0.5s;
+}
 
-/* SERVICES */
+.about-image-wrap:hover .about-image {
+    transform: scale(1.025);
+    filter: saturate(1.1);
+}
+
+.image-frame {
+    position: absolute;
+    inset: 14px -14px -14px 14px;
+    border: 1px solid rgba(173,120,255,0.4);
+    border-radius: 22px;
+    z-index: -1;
+}
+
+.about-content {
+    position: relative;
+}
+
+.about-brand {
+    color: var(--purple-light);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.about-content h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.about-content h3 span {
+    color: var(--purple-light);
+}
+
+.about-role {
+    color: #c3a5ff;
+    font-size: 14px;
+    margin-bottom: 22px;
+}
+
+.about-content p {
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 22px;
+    font-size: 14px;
+}
+
+.profile-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 27px 0;
+}
+
+.detail-box {
+    padding: 15px;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    transition: 0.3s;
+}
+
+.detail-box:hover {
+    border-color: var(--purple);
+    background: rgba(155,92,255,0.08);
+    transform: translateY(-4px);
+}
+
+.detail-box small {
+    display: block;
+    color: #968ca8;
+    font-size: 11px;
+    margin-bottom: 7px;
+}
+
+.detail-box strong {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* =========================
+   SERVICES SECTION
+========================= */
+
+.services-section {
+    background: linear-gradient(180deg, transparent, rgba(91,42,150,0.07), transparent);
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-heading .section-description {
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    gap: 22px;
 }
 
 .service-card {
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    background: var(--card);
-    padding: 32px 25px;
-    border: 1px solid rgba(155, 53, 255, 0.17);
+    padding: 32px 27px;
+    background: linear-gradient(145deg, #171321, #0e0c15);
+    border: 1px solid var(--border);
     border-radius: 18px;
-    transition:
-        transform 0.35s ease,
-        border-color 0.35s ease,
-        box-shadow 0.35s ease;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
-
-/* SMOOTH MOUSE FOLLOW LIGHT */
 
 .service-card::before {
     content: "";
@@ -480,116 +520,213 @@ header {
     inset: 0;
     z-index: -1;
     pointer-events: none;
-
-    background: radial-gradient(
-        240px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(155, 53, 255, 0.25),
-        transparent 70%
-    );
-
+    background: radial-gradient(260px circle at var(--mouse-x,50%) var(--mouse-y,50%), rgba(155,92,255,0.25), transparent 70%);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s;
 }
 
-.service-card.mouse-active::before {
+.service-card:hover::before {
     opacity: 1;
 }
 
 .service-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(175, 95, 255, 0.75);
-    box-shadow:
-        0 12px 35px rgba(155, 53, 255, 0.15),
-        inset 0 0 20px rgba(155, 53, 255, 0.04);
+    transform: translateY(-9px);
+    border-color: rgba(174,119,255,0.65);
+    box-shadow: 0 20px 45px rgba(112,55,190,0.15);
 }
 
 .service-icon {
-    font-size: 35px;
-    margin-bottom: 18px;
-    position: relative;
+    width: 58px;
+    height: 58px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+    background: rgba(155,92,255,0.13);
+    border: 1px solid rgba(155,92,255,0.25);
+    margin-bottom: 25px;
+    transition: 0.4s;
+}
+
+.service-card:hover .service-icon {
+    transform: rotate(-8deg) scale(1.12);
+    background: rgba(155,92,255,0.25);
+    box-shadow: 0 0 25px rgba(155,92,255,0.2);
 }
 
 .service-card h3 {
-    font-size: 19px;
-    margin-bottom: 12px;
-    position: relative;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    margin-bottom: 13px;
 }
 
 .service-card p {
-    font-size: 13px;
-    color: var(--gray);
+    color: var(--muted);
     line-height: 1.8;
-    position: relative;
+    font-size: 13px;
 }
 
+.service-number {
+    position: absolute;
+    right: 22px;
+    top: 20px;
+    color: rgba(200,170,255,0.22);
+    font-size: 13px;
+    font-weight: 800;
+}
 
-/* PORTFOLIO */
+/* =========================
+   PORTFOLIO SECTION
+========================= */
+
+.portfolio-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 25px;
+    margin-bottom: 45px;
+}
+
+.portfolio-label {
+    display: inline-flex;
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+    background: rgba(155,92,255,0.08);
+    color: #d4baff;
+    border-radius: 30px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 17px;
+}
 
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    gap: 23px;
 }
 
-.portfolio-card {
-    background: linear-gradient(145deg, #1d1230, #100b19);
-    border: 1px solid rgba(155, 53, 255, 0.2);
-    border-radius: 18px;
+.project-card {
+    position: relative;
     overflow: hidden;
-    transition: 0.35s ease;
+    background: #15111f;
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    transition: 0.4s;
 }
 
-.portfolio-card:hover {
-    transform: translateY(-8px);
+.project-card:hover {
+    transform: translateY(-9px);
     border-color: var(--purple);
-    box-shadow: 0 10px 30px rgba(155, 53, 255, 0.18);
+    box-shadow: 0 18px 45px rgba(130,70,220,0.15);
 }
 
-.portfolio-visual {
-    height: 180px;
+.project-art {
+    height: 220px;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.art-fashion {
+    background: linear-gradient(135deg, #38203e, #9b6b92, #1c1226);
+}
+
+.art-video {
+    background: linear-gradient(135deg, #101c3b, #5142a0, #171126);
+}
+
+.art-social {
+    background: linear-gradient(135deg, #3c204b, #b16d8b, #21132e);
+}
+
+.art-window {
+    width: 72%;
+    height: 75%;
+    border: 1px solid rgba(255,255,255,0.35);
+    background: rgba(10,8,18,0.65);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transform: rotate(-5deg);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    transition: 0.5s;
+}
+
+.project-card:hover .art-window {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.art-window strong {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+
+.art-window span {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #e5d6ff;
+}
+
+.art-symbol {
     font-size: 48px;
-    background: radial-gradient(circle, #48206d, #150b22);
 }
 
-.portfolio-info {
-    padding: 22px;
+.project-info {
+    padding: 23px;
 }
 
-.portfolio-info h3 {
-    font-size: 18px;
-    margin-bottom: 8px;
+.project-category {
+    color: var(--purple-light);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-.portfolio-info p {
-    color: var(--gray);
+.project-info h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 19px;
+    margin: 10px 0;
+}
+
+.project-info p {
+    color: var(--muted);
     font-size: 13px;
     line-height: 1.7;
 }
 
-.practice-label {
+.project-note {
     display: inline-block;
-    margin-top: 12px;
-    font-size: 10px;
-    letter-spacing: 1px;
-    color: #d5aaff;
-    border: 1px solid rgba(197, 138, 255, 0.4);
-    padding: 5px 10px;
-    border-radius: 20px;
+    margin-top: 16px;
+    color: #bba0eb;
+    font-size: 11px;
 }
 
+/* =========================
+   SKILLS SECTION
+========================= */
 
-/* SKILLS */
-
-.skills-container {
-    max-width: 750px;
-    margin: auto;
+.skills-section {
+    background: rgba(105,55,165,0.045);
 }
 
-.skill {
-    margin-bottom: 28px;
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    align-items: center;
+}
+
+.skill-item {
+    margin-bottom: 27px;
 }
 
 .skill-heading {
@@ -600,75 +737,137 @@ header {
 }
 
 .skill-heading span:last-child {
-    color: var(--light-purple);
+    color: #c4a2ff;
 }
 
 .skill-bar {
     width: 100%;
-    height: 9px;
-    background: #241a30;
+    height: 7px;
+    background: #292333;
     border-radius: 20px;
     overflow: hidden;
 }
 
 .skill-progress {
-    width: 0;
     height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #7840cf, #c29aff);
     border-radius: 20px;
-    background: linear-gradient(90deg, #7224d6, #c58aff);
     transition: width 1.5s ease;
 }
 
-
-/* CONTACT */
-
-.contact-box {
-    max-width: 750px;
-    margin: auto;
-    padding: 50px 30px;
-    text-align: center;
-    border-radius: 22px;
-    background: linear-gradient(135deg, #1c1030, #100b1a);
-    border: 1px solid rgba(155, 53, 255, 0.3);
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+.skills-note {
+    padding: 30px;
+    background: linear-gradient(145deg, #1a1428, #100d18);
+    border: 1px solid var(--border);
+    border-radius: 18px;
 }
 
-.contact-box h2 {
-    font-size: 32px;
+.skills-note h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 26px;
     margin-bottom: 15px;
 }
 
-.contact-box p {
-    color: var(--gray);
-    line-height: 1.8;
-    margin-bottom: 25px;
+.skills-note p {
+    color: var(--muted);
+    line-height: 1.9;
     font-size: 14px;
 }
 
-.email-text {
-    display: block;
-    margin-bottom: 25px;
-    color: var(--light-purple);
-    word-break: break-word;
+/* =========================
+   CONTACT SECTION
+========================= */
+
+.contact-box {
+    position: relative;
+    overflow: hidden;
+    padding: 65px 35px;
+    text-align: center;
+    border: 1px solid rgba(180,130,255,0.28);
+    border-radius: 22px;
+    background: linear-gradient(135deg, #1c142d, #100d18, #241439);
 }
 
+.contact-box::before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: rgba(155,92,255,0.18);
+    filter: blur(80px);
+    top: -100px;
+    left: 40%;
+}
 
-/* FOOTER */
+.contact-box h2 {
+    position: relative;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(30px, 5vw, 46px);
+}
+
+.contact-box p {
+    position: relative;
+    color: var(--muted);
+    margin: 17px auto 27px;
+    max-width: 550px;
+    line-height: 1.8;
+}
+
+.contact-email {
+    display: block;
+    color: #d0b3ff;
+    font-size: 14px;
+    margin-bottom: 25px;
+    overflow-wrap: anywhere;
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
-    padding: 25px 8%;
-    text-align: center;
-    border-top: 1px solid rgba(155, 53, 255, 0.2);
-    color: var(--gray);
+    padding: 30px 0;
+    border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-content p {
+    color: #91899e;
     font-size: 12px;
 }
 
-footer span {
-    color: var(--light-purple);
+.footer-brand {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
 }
 
+.footer-brand span {
+    color: var(--purple-light);
+}
 
-/* SCROLL ANIMATION */
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
 
 .reveal {
     opacity: 0;
@@ -676,61 +875,62 @@ footer span {
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.reveal.active {
+.reveal.show {
     opacity: 1;
     transform: translateY(0);
 }
 
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
 
-/* SCROLL PROGRESS */
-
-.progress-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 3px;
-    width: 0;
-    background: linear-gradient(90deg, #8a25ff, #d49aff);
-    z-index: 2000;
-}
-
-
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
 
 @media (max-width: 900px) {
 
-    .hero-content {
+    .hero-grid,
+    .about-grid,
+    .skills-grid {
         grid-template-columns: 1fr;
-        text-align: center;
     }
 
-    .hero-text p {
-        margin-left: auto;
-        margin-right: auto;
+    .hero-visual {
+        min-height: 360px;
     }
 
-    .buttons {
-        justify-content: center;
+    .about-grid {
+        gap: 45px;
     }
 
-    .logo-area {
-        min-height: 350px;
+    .about-image {
+        height: 380px;
     }
 
     .services-grid,
     .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .portfolio-top {
+        align-items: start;
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 650px) {
 
+    .container {
+        width: 90%;
+    }
+
     section {
-        padding: 80px 6%;
+        padding: 75px 0;
     }
 
     .navbar {
-        padding: 15px 6%;
+        height: 70px;
     }
 
     .menu-btn {
@@ -738,46 +938,71 @@ footer span {
     }
 
     .nav-links {
+        display: none;
         position: absolute;
         top: 70px;
         left: 0;
         width: 100%;
-        background: #100b19;
-        display: none;
+        padding: 25px;
+        background: #100d18;
+        border-bottom: 1px solid var(--border);
         flex-direction: column;
-        text-align: center;
-        gap: 0;
-        border-bottom: 1px solid rgba(155,53,255,0.3);
+        gap: 23px;
     }
 
-    .nav-links.show {
+    .nav-links.active {
         display: flex;
     }
 
-    .nav-links li {
-        padding: 15px;
-    }
-
     .hero {
-        padding-top: 125px;
+        min-height: auto;
+        padding: 140px 0 70px;
     }
 
-    .hero-text h1 {
-        font-size: 39px;
+    .hero-grid {
+        gap: 25px;
     }
 
-    .logo-circle {
-        width: 220px;
-        height: 220px;
+    .hero h1 {
+        font-size: 46px;
     }
 
-    .sa-text {
-        font-size: 75px;
+    .hero-visual {
+        min-height: 310px;
     }
 
-    .logo-caption {
-        bottom: 15px;
-        font-size: 10px;
+    .hero-logo {
+        width: 205px;
+        height: 205px;
+        font-size: 65px;
+        border-radius: 30px;
+    }
+
+    .orbit {
+        width: 270px;
+        height: 270px;
+    }
+
+    .label-one {
+        left: 0;
+        top: 20px;
+    }
+
+    .label-two {
+        right: 0;
+        bottom: 25px;
+    }
+
+    .about-image {
+        height: 300px;
+    }
+
+    .about-content h3 {
+        font-size: 28px;
+    }
+
+    .profile-details {
+        grid-template-columns: 1fr 1fr;
     }
 
     .services-grid,
@@ -785,40 +1010,29 @@ footer span {
         grid-template-columns: 1fr;
     }
 
-    .section-title h2 {
-        font-size: 30px;
+    .service-card {
+        padding: 28px 23px;
     }
 
-    .about-content {
-        padding: 28px 20px;
+    .project-art {
+        height: 210px;
     }
 
-    .about-sticker {
-        width: 150px;
-        height: 150px;
-        font-size: 70px;
+    .contact-box {
+        padding: 50px 20px;
     }
 
-    .floating-icon {
-        font-size: 28px;
-    }
-
-    .contact-box h2 {
-        font-size: 26px;
+    .footer-content {
+        justify-content: center;
+        text-align: center;
     }
 }
 
-
-/* REDUCED MOTION ACCESSIBILITY */
-
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
         animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
 
@@ -827,500 +1041,560 @@ footer span {
 
 <body>
 
-<div class="progress-bar" id="progressBar"></div>
-
-<div class="background-effects">
-    <div class="orb orb-one"></div>
-    <div class="orb orb-two"></div>
-    <div class="orb orb-three"></div>
-</div>
-
-
-<!-- NAVIGATION -->
+<div id="scroll-progress"></div>
 
 <header>
-<nav class="navbar">
+    <div class="container navbar">
 
-    <a href="#home" class="logo">
-        SA<span>.</span> Creative Studio
-    </a>
+        <a href="#home" class="logo">SA<span>.</span> CREATIVE</a>
 
-    <button class="menu-btn" id="menuBtn"
-    aria-label="Toggle navigation" aria-expanded="false">
-        ☰
-    </button>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
 
-    <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+        <nav class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact" class="nav-contact">Let's Talk ↗</a>
+        </nav>
 
-</nav>
+    </div>
 </header>
 
 
-<!-- HERO -->
+<!-- =========================
+     HOME
+========================= -->
 
 <section class="hero" id="home">
 
-<div class="container hero-content">
+    <div class="glow" style="top:100px;left:-100px;"></div>
 
-    <div class="hero-text reveal">
+    <div class="container hero-grid">
 
-        <div class="small-heading">
-            WELCOME TO SA CREATIVE STUDIO
-        </div>
+        <div class="hero-content reveal">
 
-        <h1>
-            Creativity Meets
-            <span>Innovation.</span>
-        </h1>
+            <div class="hero-badge">
+                <span class="status-dot"></span>
+                CREATIVE DIGITAL SERVICES
+            </div>
 
-        <p>
-            We bring ideas to life through creative design,
-            video editing, social media content and digital
-            brand promotion.
-        </p>
+            <h1>
+                Turning Ideas Into
+                <span class="gradient-text">Creative Digital Experiences.</span>
+            </h1>
 
-        <div class="buttons">
+            <p class="hero-text">
+                Welcome to SA Creative Studio. We focus on creative design,
+                engaging video content and digital services that help ideas
+                stand out in the online world.
+            </p>
 
-            <a href="#services" class="btn btn-primary">
-                Explore Services
-            </a>
-
-            <a href="#contact" class="btn btn-outline">
-                Contact Me
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <!-- SA LOGO -->
-
-    <div class="logo-area reveal">
-
-        <div class="logo-circle">
-
-            <div class="sa-text">SA</div>
-
-            <div class="logo-caption">
-                CREATIVE STUDIO
+            <div class="hero-buttons">
+                <a href="#portfolio" class="btn btn-primary">Explore Portfolio ↗</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
             </div>
 
         </div>
 
-    </div>
+        <div class="hero-visual reveal delay-2">
 
-</div>
+            <div class="orbit"></div>
+
+            <div class="hero-logo">
+                SA<span>.</span>
+            </div>
+
+            <div class="floating-label label-one">✦ Creative Design</div>
+            <div class="floating-label label-two">🎬 Digital Creativity</div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- ABOUT ME -->
+<!-- =========================
+     ABOUT
+========================= -->
 
 <section id="about">
 
-<div class="container">
+    <div class="container">
 
-    <div class="section-title reveal">
+        <div class="section-heading reveal">
+            <span class="section-tag">WHO WE ARE</span>
+            <h2 class="section-title">About <span>SA Creative Studio</span></h2>
+            <p class="section-description">
+                Get to know the brand, its founder and the creative vision behind it.
+            </p>
+        </div>
 
-        <h2>Turning Ideas Into <span>Digital Work</span></h2>
+        <div class="about-grid">
 
-        <p>Creativity, consistency and digital skills.</p>
+            <div class="about-image-wrap reveal">
 
-    </div>
+                <img
+                    class="about-image"
+                    src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1100&q=85"
+                    alt="Modern creative workspace with professional office setup"
+                    loading="lazy"
+                >
 
+                <div class="image-frame"></div>
 
-    <div class="about-content reveal">
+            </div>
 
-        <div class="about-visual">
+            <div class="about-content reveal delay-2">
 
-            <div class="about-sticker">
+                <div class="about-brand">SA CREATIVE STUDIO</div>
 
-                💻
+                <h3>Meet the Founder, <span>Saif Ali</span></h3>
 
-                <div class="floating-icon icon-one">🎨</div>
+                <div class="about-role">
+                    Founder | Creative Digital Services
+                </div>
 
-                <div class="floating-icon icon-two">🎬</div>
+                <p>
+                    I'm Saif Ali, the founder of SA Creative Studio, based in
+                    Lahore, Pakistan. I have a strong interest in digital
+                    creativity, graphic design, video editing and online
+                    content creation.
+                </p>
 
-                <div class="floating-icon icon-three">✨</div>
+                <p>
+                    Through SA Creative Studio, I aim to turn ideas into
+                    attractive digital content and provide creative services
+                    with a focus on quality, consistency and continuous learning.
+                    My goal is to develop my skills and build meaningful
+                    digital experiences.
+                </p>
+
+                <div class="profile-details">
+
+                    <div class="detail-box">
+                        <small>BRAND NAME</small>
+                        <strong>SA Creative Studio</strong>
+                    </div>
+
+                    <div class="detail-box">
+                        <small>FOUNDER</small>
+                        <strong>Saif Ali</strong>
+                    </div>
+
+                    <div class="detail-box">
+                        <small>PROFESSIONAL ROLE</small>
+                        <strong>Creative Digital Services</strong>
+                    </div>
+
+                    <div class="detail-box">
+                        <small>LOCATION</small>
+                        <strong>Lahore, Pakistan</strong>
+                    </div>
+
+                </div>
+
+                <a href="#services" class="btn btn-primary">
+                    Explore My Services ↗
+                </a>
 
             </div>
 
         </div>
 
-
-        <p>
-            I'm the founder and creator of SA Creative Studio.
-            My passion is creativity, digital design and helping
-            ideas become meaningful visual content.
-
-            I focus on creating attractive graphics, engaging
-            videos and reliable digital services.
-
-            My goal is to keep learning, improving and
-            delivering quality work.
-        </p>
-
     </div>
-
-</div>
 
 </section>
 
 
-<!-- SERVICES -->
+<!-- =========================
+     SERVICES
+========================= -->
 
-<section id="services">
+<section class="services-section" id="services">
 
-<div class="container">
+    <div class="container">
 
-    <div class="section-title reveal">
+        <div class="section-heading reveal">
 
-        <h2>My <span>Services</span></h2>
+            <span class="section-tag">WHAT I OFFER</span>
 
-        <p>Creative solutions for digital growth.</p>
+            <h2 class="section-title">
+                Creative <span>Services</span>
+            </h2>
+
+            <p class="section-description">
+                Creative and digital solutions designed to help brands,
+                businesses and individuals present their ideas professionally.
+            </p>
+
+        </div>
+
+        <div class="services-grid">
+
+            <div class="service-card reveal">
+                <span class="service-number">01</span>
+                <div class="service-icon">🎨</div>
+                <h3>Graphic Designing</h3>
+                <p>
+                    Creative social media posts, promotional graphics,
+                    banners and visually appealing digital designs.
+                </p>
+            </div>
+
+            <div class="service-card reveal delay-1">
+                <span class="service-number">02</span>
+                <div class="service-icon">🎬</div>
+                <h3>Video Editing</h3>
+                <p>
+                    Engaging video edits, reels, short-form content,
+                    transitions and polished visual storytelling.
+                </p>
+            </div>
+
+            <div class="service-card reveal delay-2">
+                <span class="service-number">03</span>
+                <div class="service-icon">📱</div>
+                <h3>Social Media Content</h3>
+                <p>
+                    Creative content ideas, post designs and visual
+                    material for social media platforms.
+                </p>
+            </div>
+
+            <div class="service-card reveal">
+                <span class="service-number">04</span>
+                <div class="service-icon">🚀</div>
+                <h3>Brand Promotion</h3>
+                <p>
+                    Brand introduction posts, promotional creatives,
+                    offer designs and digital brand presentation.
+                </p>
+            </div>
+
+            <div class="service-card reveal delay-1">
+                <span class="service-number">05</span>
+                <div class="service-icon">✍️</div>
+                <h3>Content Writing</h3>
+                <p>
+                    Clear and engaging written content for digital
+                    platforms, descriptions and promotional material.
+                </p>
+            </div>
+
+            <div class="service-card reveal delay-2">
+                <span class="service-number">06</span>
+                <div class="service-icon">⌨️</div>
+                <h3>Typing & Data Entry</h3>
+                <p>
+                    Document typing, data organization, formatting
+                    and basic digital office support.
+                </p>
+            </div>
+
+        </div>
 
     </div>
-
-
-    <div class="services-grid">
-
-        <div class="service-card reveal">
-            <div class="service-icon">🎨</div>
-            <h3>Graphic Designing</h3>
-            <p>
-                Creative social media posts, banners,
-                promotional graphics and visual designs.
-            </p>
-        </div>
-
-        <div class="service-card reveal">
-            <div class="service-icon">🎬</div>
-            <h3>Video Editing</h3>
-            <p>
-                Engaging video edits, reels, transitions
-                and attractive social media videos.
-            </p>
-        </div>
-
-        <div class="service-card reveal">
-            <div class="service-icon">📱</div>
-            <h3>Social Media Content</h3>
-            <p>
-                Creative content ideas, posts and
-                visual material for social media platforms.
-            </p>
-        </div>
-
-        <div class="service-card reveal">
-            <div class="service-icon">🚀</div>
-            <h3>Brand Promotion</h3>
-            <p>
-                Promotional designs and creative content
-                to introduce brands and their products.
-            </p>
-        </div>
-
-        <div class="service-card reveal">
-            <div class="service-icon">✍️</div>
-            <h3>Content Writing</h3>
-            <p>
-                Simple and engaging written content
-                for digital platforms and businesses.
-            </p>
-        </div>
-
-        <div class="service-card reveal">
-            <div class="service-icon">💻</div>
-            <h3>Typing & Data Entry</h3>
-            <p>
-                Document typing, formatting and
-                basic data entry services.
-            </p>
-        </div>
-
-    </div>
-
-</div>
 
 </section>
 
 
-<!-- PORTFOLIO -->
+<!-- =========================
+     PORTFOLIO
+========================= -->
 
 <section id="portfolio">
 
-<div class="container">
+    <div class="container">
 
-    <div class="section-title reveal">
+        <div class="portfolio-top reveal">
 
-        <h2>My <span>Portfolio</span></h2>
+            <div>
+                <span class="portfolio-label">✦ SELECTED CREATIVE WORK</span>
 
-        <p>Creative practice projects and design concepts.</p>
+                <h2 class="section-title">
+                    Creative <span>Portfolio</span>
+                </h2>
+
+                <p class="section-description">
+                    A selection of practice concepts demonstrating
+                    creative ideas, design direction and digital skills.
+                </p>
+            </div>
+
+            <a href="#contact" class="btn btn-outline">
+                Start a Project ↗
+            </a>
+
+        </div>
+
+        <div class="portfolio-grid">
+
+            <div class="project-card reveal">
+
+                <div class="project-art art-fashion">
+
+                    <div class="art-window">
+                        <span>FASHION COLLECTION</span>
+                        <strong>NOORÉ</strong>
+                        <span>STYLE • ELEGANCE • BEAUTY</span>
+                    </div>
+
+                </div>
+
+                <div class="project-info">
+                    <span class="project-category">BRAND DESIGN</span>
+                    <h3>NOORÉ Fashion Concept</h3>
+                    <p>
+                        A fashion brand visual identity and promotional
+                        design concept.
+                    </p>
+                    <span class="project-note">Practice Concept / Sample Project</span>
+                </div>
+
+            </div>
+
+
+            <div class="project-card reveal delay-1">
+
+                <div class="project-art art-video">
+
+                    <div class="art-window">
+                        <div class="art-symbol">▶</div>
+                        <strong>VIDEO EDIT</strong>
+                        <span>CREATIVE STORYTELLING</span>
+                    </div>
+
+                </div>
+
+                <div class="project-info">
+                    <span class="project-category">VIDEO EDITING</span>
+                    <h3>Creative Video Concept</h3>
+                    <p>
+                        A sample visual direction for engaging short-form
+                        video and reel content.
+                    </p>
+                    <span class="project-note">Practice Concept / Sample Project</span>
+                </div>
+
+            </div>
+
+
+            <div class="project-card reveal delay-2">
+
+                <div class="project-art art-social">
+
+                    <div class="art-window">
+                        <div class="art-symbol">✦</div>
+                        <strong>SOCIAL MEDIA</strong>
+                        <span>CONTENT CREATION</span>
+                    </div>
+
+                </div>
+
+                <div class="project-info">
+                    <span class="project-category">SOCIAL MEDIA DESIGN</span>
+                    <h3>Social Media Campaign</h3>
+                    <p>
+                        A promotional social media content and campaign
+                        design concept.
+                    </p>
+                    <span class="project-note">Practice Concept / Sample Project</span>
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
-
-
-    <div class="portfolio-grid">
-
-        <div class="portfolio-card reveal">
-
-            <div class="portfolio-visual">👕</div>
-
-            <div class="portfolio-info">
-
-                <h3>Fashion Brand Concept</h3>
-
-                <p>
-                    A creative promotional concept
-                    for a fashion brand.
-                </p>
-
-                <span class="practice-label">
-                    PRACTICE PROJECT
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <div class="portfolio-card reveal">
-
-            <div class="portfolio-visual">🎨</div>
-
-            <div class="portfolio-info">
-
-                <h3>Social Media Design</h3>
-
-                <p>
-                    A visual concept for social media
-                    promotional content.
-                </p>
-
-                <span class="practice-label">
-                    PRACTICE PROJECT
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <div class="portfolio-card reveal">
-
-            <div class="portfolio-visual">🎥</div>
-
-            <div class="portfolio-info">
-
-                <h3>Video Editing Concept</h3>
-
-                <p>
-                    A creative concept for short-form
-                    video and reels content.
-                </p>
-
-                <span class="practice-label">
-                    PRACTICE PROJECT
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
 
 </section>
 
 
-<!-- SKILLS -->
+<!-- =========================
+     SKILLS
+========================= -->
 
-<section id="skills">
+<section class="skills-section" id="skills">
 
-<div class="container">
+    <div class="container skills-grid">
 
-    <div class="section-title reveal">
+        <div class="reveal">
 
-        <h2>My <span>Skills</span></h2>
+            <span class="section-tag">MY EXPERTISE</span>
 
-        <p>Tools and creative skills I am developing.</p>
+            <h2 class="section-title">
+                Skills & <span>Creative Tools</span>
+            </h2>
+
+            <p class="section-description">
+                Areas of interest and practical skills that I am
+                developing through learning and creative practice.
+            </p>
+
+            <div style="margin-top:35px;">
+
+                <div class="skill-item">
+                    <div class="skill-heading">
+                        <span>Graphic Designing</span>
+                        <span>Learning & Practice</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="78%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-heading">
+                        <span>Video Editing</span>
+                        <span>Learning & Practice</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="72%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-heading">
+                        <span>Social Media Content</span>
+                        <span>Learning & Practice</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="75%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-heading">
+                        <span>Typing & Data Entry</span>
+                        <span>Learning & Practice</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="80%"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="skills-note reveal delay-2">
+
+            <h3>Creativity Meets Digital Skills.</h3>
+
+            <p>
+                I believe that creativity improves with practice,
+                consistency and continuous learning. I am focused on
+                improving my design, editing and digital productivity
+                skills to create better work.
+            </p>
+
+            <p style="margin-top:18px;">
+                <strong style="color:#c5a4ff;">Tools:</strong>
+                Canva, CapCut and Microsoft Word.
+            </p>
+
+        </div>
 
     </div>
-
-
-    <div class="skills-container reveal">
-
-        <div class="skill">
-
-            <div class="skill-heading">
-                <span>Graphic Designing</span>
-                <span>75%</span>
-            </div>
-
-            <div class="skill-bar">
-                <div class="skill-progress" data-width="75%"></div>
-            </div>
-
-        </div>
-
-
-        <div class="skill">
-
-            <div class="skill-heading">
-                <span>Video Editing</span>
-                <span>70%</span>
-            </div>
-
-            <div class="skill-bar">
-                <div class="skill-progress" data-width="70%"></div>
-            </div>
-
-        </div>
-
-
-        <div class="skill">
-
-            <div class="skill-heading">
-                <span>Social Media Content</span>
-                <span>75%</span>
-            </div>
-
-            <div class="skill-bar">
-                <div class="skill-progress" data-width="75%"></div>
-            </div>
-
-        </div>
-
-
-        <div class="skill">
-
-            <div class="skill-heading">
-                <span>MS Word & Data Entry</span>
-                <span>80%</span>
-            </div>
-
-            <div class="skill-bar">
-                <div class="skill-progress" data-width="80%"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
 
 </section>
 
 
-<!-- CONTACT -->
+<!-- =========================
+     CONTACT
+========================= -->
 
 <section id="contact">
 
-<div class="container">
+    <div class="container">
 
-    <div class="section-title reveal">
+        <div class="contact-box reveal">
 
-        <h2>Get In <span>Touch</span></h2>
+            <span class="section-tag">LET'S CONNECT</span>
 
-        <p>Have a project or an idea? Let's connect.</p>
+            <h2>Have a Creative Idea?</h2>
 
-    </div>
+            <p>
+                Let's connect and discuss your next creative project.
+                Feel free to contact SA Creative Studio.
+            </p>
 
+            <a class="contact-email" href="mailto:saifali0011011@gmail.com">
+                saifali0011011@gmail.com
+            </a>
 
-    <div class="contact-box reveal">
+            <a href="mailto:saifali0011011@gmail.com" class="btn btn-primary">
+                Send an Email ↗
+            </a>
 
-        <h2>Let's Work Together!</h2>
-
-        <p>
-            Interested in creative digital services?
-            Feel free to contact me through email.
-        </p>
-
-        <a class="email-text"
-           href="mailto:saifali0011011@gmail.com">
-            saifali0011011@gmail.com
-        </a>
-
-        <a class="btn btn-primary"
-           href="mailto:saifali0011011@gmail.com?subject=Project%20Inquiry">
-            Send an Email
-        </a>
+        </div>
 
     </div>
-
-</div>
 
 </section>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-    <p>
-        © <span id="year"></span>
-        <span>SA Creative Studio.</span>
-        All Rights Reserved.
-    </p>
+    <div class="container footer-content">
+
+        <div class="footer-brand">
+            SA<span>.</span> CREATIVE STUDIO
+        </div>
+
+        <p>
+            © <span id="year"></span> SA Creative Studio. All rights reserved.
+        </p>
+
+        <p>Designed with creativity by Saif Ali.</p>
+
+    </div>
 
 </footer>
 
 
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
 
-/* MOBILE MENU */
+// Mobile navigation
 
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 
 menuBtn.addEventListener("click", function() {
+    navLinks.classList.toggle("active");
 
-    const isOpen = navLinks.classList.toggle("show");
-
-    menuBtn.setAttribute("aria-expanded", isOpen);
-
-    menuBtn.textContent = isOpen ? "✕" : "☰";
-
+    menuBtn.textContent =
+        navLinks.classList.contains("active") ? "✕" : "☰";
 });
 
 document.querySelectorAll(".nav-links a").forEach(function(link) {
-
     link.addEventListener("click", function() {
-
-        navLinks.classList.remove("show");
-
-        menuBtn.setAttribute("aria-expanded", "false");
-
+        navLinks.classList.remove("active");
         menuBtn.textContent = "☰";
-
     });
-
 });
 
 
-/* SCROLL REVEAL */
-
-const revealElements = document.querySelectorAll(".reveal");
+// Scroll reveal animation
 
 const revealObserver = new IntersectionObserver(function(entries) {
 
     entries.forEach(function(entry) {
 
         if (entry.isIntersecting) {
-
-            entry.target.classList.add("active");
-
+            entry.target.classList.add("show");
             revealObserver.unobserve(entry.target);
-
         }
 
     });
@@ -1329,50 +1603,19 @@ const revealObserver = new IntersectionObserver(function(entries) {
     threshold: 0.12
 });
 
-revealElements.forEach(function(element) {
-
+document.querySelectorAll(".reveal").forEach(function(element) {
     revealObserver.observe(element);
-
 });
 
 
-/* SKILL BAR ANIMATION */
-
-const skillsSection = document.getElementById("skills");
-
-const skillObserver = new IntersectionObserver(function(entries) {
-
-    entries.forEach(function(entry) {
-
-        if (entry.isIntersecting) {
-
-            document.querySelectorAll(".skill-progress").forEach(function(bar) {
-
-                bar.style.width = bar.dataset.width;
-
-            });
-
-            skillObserver.unobserve(entry.target);
-
-        }
-
-    });
-
-}, {
-    threshold: 0.25
-});
-
-skillObserver.observe(skillsSection);
-
-
-/* IMPROVED MOUSE FOLLOW ANIMATION */
+// Service card mouse-follow glow
 
 document.querySelectorAll(".service-card").forEach(function(card) {
 
     card.addEventListener("pointerenter", function() {
-
         card.classList.add("mouse-active");
-
+        card.style.setProperty("--mouse-x", "50%");
+        card.style.setProperty("--mouse-y", "50%");
     });
 
     card.addEventListener("pointermove", function(event) {
@@ -1380,45 +1623,66 @@ document.querySelectorAll(".service-card").forEach(function(card) {
         const rect = card.getBoundingClientRect();
 
         const x = event.clientX - rect.left;
-
         const y = event.clientY - rect.top;
 
         card.style.setProperty("--mouse-x", x + "px");
-
         card.style.setProperty("--mouse-y", y + "px");
 
     });
 
     card.addEventListener("pointerleave", function() {
-
         card.classList.remove("mouse-active");
-
     });
 
 });
 
 
-/* SCROLL PROGRESS */
+// Scroll progress bar
 
 window.addEventListener("scroll", function() {
 
-    const scrollTop = document.documentElement.scrollTop;
+    const scrollTop = window.scrollY;
 
     const scrollHeight =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
+        document.documentElement.scrollHeight - window.innerHeight;
 
-    const progress = scrollHeight > 0
-        ? (scrollTop / scrollHeight) * 100
-        : 0;
+    const progress =
+        scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
 
-    document.getElementById("progressBar").style.width =
+    document.getElementById("scroll-progress").style.width =
         progress + "%";
 
 });
 
 
-/* COPYRIGHT YEAR */
+// Animated skill bars
+
+const skillObserver = new IntersectionObserver(function(entries) {
+
+    entries.forEach(function(entry) {
+
+        if (entry.isIntersecting) {
+
+            const bar = entry.target;
+
+            bar.style.width = bar.dataset.width;
+
+            skillObserver.unobserve(bar);
+
+        }
+
+    });
+
+}, {
+    threshold: 0.5
+});
+
+document.querySelectorAll(".skill-progress").forEach(function(bar) {
+    skillObserver.observe(bar);
+});
+
+
+// Automatic footer year
 
 document.getElementById("year").textContent =
     new Date().getFullYear();
