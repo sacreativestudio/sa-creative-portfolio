@@ -520,6 +520,213 @@ footer {
         font-size: 27px;
     }
 }
+    /* =================================
+   PREMIUM MOUSE FOLLOW LIGHT EFFECT
+================================= */
+
+.service-card,
+.portfolio-card,
+.contact-box {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.service-card::before,
+.portfolio-card::before,
+.contact-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(177, 70, 255, 0.25),
+        transparent 70%
+    );
+
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.service-card:hover::before,
+.portfolio-card:hover::before,
+.contact-box:hover::before {
+    opacity: 1;
+}
+
+.service-card,
+.portfolio-card {
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.service-card:hover,
+.portfolio-card:hover {
+    transform: translateY(-10px);
+    border-color: #b54cff;
+    box-shadow: 0 10px 35px rgba(160, 32, 240, 0.25);
+}
+    
+/* =================================
+   PREMIUM BUTTON ANIMATION
+================================= */
+
+.btn {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid rgba(255,255,255,0.15);
+
+    background: linear-gradient(
+        120deg,
+        #7600d9,
+        #a020f0,
+        #c77dff
+    );
+
+    background-size: 200% 200%;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background-position 0.5s ease;
+
+    box-shadow: 0 5px 20px rgba(160,32,240,0.25);
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 70%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.35),
+        transparent
+    );
+
+    transform: skewX(-25deg);
+    transition: left 0.65s ease;
+    z-index: -1;
+}
+
+.btn:hover {
+    transform: translateY(-4px) scale(1.03);
+
+    background-position: 100% 50%;
+
+    box-shadow:
+        0 0 12px rgba(180,70,255,0.55),
+        0 0 30px rgba(160,32,240,0.35);
+}
+
+.btn:hover::before {
+    left: 150%;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+
+/* =================================
+   SCROLL REVEAL ANIMATION
+================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(45px) scale(0.98);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+
+/* =================================
+   STAGGERED CARD ANIMATION
+================================= */
+
+.services-grid .service-card:nth-child(2),
+.portfolio-grid .portfolio-card:nth-child(2) {
+    transition-delay: 0.12s;
+}
+
+.services-grid .service-card:nth-child(3),
+.portfolio-grid .portfolio-card:nth-child(3) {
+    transition-delay: 0.24s;
+}
+
+.services-grid .service-card:nth-child(4) {
+    transition-delay: 0.08s;
+}
+
+.services-grid .service-card:nth-child(5) {
+    transition-delay: 0.16s;
+}
+
+.services-grid .service-card:nth-child(6) {
+    transition-delay: 0.24s;
+}
+
+
+/* =================================
+   HERO ENTRANCE ANIMATION
+================================= */
+
+.hero-content {
+    animation: heroEntrance 1.2s cubic-bezier(.2,.7,.2,1) both;
+}
+
+@keyframes heroEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+
+/* =================================
+   SMOOTH SCROLL
+================================= */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
 </style>
 </head>
 
@@ -939,7 +1146,57 @@ document.querySelectorAll(".skills-grid > div").forEach(element => {
 
 document.getElementById("year").textContent =
     new Date().getFullYear();
+/* =================================
+   MOUSE FOLLOW LIGHT
+================================= */
 
+const lightCards = document.querySelectorAll(
+    ".service-card, .portfolio-card, .contact-box"
+);
+
+lightCards.forEach(card => {
+
+    card.addEventListener("mousemove", event => {
+
+        const rect = card.getBoundingClientRect();
+
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        card.style.setProperty("--mouse-x", x + "px");
+        card.style.setProperty("--mouse-y", y + "px");
+
+    });
+
+});
+
+
+/* =================================
+   SCROLL REVEAL OBSERVER
+================================= */
+
+const revealObserver = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.classList.add("active");
+
+        }
+
+    });
+
+}, {
+    threshold: 0.12,
+    rootMargin: "0px 0px -40px 0px"
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+
+    revealObserver.observe(element);
+
+});
 </script>
 
 </body>
