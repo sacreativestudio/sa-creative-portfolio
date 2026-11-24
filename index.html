@@ -8,8 +8,13 @@
 
 <meta name="description" content="SA Creative Studio provides graphic designing, video editing, data entry and creative digital services.">
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ==============================
+   GLOBAL SETTINGS
+============================== */
 
 :root {
     --bg: #080610;
@@ -24,7 +29,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
     scroll-behavior: smooth;
+    scroll-padding-top: 85px;
 }
 
 body {
@@ -45,7 +54,14 @@ a {
     margin: auto;
 }
 
-/* SCROLL PROGRESS */
+section {
+    padding: 100px 0;
+}
+
+
+/* ==============================
+   SCROLL PROGRESS BAR
+============================== */
 
 .progress {
     position: fixed;
@@ -55,9 +71,13 @@ a {
     width: 0;
     background: linear-gradient(90deg, #8500ff, #e0aaff);
     z-index: 2000;
+    box-shadow: 0 0 15px #a020f0;
 }
 
-/* NAVBAR */
+
+/* ==============================
+   NAVBAR
+============================== */
 
 header {
     position: fixed;
@@ -100,6 +120,7 @@ header {
 
 .nav-links a:hover {
     color: var(--light-purple);
+    text-shadow: 0 0 12px var(--purple);
 }
 
 .menu-btn {
@@ -108,29 +129,85 @@ header {
     cursor: pointer;
 }
 
-/* BUTTONS */
+
+/* ==============================
+   PROFESSIONAL BUTTONS
+============================== */
 
 .btn {
     display: inline-block;
-    padding: 13px 28px;
-    background: linear-gradient(90deg, #8500ff, #bd50ff);
-    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    padding: 14px 30px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 35px;
+
+    background: linear-gradient(
+        120deg,
+        #7600d9,
+        #a020f0,
+        #c77dff
+    );
+
+    background-size: 200% 200%;
+
     color: white;
     font-weight: 600;
-    transition: 0.3s;
-    box-shadow: 0 0 20px rgba(160, 32, 240, 0.25);
+
+    box-shadow: 0 5px 20px rgba(160,32,240,0.25);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        background-position .5s ease;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.4),
+        transparent
+    );
+
+    transform: skewX(-25deg);
+    transition: left .65s ease;
+    z-index: -1;
 }
 
 .btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 30px rgba(160, 32, 240, 0.6);
+    transform: translateY(-4px) scale(1.03);
+
+    background-position: 100% 50%;
+
+    box-shadow:
+        0 0 12px rgba(180,70,255,.55),
+        0 0 30px rgba(160,32,240,.4);
 }
 
-/* GENERAL SECTIONS */
-
-section {
-    padding: 100px 0;
+.btn:hover::before {
+    left: 150%;
 }
+
+.btn:active {
+    transform: scale(.97);
+}
+
+
+/* ==============================
+   SECTION TITLES
+============================== */
 
 .section-title {
     text-align: center;
@@ -154,7 +231,10 @@ section {
     color: var(--light-purple);
 }
 
-/* HERO */
+
+/* ==============================
+   HERO SECTION
+============================== */
 
 .hero {
     min-height: 100vh;
@@ -162,14 +242,39 @@ section {
     align-items: center;
     position: relative;
     overflow: hidden;
+
     background:
-        radial-gradient(circle at 80% 40%, rgba(130, 0, 255, .22), transparent 35%),
+        radial-gradient(
+            circle at 80% 40%,
+            rgba(130,0,255,.22),
+            transparent 35%
+        ),
         var(--bg);
 }
 
+.hero::before {
+    content: "";
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    right: -150px;
+    top: 20%;
+
+    background: rgba(140,0,255,.12);
+    filter: blur(100px);
+    border-radius: 50%;
+
+    animation: floatGlow 7s ease-in-out infinite alternate;
+}
+
 .hero-content {
+    position: relative;
+    z-index: 1;
     max-width: 750px;
-    animation: fadeUp 1s ease;
+
+    animation: heroEntrance 1.2s cubic-bezier(.2,.7,.2,1) both;
 }
 
 .hero h1 {
@@ -181,6 +286,7 @@ section {
 .hero h1 span {
     background: linear-gradient(90deg, #a020f0, #e0aaff);
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
 }
 
@@ -199,7 +305,10 @@ section {
     margin-bottom: 20px;
 }
 
-/* ABOUT */
+
+/* ==============================
+   ABOUT SECTION
+============================== */
 
 .about-grid {
     display: grid;
@@ -207,8 +316,6 @@ section {
     gap: 65px;
     align-items: center;
 }
-
-/* FOUNDER PHOTO */
 
 .about-visual {
     display: flex;
@@ -218,11 +325,12 @@ section {
 }
 
 .profile-frame {
-    position: relative;
     width: 100%;
     max-width: 430px;
     padding: 5px;
+
     border-radius: 25px;
+
     background: linear-gradient(
         135deg,
         #7b00ff,
@@ -230,15 +338,22 @@ section {
         #6500d4,
         #b54cff
     );
+
     background-size: 300% 300%;
+
     animation: borderGlow 5s ease infinite;
-    box-shadow: 0 0 30px rgba(160, 32, 240, .3);
+
+    box-shadow: 0 0 30px rgba(160,32,240,.3);
+
     transition: .4s;
 }
 
 .profile-frame:hover {
     transform: translateY(-8px) scale(1.015);
-    box-shadow: 0 0 50px rgba(160, 32, 240, .55);
+
+    box-shadow:
+        0 0 25px rgba(160,32,240,.5),
+        0 0 55px rgba(160,32,240,.3);
 }
 
 .profile-frame img {
@@ -273,26 +388,58 @@ section {
     color: var(--light-purple);
 }
 
-/* SERVICES */
+
+/* ==============================
+   MOUSE FOLLOW LIGHT CARDS
+============================== */
+
+.service-card,
+.portfolio-card,
+.contact-box {
+
+    position: relative;
+    isolation: isolate;
+
+    background-color: var(--card);
+
+    background-image: radial-gradient(
+        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(177,70,255,.23),
+        transparent 70%
+    );
+
+    border: 1px solid rgba(160,32,240,.18);
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
+}
+
+
+/* ==============================
+   SERVICES
+============================== */
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3,1fr);
     gap: 25px;
 }
 
 .service-card {
-    background: var(--card);
-    border: 1px solid rgba(160, 32, 240, .15);
     padding: 35px 25px;
     border-radius: 18px;
-    transition: .4s;
 }
 
 .service-card:hover {
     transform: translateY(-10px);
-    border-color: var(--purple);
-    box-shadow: 0 10px 35px rgba(160, 32, 240, .18);
+
+    border-color: var(--light-purple);
+
+    box-shadow:
+        0 10px 35px rgba(160,32,240,.25),
+        0 0 15px rgba(160,32,240,.15);
 }
 
 .service-icon {
@@ -311,28 +458,32 @@ section {
     font-size: 14px;
 }
 
-/* PORTFOLIO */
+
+/* ==============================
+   PORTFOLIO
+============================== */
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3,1fr);
     gap: 25px;
 }
 
 .portfolio-card {
-    background: var(--card);
-    border: 1px solid rgba(160, 32, 240, .18);
     padding: 30px;
     border-radius: 18px;
-    transition: .4s;
 }
 
 .portfolio-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--purple);
+    transform: translateY(-10px);
+
+    border-color: var(--light-purple);
+
+    box-shadow:
+        0 10px 35px rgba(160,32,240,.25);
 }
 
-.portfolio-card .project-icon {
+.project-icon {
     font-size: 40px;
     margin-bottom: 20px;
 }
@@ -354,7 +505,10 @@ section {
     font-size: 12px;
 }
 
-/* SKILLS */
+
+/* ==============================
+   SKILLS
+============================== */
 
 .skills-grid {
     display: grid;
@@ -386,19 +540,33 @@ section {
 .skill-fill {
     height: 100%;
     width: 0;
-    background: linear-gradient(90deg, #8500ff, #d9a3ff);
+
+    background: linear-gradient(
+        90deg,
+        #8500ff,
+        #d9a3ff
+    );
+
     border-radius: 20px;
     transition: width 1.5s ease;
 }
 
-/* CONTACT */
+
+/* ==============================
+   CONTACT
+============================== */
 
 .contact-box {
-    background: linear-gradient(135deg, #180c2a, #0c0815);
-    border: 1px solid rgba(160, 32, 240, .3);
-    border-radius: 25px;
     padding: 55px 25px;
+    border-radius: 25px;
     text-align: center;
+}
+
+.contact-box:hover {
+    border-color: var(--purple);
+
+    box-shadow:
+        0 0 35px rgba(160,32,240,.2);
 }
 
 .contact-box h2 {
@@ -411,55 +579,120 @@ section {
     margin-bottom: 30px;
 }
 
-/* FOOTER */
+
+/* ==============================
+   FOOTER
+============================== */
 
 footer {
     padding: 30px 0;
     text-align: center;
-    border-top: 1px solid rgba(160, 32, 240, .15);
+
+    border-top: 1px solid rgba(160,32,240,.15);
+
     color: var(--gray);
     font-size: 13px;
 }
 
-/* ANIMATIONS */
 
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes borderGlow {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+/* ==============================
+   SCROLL REVEAL
+============================== */
 
 .reveal {
     opacity: 0;
-    transform: translateY(35px);
-    transition: all .8s ease;
+    transform: translateY(45px) scale(.98);
+
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.2,.7,.2,1);
 }
 
 .reveal.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
-/* RESPONSIVE */
 
-@media(max-width: 850px) {
+/* STAGGERED CARDS */
+
+.services-grid .service-card:nth-child(2),
+.portfolio-grid .portfolio-card:nth-child(2) {
+    transition-delay: .12s;
+}
+
+.services-grid .service-card:nth-child(3),
+.portfolio-grid .portfolio-card:nth-child(3) {
+    transition-delay: .24s;
+}
+
+.services-grid .service-card:nth-child(4) {
+    transition-delay: .08s;
+}
+
+.services-grid .service-card:nth-child(5) {
+    transition-delay: .16s;
+}
+
+.services-grid .service-card:nth-child(6) {
+    transition-delay: .24s;
+}
+
+
+/* ==============================
+   KEYFRAMES
+============================== */
+
+@keyframes heroEntrance {
+
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+
+}
+
+@keyframes borderGlow {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
+}
+
+@keyframes floatGlow {
+
+    from {
+        transform: translateY(-20px);
+    }
+
+    to {
+        transform: translateY(40px);
+    }
+
+}
+
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+
+@media(max-width:850px) {
 
     .menu-btn {
         display: block;
@@ -467,13 +700,18 @@ footer {
 
     .nav-links {
         display: none;
+
         position: absolute;
         top: 75px;
         left: 0;
+
         width: 100%;
+
         background: #100b1a;
+
         flex-direction: column;
         text-align: center;
+
         padding: 25px;
         gap: 22px;
     }
@@ -488,15 +726,16 @@ footer {
 
     .services-grid,
     .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2,1fr);
     }
 
     .about-visual {
         order: -1;
     }
+
 }
 
-@media(max-width: 550px) {
+@media(max-width:550px) {
 
     section {
         padding: 75px 0;
@@ -519,214 +758,28 @@ footer {
     .contact-box h2 {
         font-size: 27px;
     }
-}
-    /* =================================
-   PREMIUM MOUSE FOLLOW LIGHT EFFECT
-================================= */
 
-.service-card,
-.portfolio-card,
-.contact-box {
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-}
-
-.service-card::before,
-.portfolio-card::before,
-.contact-box::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(177, 70, 255, 0.25),
-        transparent 70%
-    );
-
-    opacity: 0;
-    transition: opacity 0.35s ease;
-    pointer-events: none;
-    z-index: -1;
-}
-
-.service-card:hover::before,
-.portfolio-card:hover::before,
-.contact-box:hover::before {
-    opacity: 1;
-}
-
-.service-card,
-.portfolio-card {
-    transition:
-        transform 0.4s ease,
-        border-color 0.4s ease,
-        box-shadow 0.4s ease;
-}
-
-.service-card:hover,
-.portfolio-card:hover {
-    transform: translateY(-10px);
-    border-color: #b54cff;
-    box-shadow: 0 10px 35px rgba(160, 32, 240, 0.25);
-}
-    
-/* =================================
-   PREMIUM BUTTON ANIMATION
-================================= */
-
-.btn {
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-    border: 1px solid rgba(255,255,255,0.15);
-
-    background: linear-gradient(
-        120deg,
-        #7600d9,
-        #a020f0,
-        #c77dff
-    );
-
-    background-size: 200% 200%;
-
-    transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease,
-        background-position 0.5s ease;
-
-    box-shadow: 0 5px 20px rgba(160,32,240,0.25);
-}
-
-.btn::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -120%;
-    width: 70%;
-    height: 100%;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,0.35),
-        transparent
-    );
-
-    transform: skewX(-25deg);
-    transition: left 0.65s ease;
-    z-index: -1;
-}
-
-.btn:hover {
-    transform: translateY(-4px) scale(1.03);
-
-    background-position: 100% 50%;
-
-    box-shadow:
-        0 0 12px rgba(180,70,255,0.55),
-        0 0 30px rgba(160,32,240,0.35);
-}
-
-.btn:hover::before {
-    left: 150%;
-}
-
-.btn:active {
-    transform: scale(0.97);
-}
-
-
-/* =================================
-   SCROLL REVEAL ANIMATION
-================================= */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(45px) scale(0.98);
-
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-
-
-/* =================================
-   STAGGERED CARD ANIMATION
-================================= */
-
-.services-grid .service-card:nth-child(2),
-.portfolio-grid .portfolio-card:nth-child(2) {
-    transition-delay: 0.12s;
-}
-
-.services-grid .service-card:nth-child(3),
-.portfolio-grid .portfolio-card:nth-child(3) {
-    transition-delay: 0.24s;
-}
-
-.services-grid .service-card:nth-child(4) {
-    transition-delay: 0.08s;
-}
-
-.services-grid .service-card:nth-child(5) {
-    transition-delay: 0.16s;
-}
-
-.services-grid .service-card:nth-child(6) {
-    transition-delay: 0.24s;
-}
-
-
-/* =================================
-   HERO ENTRANCE ANIMATION
-================================= */
-
-.hero-content {
-    animation: heroEntrance 1.2s cubic-bezier(.2,.7,.2,1) both;
-}
-
-@keyframes heroEntrance {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-        filter: blur(8px);
+    .logo {
+        font-size: 19px;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-    }
 }
 
 
-/* =================================
-   SMOOTH SCROLL
-================================= */
+/* REDUCED MOTION */
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 85px;
-}
+@media(prefers-reduced-motion: reduce) {
 
-
-/* ACCESSIBILITY */
-
-@media (prefers-reduced-motion: reduce) {
     *,
     *::before,
     *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
         scroll-behavior: auto !important;
     }
+
 }
+
 </style>
 </head>
 
@@ -734,9 +787,13 @@ html {
 
 <div class="progress" id="progress"></div>
 
-<!-- NAVBAR -->
+
+<!-- ==============================
+     NAVBAR
+============================== -->
 
 <header>
+
     <div class="container navbar">
 
         <a href="#home" class="logo">
@@ -746,25 +803,34 @@ html {
         <div class="menu-btn" id="menuBtn">☰</div>
 
         <ul class="nav-links" id="navLinks">
+
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
+
         </ul>
 
     </div>
+
 </header>
 
-<!-- HOME -->
+
+<!-- ==============================
+     HERO
+============================== -->
 
 <section class="hero" id="home">
+
     <div class="container">
 
         <div class="hero-content">
 
-            <div class="hero-tag">WELCOME TO SA CREATIVE STUDIO</div>
+            <div class="hero-tag">
+                WELCOME TO SA CREATIVE STUDIO
+            </div>
 
             <h1>
                 Design.<br>
@@ -778,30 +844,41 @@ html {
                 designing, video editing and digital services.
             </p>
 
-            <a href="#services" class="btn">Explore Services</a>
+            <a href="#services" class="btn">
+                Explore Services
+            </a>
 
         </div>
 
     </div>
+
 </section>
 
-<!-- ABOUT -->
+
+<!-- ==============================
+     ABOUT
+============================== -->
 
 <section id="about">
+
     <div class="container">
 
         <div class="section-title reveal">
+
             <h2>About <span>Me</span></h2>
-            <p>Meet the person behind SA Creative Studio.</p>
+
+            <p>
+                Meet the person behind SA Creative Studio.
+            </p>
+
         </div>
+
 
         <div class="about-grid">
 
             <div class="about-visual reveal">
 
                 <div class="profile-frame">
-
-                    <!-- YOUR PROFILE IMAGE -->
 
                     <img
                         src="profile-poster.png"
@@ -812,9 +889,12 @@ html {
 
             </div>
 
+
             <div class="about-text reveal">
 
-                <h3>I'm <span class="highlight">Saif Ali</span></h3>
+                <h3>
+                    I'm <span class="highlight">Saif Ali</span>
+                </h3>
 
                 <p>
                     I'm the founder and creator of SA Creative Studio.
@@ -829,12 +909,28 @@ html {
                     delivering quality work.
                 </p>
 
+
                 <div class="about-info">
 
-                    <div><strong>Brand:</strong> SA Creative Studio</div>
-                    <div><strong>Founder:</strong> Saif Ali</div>
-                    <div><strong>Location:</strong> Lahore, Pakistan</div>
-                    <div><strong>Focus:</strong> Design, Edit & Create</div>
+                    <div>
+                        <strong>Brand:</strong>
+                        SA Creative Studio
+                    </div>
+
+                    <div>
+                        <strong>Founder:</strong>
+                        Saif Ali
+                    </div>
+
+                    <div>
+                        <strong>Location:</strong>
+                        Lahore, Pakistan
+                    </div>
+
+                    <div>
+                        <strong>Focus:</strong>
+                        Design, Edit & Create
+                    </div>
 
                 </div>
 
@@ -843,192 +939,309 @@ html {
         </div>
 
     </div>
+
 </section>
 
-<!-- SERVICES -->
+
+<!-- ==============================
+     SERVICES
+============================== -->
 
 <section id="services">
+
     <div class="container">
 
         <div class="section-title reveal">
+
             <h2>My <span>Services</span></h2>
-            <p>Creative solutions for your digital needs.</p>
+
+            <p>
+                Creative solutions for your digital needs.
+            </p>
+
         </div>
+
 
         <div class="services-grid">
 
+
             <div class="service-card reveal">
+
                 <div class="service-icon">🎨</div>
+
                 <h3>Graphic Designing</h3>
+
                 <p>
                     Creative social media posts, banners,
                     promotional designs and visual content.
                 </p>
+
             </div>
 
+
             <div class="service-card reveal">
+
                 <div class="service-icon">🎬</div>
+
                 <h3>Video Editing</h3>
+
                 <p>
                     Engaging video edits, short-form content,
                     reels and promotional videos.
                 </p>
+
             </div>
 
+
             <div class="service-card reveal">
+
                 <div class="service-icon">📊</div>
+
                 <h3>Data Entry</h3>
+
                 <p>
                     Accurate typing, document formatting,
                     spreadsheet work and data organization.
                 </p>
+
             </div>
 
+
             <div class="service-card reveal">
+
                 <div class="service-icon">📢</div>
+
                 <h3>Brand Promotion</h3>
+
                 <p>
                     Promotional content and creative ideas
                     to introduce brands and products.
                 </p>
+
             </div>
 
+
             <div class="service-card reveal">
+
                 <div class="service-icon">📱</div>
+
                 <h3>Social Media Content</h3>
+
                 <p>
                     Creative posts and content concepts
                     for social media platforms.
                 </p>
+
             </div>
 
+
             <div class="service-card reveal">
+
                 <div class="service-icon">✍️</div>
+
                 <h3>Content Writing</h3>
+
                 <p>
                     Simple and engaging written content
                     for digital platforms and projects.
                 </p>
+
             </div>
 
+
         </div>
+
     </div>
+
 </section>
 
-<!-- PORTFOLIO -->
+
+<!-- ==============================
+     PORTFOLIO
+============================== -->
 
 <section id="portfolio">
+
     <div class="container">
 
         <div class="section-title reveal">
+
             <h2>My <span>Portfolio</span></h2>
-            <p>Some creative project concepts and practice work.</p>
+
+            <p>
+                Some creative project concepts and practice work.
+            </p>
+
         </div>
+
 
         <div class="portfolio-grid">
 
+
             <div class="portfolio-card reveal">
+
                 <div class="project-icon">👕</div>
+
                 <h3>Fashion Brand Design</h3>
+
                 <p>
                     A sample promotional design concept
                     for a fashion brand.
                 </p>
-                <span class="project-label">PRACTICE CONCEPT</span>
+
+                <span class="project-label">
+                    PRACTICE CONCEPT
+                </span>
+
             </div>
 
+
             <div class="portfolio-card reveal">
+
                 <div class="project-icon">🎥</div>
+
                 <h3>Video Editing Project</h3>
+
                 <p>
                     A sample short-form video editing
                     and social media content concept.
                 </p>
-                <span class="project-label">PRACTICE CONCEPT</span>
+
+                <span class="project-label">
+                    PRACTICE CONCEPT
+                </span>
+
             </div>
 
+
             <div class="portfolio-card reveal">
+
                 <div class="project-icon">📄</div>
+
                 <h3>Data Entry Project</h3>
+
                 <p>
                     A sample spreadsheet and
                     document formatting project.
                 </p>
-                <span class="project-label">PRACTICE CONCEPT</span>
+
+                <span class="project-label">
+                    PRACTICE CONCEPT
+                </span>
+
             </div>
 
+
         </div>
+
     </div>
+
 </section>
 
-<!-- SKILLS -->
+
+<!-- ==============================
+     SKILLS
+============================== -->
 
 <section id="skills">
+
     <div class="container">
 
         <div class="section-title reveal">
+
             <h2>My <span>Skills</span></h2>
-            <p>Tools and creative areas I'm developing.</p>
+
+            <p>
+                Tools and creative areas I'm developing.
+            </p>
+
         </div>
+
 
         <div class="skills-grid">
 
+
             <div class="reveal">
 
                 <div class="skill">
+
                     <div class="skill-info">
                         <span>Graphic Designing</span>
                     </div>
+
                     <div class="skill-bar">
                         <div class="skill-fill" data-width="75%"></div>
                     </div>
+
                 </div>
 
+
                 <div class="skill">
+
                     <div class="skill-info">
                         <span>Video Editing</span>
                     </div>
+
                     <div class="skill-bar">
                         <div class="skill-fill" data-width="70%"></div>
                     </div>
+
                 </div>
 
             </div>
+
 
             <div class="reveal">
 
                 <div class="skill">
+
                     <div class="skill-info">
                         <span>Data Entry</span>
                     </div>
+
                     <div class="skill-bar">
                         <div class="skill-fill" data-width="80%"></div>
                     </div>
+
                 </div>
 
+
                 <div class="skill">
+
                     <div class="skill-info">
                         <span>Content Creation</span>
                     </div>
+
                     <div class="skill-bar">
                         <div class="skill-fill" data-width="70%"></div>
                     </div>
+
                 </div>
 
             </div>
 
+
         </div>
+
     </div>
+
 </section>
 
-<!-- CONTACT -->
+
+<!-- ==============================
+     CONTACT
+============================== -->
 
 <section id="contact">
+
     <div class="container">
 
         <div class="contact-box reveal">
 
-            <h2>Let's Create Something <span class="highlight">Amazing</span></h2>
+            <h2>
+                Let's Create Something
+                <span class="highlight">Amazing</span>
+            </h2>
 
             <p>
                 Have a project or creative idea?
@@ -1045,39 +1258,60 @@ html {
         </div>
 
     </div>
+
 </section>
 
-<!-- FOOTER -->
+
+<!-- ==============================
+     FOOTER
+============================== -->
 
 <footer>
+
     <div class="container">
+
         <p>
-            © <span id="year"></span> SA Creative Studio.
-            Created by Saif Ali.
+            © <span id="year"></span>
+            SA Creative Studio. Created by Saif Ali.
         </p>
+
     </div>
+
 </footer>
 
-<!-- JAVASCRIPT -->
+
+<!-- ==============================
+     JAVASCRIPT
+============================== -->
 
 <script>
 
-// MOBILE MENU
+
+/* MOBILE MENU */
 
 const menuBtn = document.getElementById("menuBtn");
+
 const navLinks = document.getElementById("navLinks");
 
 menuBtn.addEventListener("click", () => {
+
     navLinks.classList.toggle("show");
+
 });
+
 
 document.querySelectorAll(".nav-links a").forEach(link => {
+
     link.addEventListener("click", () => {
+
         navLinks.classList.remove("show");
+
     });
+
 });
 
-// SCROLL PROGRESS
+
+/* SCROLL PROGRESS */
 
 window.addEventListener("scroll", () => {
 
@@ -1087,35 +1321,81 @@ window.addEventListener("scroll", () => {
         document.documentElement.scrollHeight -
         document.documentElement.clientHeight;
 
-    const progress =
-        (scrollTop / height) * 100;
+    const progress = (scrollTop / height) * 100;
 
     document.getElementById("progress").style.width =
         progress + "%";
 
 });
 
-// SCROLL REVEAL
 
-const observer = new IntersectionObserver(entries => {
+/* SCROLL REVEAL ANIMATION */
+
+const revealObserver = new IntersectionObserver(entries => {
 
     entries.forEach(entry => {
 
         if (entry.isIntersecting) {
+
             entry.target.classList.add("active");
+
+            revealObserver.unobserve(entry.target);
+
         }
 
     });
 
 }, {
-    threshold: 0.15
+
+    threshold: 0.12,
+    rootMargin: "0px 0px -40px 0px"
+
 });
+
 
 document.querySelectorAll(".reveal").forEach(element => {
-    observer.observe(element);
+
+    revealObserver.observe(element);
+
 });
 
-// SKILL ANIMATION
+
+/* MOUSE FOLLOW LIGHT */
+
+const lightCards = document.querySelectorAll(
+    ".service-card, .portfolio-card, .contact-box"
+);
+
+
+lightCards.forEach(card => {
+
+    card.addEventListener("mousemove", event => {
+
+        const rect = card.getBoundingClientRect();
+
+        const x = event.clientX - rect.left;
+
+        const y = event.clientY - rect.top;
+
+        card.style.setProperty("--mouse-x", x + "px");
+
+        card.style.setProperty("--mouse-y", y + "px");
+
+    });
+
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.setProperty("--mouse-x", "50%");
+
+        card.style.setProperty("--mouse-y", "50%");
+
+    });
+
+});
+
+
+/* SKILL BAR ANIMATION */
 
 const skillObserver = new IntersectionObserver(entries => {
 
@@ -1127,76 +1407,37 @@ const skillObserver = new IntersectionObserver(entries => {
                 entry.target.querySelectorAll(".skill-fill");
 
             fills.forEach(fill => {
+
                 fill.style.width = fill.dataset.width;
+
             });
+
+            skillObserver.unobserve(entry.target);
 
         }
 
     });
 
 }, {
+
     threshold: 0.3
+
 });
+
 
 document.querySelectorAll(".skills-grid > div").forEach(element => {
+
     skillObserver.observe(element);
+
 });
 
-// CURRENT YEAR
+
+/* CURRENT YEAR */
 
 document.getElementById("year").textContent =
     new Date().getFullYear();
-/* =================================
-   MOUSE FOLLOW LIGHT
-================================= */
-
-const lightCards = document.querySelectorAll(
-    ".service-card, .portfolio-card, .contact-box"
-);
-
-lightCards.forEach(card => {
-
-    card.addEventListener("mousemove", event => {
-
-        const rect = card.getBoundingClientRect();
-
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-
-        card.style.setProperty("--mouse-x", x + "px");
-        card.style.setProperty("--mouse-y", y + "px");
-
-    });
-
-});
 
 
-/* =================================
-   SCROLL REVEAL OBSERVER
-================================= */
-
-const revealObserver = new IntersectionObserver(entries => {
-
-    entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-
-            entry.target.classList.add("active");
-
-        }
-
-    });
-
-}, {
-    threshold: 0.12,
-    rootMargin: "0px 0px -40px 0px"
-});
-
-document.querySelectorAll(".reveal").forEach(element => {
-
-    revealObserver.observe(element);
-
-});
 </script>
 
 </body>
