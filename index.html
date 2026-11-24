@@ -120,6 +120,7 @@ section {
     from {
         transform: translate(0, 0);
     }
+
     to {
         transform: translate(60px, -50px);
     }
@@ -134,7 +135,7 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
-    background: rgba(8, 6, 16, 0.88);
+    background: rgba(8, 6, 16, 0.90);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(155, 53, 255, 0.15);
 }
@@ -238,7 +239,7 @@ header {
     border-radius: 30px;
     font-size: 14px;
     font-weight: 600;
-    transition: 0.3s;
+    transition: 0.35s ease;
 }
 
 .btn-primary {
@@ -260,6 +261,7 @@ header {
     background: var(--purple);
     color: white;
     transform: translateY(-4px);
+    box-shadow: 0 0 20px rgba(155, 53, 255, 0.35);
 }
 
 
@@ -334,6 +336,7 @@ header {
     0%, 100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-15px);
     }
@@ -346,22 +349,31 @@ header {
 }
 
 
-/* ABOUT */
+/* ABOUT ME */
 
 .about-content {
     max-width: 850px;
     margin: auto;
     text-align: center;
-    background: var(--card);
+    background: linear-gradient(145deg, #171024, #100b1b);
     padding: 45px;
     border-radius: 22px;
-    border: 1px solid rgba(155, 53, 255, 0.2);
+    border: 1px solid rgba(155, 53, 255, 0.25);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+    transition: 0.35s ease;
+}
+
+.about-content:hover {
+    border-color: rgba(155, 53, 255, 0.55);
+    box-shadow: 0 12px 40px rgba(155, 53, 255, 0.12);
 }
 
 .about-content p {
     color: var(--gray);
     line-height: 2;
     font-size: 15px;
+    max-width: 700px;
+    margin: auto;
 }
 
 
@@ -421,6 +433,7 @@ header {
     0%, 100% {
         transform: translateY(0) rotate(-3deg);
     }
+
     50% {
         transform: translateY(-12px) rotate(3deg);
     }
@@ -430,6 +443,7 @@ header {
     from {
         transform: translateY(0) rotate(-8deg);
     }
+
     to {
         transform: translateY(-12px) rotate(8deg);
     }
@@ -446,52 +460,66 @@ header {
 
 .service-card {
     position: relative;
+    isolation: isolate;
     overflow: hidden;
     background: var(--card);
     padding: 32px 25px;
     border: 1px solid rgba(155, 53, 255, 0.17);
     border-radius: 18px;
-    transition: 0.35s;
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
 }
+
+/* SMOOTH MOUSE FOLLOW LIGHT */
 
 .service-card::before {
     content: "";
     position: absolute;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(155,53,255,0.18), transparent 70%);
-    top: var(--mouse-y, 50%);
-    left: var(--mouse-x, 50%);
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: 0.3s;
+    inset: 0;
+    z-index: -1;
     pointer-events: none;
+
+    background: radial-gradient(
+        240px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(155, 53, 255, 0.25),
+        transparent 70%
+    );
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.service-card:hover::before {
+.service-card.mouse-active::before {
     opacity: 1;
 }
 
 .service-card:hover {
-    transform: translateY(-9px);
-    border-color: var(--purple);
-    box-shadow: 0 12px 35px rgba(155, 53, 255, 0.15);
+    transform: translateY(-8px);
+    border-color: rgba(175, 95, 255, 0.75);
+    box-shadow:
+        0 12px 35px rgba(155, 53, 255, 0.15),
+        inset 0 0 20px rgba(155, 53, 255, 0.04);
 }
 
 .service-icon {
     font-size: 35px;
     margin-bottom: 18px;
+    position: relative;
 }
 
 .service-card h3 {
     font-size: 19px;
     margin-bottom: 12px;
+    position: relative;
 }
 
 .service-card p {
     font-size: 13px;
     color: var(--gray);
     line-height: 1.8;
+    position: relative;
 }
 
 
@@ -508,11 +536,12 @@ header {
     border: 1px solid rgba(155, 53, 255, 0.2);
     border-radius: 18px;
     overflow: hidden;
-    transition: 0.3s;
+    transition: 0.35s ease;
 }
 
 .portfolio-card:hover {
     transform: translateY(-8px);
+    border-color: var(--purple);
     box-shadow: 0 10px 30px rgba(155, 53, 255, 0.18);
 }
 
@@ -601,6 +630,7 @@ header {
     border-radius: 22px;
     background: linear-gradient(135deg, #1c1030, #100b1a);
     border: 1px solid rgba(155, 53, 255, 0.3);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
 }
 
 .contact-box h2 {
@@ -778,6 +808,20 @@ footer span {
     }
 }
 
+
+/* REDUCED MOTION ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
 </style>
 </head>
 
@@ -878,7 +922,7 @@ footer span {
 </section>
 
 
-<!-- ABOUT -->
+<!-- ABOUT ME -->
 
 <section id="about">
 
@@ -886,16 +930,14 @@ footer span {
 
     <div class="section-title reveal">
 
-        <h2>About <span>Us</span></h2>
+        <h2>Turning Ideas Into <span>Digital Work</span></h2>
 
-        <p>Creative ideas. Digital solutions.</p>
+        <p>Creativity, consistency and digital skills.</p>
 
     </div>
 
 
     <div class="about-content reveal">
-
-        <!-- ANIMATED LAPTOP STICKER -->
 
         <div class="about-visual">
 
@@ -915,14 +957,15 @@ footer span {
 
 
         <p>
-            SA Creative Studio is a digital creative platform
-            focused on graphic designing, video editing,
-            social media content creation, brand promotion
-            and other creative services.
+            I'm the founder and creator of SA Creative Studio.
+            My passion is creativity, digital design and helping
+            ideas become meaningful visual content.
 
-            Our goal is to turn ideas into attractive digital
-            content and help brands build a professional
-            online presence.
+            I focus on creating attractive graphics, engaging
+            videos and reliable digital services.
+
+            My goal is to keep learning, improving and
+            delivering quality work.
         </p>
 
     </div>
@@ -1322,11 +1365,17 @@ const skillObserver = new IntersectionObserver(function(entries) {
 skillObserver.observe(skillsSection);
 
 
-/* SERVICE CARD MOUSE GLOW */
+/* IMPROVED MOUSE FOLLOW ANIMATION */
 
 document.querySelectorAll(".service-card").forEach(function(card) {
 
-    card.addEventListener("mousemove", function(event) {
+    card.addEventListener("pointerenter", function() {
+
+        card.classList.add("mouse-active");
+
+    });
+
+    card.addEventListener("pointermove", function(event) {
 
         const rect = card.getBoundingClientRect();
 
@@ -1337,6 +1386,12 @@ document.querySelectorAll(".service-card").forEach(function(card) {
         card.style.setProperty("--mouse-x", x + "px");
 
         card.style.setProperty("--mouse-y", y + "px");
+
+    });
+
+    card.addEventListener("pointerleave", function() {
+
+        card.classList.remove("mouse-active");
 
     });
 
