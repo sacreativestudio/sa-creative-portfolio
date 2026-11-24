@@ -3,25 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>SA Creative Studio | Saif Ali</title>
 
-<meta name="description" content="SA Creative Studio provides graphic designing, video editing, data entry and creative digital services.">
+<meta name="description" content="SA Creative Studio - Graphic Designing, Video Editing and Digital Services.">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
-/* ==============================
-   GLOBAL SETTINGS
-============================== */
-
 :root {
     --bg: #080610;
     --card: #120d20;
     --purple: #a020f0;
-    --light-purple: #c77dff;
-    --white: #ffffff;
+    --light: #c77dff;
+    --white: #fff;
     --gray: #b9b2c5;
 }
 
@@ -44,8 +38,8 @@ body {
 }
 
 a {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
 }
 
 .container {
@@ -58,10 +52,7 @@ section {
     padding: 100px 0;
 }
 
-
-/* ==============================
-   SCROLL PROGRESS BAR
-============================== */
+/* SCROLL PROGRESS */
 
 .progress {
     position: fixed;
@@ -69,24 +60,21 @@ section {
     left: 0;
     height: 4px;
     width: 0;
-    background: linear-gradient(90deg, #8500ff, #e0aaff);
+    background: linear-gradient(90deg,#8500ff,#e0aaff);
+    box-shadow: 0 0 15px var(--purple);
     z-index: 2000;
-    box-shadow: 0 0 15px #a020f0;
 }
 
-
-/* ==============================
-   NAVBAR
-============================== */
+/* NAVBAR */
 
 header {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(8, 6, 16, 0.85);
+    background: rgba(8,6,16,.88);
     backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(160, 32, 240, 0.15);
+    border-bottom: 1px solid rgba(160,32,240,.15);
 }
 
 .navbar {
@@ -97,9 +85,8 @@ header {
 }
 
 .logo {
-    font-size: 25px;
+    font-size: 24px;
     font-weight: 800;
-    letter-spacing: 1px;
 }
 
 .logo span {
@@ -115,11 +102,11 @@ header {
 .nav-links a {
     color: var(--gray);
     font-size: 14px;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .nav-links a:hover {
-    color: var(--light-purple);
+    color: var(--light);
     text-shadow: 0 0 12px var(--purple);
 }
 
@@ -129,40 +116,22 @@ header {
     cursor: pointer;
 }
 
-
-/* ==============================
-   PROFESSIONAL BUTTONS
-============================== */
+/* BUTTONS */
 
 .btn {
     display: inline-block;
     position: relative;
     overflow: hidden;
     isolation: isolate;
-
     padding: 14px 30px;
-
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,.15);
     border-radius: 35px;
-
-    background: linear-gradient(
-        120deg,
-        #7600d9,
-        #a020f0,
-        #c77dff
-    );
-
+    background: linear-gradient(120deg,#7600d9,#a020f0,#c77dff);
     background-size: 200% 200%;
-
     color: white;
     font-weight: 600;
-
-    box-shadow: 0 5px 20px rgba(160,32,240,0.25);
-
-    transition:
-        transform .35s ease,
-        box-shadow .35s ease,
-        background-position .5s ease;
+    box-shadow: 0 5px 20px rgba(160,32,240,.25);
+    transition: .35s ease;
 }
 
 .btn::before {
@@ -170,17 +139,9 @@ header {
     position: absolute;
     top: 0;
     left: -120%;
-
     width: 70%;
     height: 100%;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.4),
-        transparent
-    );
-
+    background: linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
     transform: skewX(-25deg);
     transition: left .65s ease;
     z-index: -1;
@@ -188,12 +149,8 @@ header {
 
 .btn:hover {
     transform: translateY(-4px) scale(1.03);
-
     background-position: 100% 50%;
-
-    box-shadow:
-        0 0 12px rgba(180,70,255,.55),
-        0 0 30px rgba(160,32,240,.4);
+    box-shadow: 0 0 15px rgba(180,70,255,.55),0 0 30px rgba(160,32,240,.4);
 }
 
 .btn:hover::before {
@@ -204,10 +161,7 @@ header {
     transform: scale(.97);
 }
 
-
-/* ==============================
-   SECTION TITLES
-============================== */
+/* SECTION TITLES */
 
 .section-title {
     text-align: center;
@@ -218,8 +172,9 @@ header {
     font-size: 36px;
 }
 
-.section-title span {
-    color: var(--light-purple);
+.section-title span,
+.highlight {
+    color: var(--light);
 }
 
 .section-title p {
@@ -227,14 +182,7 @@ header {
     margin-top: 10px;
 }
 
-.highlight {
-    color: var(--light-purple);
-}
-
-
-/* ==============================
-   HERO SECTION
-============================== */
+/* HERO */
 
 .hero {
     min-height: 100vh;
@@ -242,30 +190,21 @@ header {
     align-items: center;
     position: relative;
     overflow: hidden;
-
     background:
-        radial-gradient(
-            circle at 80% 40%,
-            rgba(130,0,255,.22),
-            transparent 35%
-        ),
+        radial-gradient(circle at 80% 40%,rgba(130,0,255,.22),transparent 35%),
         var(--bg);
 }
 
 .hero::before {
     content: "";
     position: absolute;
-
     width: 450px;
     height: 450px;
-
     right: -150px;
     top: 20%;
-
     background: rgba(140,0,255,.12);
     filter: blur(100px);
     border-radius: 50%;
-
     animation: floatGlow 7s ease-in-out infinite alternate;
 }
 
@@ -273,18 +212,17 @@ header {
     position: relative;
     z-index: 1;
     max-width: 750px;
-
     animation: heroEntrance 1.2s cubic-bezier(.2,.7,.2,1) both;
 }
 
 .hero h1 {
-    font-size: clamp(42px, 7vw, 75px);
+    font-size: clamp(42px,7vw,75px);
     line-height: 1.15;
     margin-bottom: 20px;
 }
 
 .hero h1 span {
-    background: linear-gradient(90deg, #a020f0, #e0aaff);
+    background: linear-gradient(90deg,#a020f0,#e0aaff);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -299,16 +237,13 @@ header {
 }
 
 .hero-tag {
-    color: var(--light-purple);
+    color: var(--light);
     letter-spacing: 4px;
     font-size: 13px;
     margin-bottom: 20px;
 }
 
-
-/* ==============================
-   ABOUT SECTION
-============================== */
+/* ABOUT */
 
 .about-grid {
     display: grid;
@@ -324,12 +259,16 @@ header {
     padding: 18px;
 }
 
-.profile-frame {
-    width: 100%;
-    max-width: 430px;
-    padding: 5px;
+/* PROFILE PICTURE */
 
-    border-radius: 25px;
+.profile-frame {
+    position: relative;
+    width: 100%;
+    max-width: 390px;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    padding: 5px;
+    border-radius: 28px;
 
     background: linear-gradient(
         135deg,
@@ -340,27 +279,35 @@ header {
     );
 
     background-size: 300% 300%;
-
     animation: borderGlow 5s ease infinite;
 
-    box-shadow: 0 0 30px rgba(160,32,240,.3);
+    box-shadow:
+        0 0 25px rgba(160,32,240,.35),
+        0 0 55px rgba(160,32,240,.15);
 
-    transition: .4s;
+    transition: .4s ease;
 }
 
 .profile-frame:hover {
-    transform: translateY(-8px) scale(1.015);
-
+    transform: translateY(-7px);
     box-shadow:
-        0 0 25px rgba(160,32,240,.5),
-        0 0 55px rgba(160,32,240,.3);
+        0 0 35px rgba(160,32,240,.6),
+        0 0 65px rgba(160,32,240,.25);
 }
 
 .profile-frame img {
     display: block;
     width: 100%;
-    height: auto;
-    border-radius: 21px;
+    height: 100%;
+    object-fit: cover;
+    object-position: 100% 42%;
+    transform: scale(1.25);
+    border-radius: 22px;
+    transition: transform .6s ease;
+}
+
+.profile-frame:hover img {
+    transform: scale(1.32);
 }
 
 .about-text h3 {
@@ -385,41 +332,30 @@ header {
 }
 
 .about-info strong {
-    color: var(--light-purple);
+    color: var(--light);
 }
 
-
-/* ==============================
-   MOUSE FOLLOW LIGHT CARDS
-============================== */
+/* MOUSE FOLLOW CARDS */
 
 .service-card,
 .portfolio-card,
 .contact-box {
-
     position: relative;
     isolation: isolate;
-
     background-color: var(--card);
-
     background-image: radial-gradient(
-        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        350px circle at var(--mouse-x,50%) var(--mouse-y,50%),
         rgba(177,70,255,.23),
         transparent 70%
     );
-
     border: 1px solid rgba(160,32,240,.18);
-
     transition:
         transform .4s ease,
         border-color .4s ease,
         box-shadow .4s ease;
 }
 
-
-/* ==============================
-   SERVICES
-============================== */
+/* SERVICES */
 
 .services-grid {
     display: grid;
@@ -434,12 +370,8 @@ header {
 
 .service-card:hover {
     transform: translateY(-10px);
-
-    border-color: var(--light-purple);
-
-    box-shadow:
-        0 10px 35px rgba(160,32,240,.25),
-        0 0 15px rgba(160,32,240,.15);
+    border-color: var(--light);
+    box-shadow: 0 10px 35px rgba(160,32,240,.25);
 }
 
 .service-icon {
@@ -458,10 +390,7 @@ header {
     font-size: 14px;
 }
 
-
-/* ==============================
-   PORTFOLIO
-============================== */
+/* PORTFOLIO */
 
 .portfolio-grid {
     display: grid;
@@ -476,11 +405,8 @@ header {
 
 .portfolio-card:hover {
     transform: translateY(-10px);
-
-    border-color: var(--light-purple);
-
-    box-shadow:
-        0 10px 35px rgba(160,32,240,.25);
+    border-color: var(--light);
+    box-shadow: 0 10px 35px rgba(160,32,240,.25);
 }
 
 .project-icon {
@@ -501,14 +427,11 @@ header {
 .project-label {
     display: inline-block;
     margin-top: 18px;
-    color: var(--light-purple);
+    color: var(--light);
     font-size: 12px;
 }
 
-
-/* ==============================
-   SKILLS
-============================== */
+/* SKILLS */
 
 .skills-grid {
     display: grid;
@@ -521,13 +444,7 @@ header {
 }
 
 .skill-info {
-    display: flex;
-    justify-content: space-between;
     margin-bottom: 10px;
-}
-
-.skill-info span:last-child {
-    color: var(--light-purple);
 }
 
 .skill-bar {
@@ -540,21 +457,12 @@ header {
 .skill-fill {
     height: 100%;
     width: 0;
-
-    background: linear-gradient(
-        90deg,
-        #8500ff,
-        #d9a3ff
-    );
-
+    background: linear-gradient(90deg,#8500ff,#d9a3ff);
     border-radius: 20px;
     transition: width 1.5s ease;
 }
 
-
-/* ==============================
-   CONTACT
-============================== */
+/* CONTACT */
 
 .contact-box {
     padding: 55px 25px;
@@ -564,9 +472,7 @@ header {
 
 .contact-box:hover {
     border-color: var(--purple);
-
-    box-shadow:
-        0 0 35px rgba(160,32,240,.2);
+    box-shadow: 0 0 35px rgba(160,32,240,.2);
 }
 
 .contact-box h2 {
@@ -579,30 +485,21 @@ header {
     margin-bottom: 30px;
 }
 
-
-/* ==============================
-   FOOTER
-============================== */
+/* FOOTER */
 
 footer {
     padding: 30px 0;
     text-align: center;
-
     border-top: 1px solid rgba(160,32,240,.15);
-
     color: var(--gray);
     font-size: 13px;
 }
 
-
-/* ==============================
-   SCROLL REVEAL
-============================== */
+/* SCROLL ANIMATION */
 
 .reveal {
     opacity: 0;
     transform: translateY(45px) scale(.98);
-
     transition:
         opacity .8s ease,
         transform .8s cubic-bezier(.2,.7,.2,1);
@@ -612,7 +509,6 @@ footer {
     opacity: 1;
     transform: translateY(0) scale(1);
 }
-
 
 /* STAGGERED CARDS */
 
@@ -638,80 +534,48 @@ footer {
     transition-delay: .24s;
 }
 
-
-/* ==============================
-   KEYFRAMES
-============================== */
+/* ANIMATIONS */
 
 @keyframes heroEntrance {
-
     from {
         opacity: 0;
         transform: translateY(50px);
         filter: blur(8px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
         filter: blur(0);
     }
-
 }
 
 @keyframes borderGlow {
-
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 @keyframes floatGlow {
-
-    from {
-        transform: translateY(-20px);
-    }
-
-    to {
-        transform: translateY(40px);
-    }
-
+    from { transform: translateY(-20px); }
+    to { transform: translateY(40px); }
 }
 
-
-/* ==============================
-   RESPONSIVE DESIGN
-============================== */
+/* RESPONSIVE */
 
 @media(max-width:850px) {
-
     .menu-btn {
         display: block;
     }
 
     .nav-links {
         display: none;
-
         position: absolute;
         top: 75px;
         left: 0;
-
         width: 100%;
-
         background: #100b1a;
-
         flex-direction: column;
         text-align: center;
-
         padding: 25px;
         gap: 22px;
     }
@@ -724,19 +588,17 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .services-grid,
-    .portfolio-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
-
     .about-visual {
         order: -1;
     }
 
+    .services-grid,
+    .portfolio-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
 }
 
 @media(max-width:550px) {
-
     section {
         padding: 75px 0;
     }
@@ -763,13 +625,14 @@ footer {
         font-size: 19px;
     }
 
+    .profile-frame {
+        max-width: 330px;
+    }
 }
-
 
 /* REDUCED MOTION */
 
 @media(prefers-reduced-motion: reduce) {
-
     *,
     *::before,
     *::after {
@@ -777,9 +640,7 @@ footer {
         transition-duration: .01ms !important;
         scroll-behavior: auto !important;
     }
-
 }
-
 </style>
 </head>
 
@@ -787,13 +648,9 @@ footer {
 
 <div class="progress" id="progress"></div>
 
-
-<!-- ==============================
-     NAVBAR
-============================== -->
+<!-- NAVBAR -->
 
 <header>
-
     <div class="container navbar">
 
         <a href="#home" class="logo">
@@ -803,29 +660,21 @@ footer {
         <div class="menu-btn" id="menuBtn">☰</div>
 
         <ul class="nav-links" id="navLinks">
-
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
-
         </ul>
 
     </div>
-
 </header>
 
-
-<!-- ==============================
-     HERO
-============================== -->
+<!-- HERO -->
 
 <section class="hero" id="home">
-
     <div class="container">
-
         <div class="hero-content">
 
             <div class="hero-tag">
@@ -844,57 +693,38 @@ footer {
                 designing, video editing and digital services.
             </p>
 
-            <a href="#services" class="btn">
-                Explore Services
-            </a>
+            <a href="#services" class="btn">Explore Services</a>
 
         </div>
-
     </div>
-
 </section>
 
-
-<!-- ==============================
-     ABOUT
-============================== -->
+<!-- ABOUT -->
 
 <section id="about">
-
     <div class="container">
 
         <div class="section-title reveal">
-
             <h2>About <span>Me</span></h2>
-
-            <p>
-                Meet the person behind SA Creative Studio.
-            </p>
-
+            <p>Meet the person behind SA Creative Studio.</p>
         </div>
-
 
         <div class="about-grid">
 
             <div class="about-visual reveal">
 
                 <div class="profile-frame">
-
                     <img
                         src="profile-poster.png"
-                        alt="Saif Ali - Founder of SA Creative Studio"
+                        alt="Saif Ali, founder of SA Creative Studio"
                     >
-
                 </div>
 
             </div>
 
-
             <div class="about-text reveal">
 
-                <h3>
-                    I'm <span class="highlight">Saif Ali</span>
-                </h3>
+                <h3>I'm <span class="highlight">Saif Ali</span></h3>
 
                 <p>
                     I'm the founder and creator of SA Creative Studio.
@@ -909,331 +739,162 @@ footer {
                     delivering quality work.
                 </p>
 
-
                 <div class="about-info">
-
-                    <div>
-                        <strong>Brand:</strong>
-                        SA Creative Studio
-                    </div>
-
-                    <div>
-                        <strong>Founder:</strong>
-                        Saif Ali
-                    </div>
-
-                    <div>
-                        <strong>Location:</strong>
-                        Lahore, Pakistan
-                    </div>
-
-                    <div>
-                        <strong>Focus:</strong>
-                        Design, Edit & Create
-                    </div>
-
+                    <div><strong>Brand:</strong> SA Creative Studio</div>
+                    <div><strong>Founder:</strong> Saif Ali</div>
+                    <div><strong>Location:</strong> Lahore, Pakistan</div>
+                    <div><strong>Focus:</strong> Design, Edit & Create</div>
                 </div>
 
             </div>
-
         </div>
-
     </div>
-
 </section>
 
-
-<!-- ==============================
-     SERVICES
-============================== -->
+<!-- SERVICES -->
 
 <section id="services">
-
     <div class="container">
 
         <div class="section-title reveal">
-
             <h2>My <span>Services</span></h2>
-
-            <p>
-                Creative solutions for your digital needs.
-            </p>
-
+            <p>Creative solutions for your digital needs.</p>
         </div>
-
 
         <div class="services-grid">
 
-
             <div class="service-card reveal">
-
                 <div class="service-icon">🎨</div>
-
                 <h3>Graphic Designing</h3>
-
-                <p>
-                    Creative social media posts, banners,
-                    promotional designs and visual content.
-                </p>
-
+                <p>Creative social media posts, banners, promotional designs and visual content.</p>
             </div>
 
-
             <div class="service-card reveal">
-
                 <div class="service-icon">🎬</div>
-
                 <h3>Video Editing</h3>
-
-                <p>
-                    Engaging video edits, short-form content,
-                    reels and promotional videos.
-                </p>
-
+                <p>Engaging video edits, short-form content, reels and promotional videos.</p>
             </div>
 
-
             <div class="service-card reveal">
-
                 <div class="service-icon">📊</div>
-
                 <h3>Data Entry</h3>
-
-                <p>
-                    Accurate typing, document formatting,
-                    spreadsheet work and data organization.
-                </p>
-
+                <p>Accurate typing, document formatting, spreadsheet work and data organization.</p>
             </div>
 
-
             <div class="service-card reveal">
-
                 <div class="service-icon">📢</div>
-
                 <h3>Brand Promotion</h3>
-
-                <p>
-                    Promotional content and creative ideas
-                    to introduce brands and products.
-                </p>
-
+                <p>Promotional content and creative ideas to introduce brands and products.</p>
             </div>
 
-
             <div class="service-card reveal">
-
                 <div class="service-icon">📱</div>
-
                 <h3>Social Media Content</h3>
-
-                <p>
-                    Creative posts and content concepts
-                    for social media platforms.
-                </p>
-
+                <p>Creative posts and content concepts for social media platforms.</p>
             </div>
-
 
             <div class="service-card reveal">
-
                 <div class="service-icon">✍️</div>
-
                 <h3>Content Writing</h3>
-
-                <p>
-                    Simple and engaging written content
-                    for digital platforms and projects.
-                </p>
-
+                <p>Simple and engaging written content for digital platforms and projects.</p>
             </div>
-
 
         </div>
-
     </div>
-
 </section>
 
-
-<!-- ==============================
-     PORTFOLIO
-============================== -->
+<!-- PORTFOLIO -->
 
 <section id="portfolio">
-
     <div class="container">
 
         <div class="section-title reveal">
-
             <h2>My <span>Portfolio</span></h2>
-
-            <p>
-                Some creative project concepts and practice work.
-            </p>
-
+            <p>Some creative project concepts and practice work.</p>
         </div>
-
 
         <div class="portfolio-grid">
 
-
             <div class="portfolio-card reveal">
-
                 <div class="project-icon">👕</div>
-
                 <h3>Fashion Brand Design</h3>
-
-                <p>
-                    A sample promotional design concept
-                    for a fashion brand.
-                </p>
-
-                <span class="project-label">
-                    PRACTICE CONCEPT
-                </span>
-
+                <p>A sample promotional design concept for a fashion brand.</p>
+                <span class="project-label">PRACTICE CONCEPT</span>
             </div>
 
-
             <div class="portfolio-card reveal">
-
                 <div class="project-icon">🎥</div>
-
                 <h3>Video Editing Project</h3>
-
-                <p>
-                    A sample short-form video editing
-                    and social media content concept.
-                </p>
-
-                <span class="project-label">
-                    PRACTICE CONCEPT
-                </span>
-
+                <p>A sample short-form video editing and social media content concept.</p>
+                <span class="project-label">PRACTICE CONCEPT</span>
             </div>
-
 
             <div class="portfolio-card reveal">
-
                 <div class="project-icon">📄</div>
-
                 <h3>Data Entry Project</h3>
-
-                <p>
-                    A sample spreadsheet and
-                    document formatting project.
-                </p>
-
-                <span class="project-label">
-                    PRACTICE CONCEPT
-                </span>
-
+                <p>A sample spreadsheet and document formatting project.</p>
+                <span class="project-label">PRACTICE CONCEPT</span>
             </div>
-
 
         </div>
-
     </div>
-
 </section>
 
-
-<!-- ==============================
-     SKILLS
-============================== -->
+<!-- SKILLS -->
 
 <section id="skills">
-
     <div class="container">
 
         <div class="section-title reveal">
-
             <h2>My <span>Skills</span></h2>
-
-            <p>
-                Tools and creative areas I'm developing.
-            </p>
-
+            <p>Tools and creative areas I'm developing.</p>
         </div>
-
 
         <div class="skills-grid">
 
-
             <div class="reveal">
 
                 <div class="skill">
-
-                    <div class="skill-info">
-                        <span>Graphic Designing</span>
-                    </div>
-
+                    <div class="skill-info">Graphic Designing</div>
                     <div class="skill-bar">
                         <div class="skill-fill" data-width="75%"></div>
                     </div>
-
                 </div>
 
-
                 <div class="skill">
-
-                    <div class="skill-info">
-                        <span>Video Editing</span>
-                    </div>
-
+                    <div class="skill-info">Video Editing</div>
                     <div class="skill-bar">
                         <div class="skill-fill" data-width="70%"></div>
                     </div>
-
                 </div>
 
             </div>
-
 
             <div class="reveal">
 
                 <div class="skill">
-
-                    <div class="skill-info">
-                        <span>Data Entry</span>
-                    </div>
-
+                    <div class="skill-info">Data Entry</div>
                     <div class="skill-bar">
                         <div class="skill-fill" data-width="80%"></div>
                     </div>
-
                 </div>
 
-
                 <div class="skill">
-
-                    <div class="skill-info">
-                        <span>Content Creation</span>
-                    </div>
-
+                    <div class="skill-info">Content Creation</div>
                     <div class="skill-bar">
                         <div class="skill-fill" data-width="70%"></div>
                     </div>
-
                 </div>
 
             </div>
 
-
         </div>
-
     </div>
-
 </section>
 
-
-<!-- ==============================
-     CONTACT
-============================== -->
+<!-- CONTACT -->
 
 <section id="contact">
-
     <div class="container">
 
         <div class="contact-box reveal">
@@ -1248,117 +909,74 @@ footer {
                 Let's discuss how we can work together.
             </p>
 
-            <a
-                href="mailto:saifali0011011@gmail.com"
-                class="btn"
-            >
+            <a href="mailto:saifali0011011@gmail.com" class="btn">
                 Contact Me
             </a>
 
         </div>
-
     </div>
-
 </section>
 
-
-<!-- ==============================
-     FOOTER
-============================== -->
+<!-- FOOTER -->
 
 <footer>
-
     <div class="container">
-
         <p>
             © <span id="year"></span>
             SA Creative Studio. Created by Saif Ali.
         </p>
-
     </div>
-
 </footer>
 
-
-<!-- ==============================
-     JAVASCRIPT
-============================== -->
-
 <script>
-
 
 /* MOBILE MENU */
 
 const menuBtn = document.getElementById("menuBtn");
-
 const navLinks = document.getElementById("navLinks");
 
 menuBtn.addEventListener("click", () => {
-
     navLinks.classList.toggle("show");
-
 });
-
 
 document.querySelectorAll(".nav-links a").forEach(link => {
-
     link.addEventListener("click", () => {
-
         navLinks.classList.remove("show");
-
     });
-
 });
-
 
 /* SCROLL PROGRESS */
 
 window.addEventListener("scroll", () => {
-
     const scrollTop = document.documentElement.scrollTop;
 
     const height =
         document.documentElement.scrollHeight -
         document.documentElement.clientHeight;
 
-    const progress = (scrollTop / height) * 100;
+    const progress = height > 0 ? (scrollTop / height) * 100 : 0;
 
     document.getElementById("progress").style.width =
         progress + "%";
-
 });
 
-
-/* SCROLL REVEAL ANIMATION */
+/* SCROLL REVEAL */
 
 const revealObserver = new IntersectionObserver(entries => {
-
     entries.forEach(entry => {
-
         if (entry.isIntersecting) {
-
             entry.target.classList.add("active");
-
             revealObserver.unobserve(entry.target);
-
         }
-
     });
-
 }, {
-
     threshold: 0.12,
     rootMargin: "0px 0px -40px 0px"
-
 });
-
 
 document.querySelectorAll(".reveal").forEach(element => {
-
     revealObserver.observe(element);
-
 });
-
 
 /* MOUSE FOLLOW LIGHT */
 
@@ -1366,77 +984,42 @@ const lightCards = document.querySelectorAll(
     ".service-card, .portfolio-card, .contact-box"
 );
 
-
 lightCards.forEach(card => {
-
     card.addEventListener("mousemove", event => {
-
         const rect = card.getBoundingClientRect();
 
         const x = event.clientX - rect.left;
-
         const y = event.clientY - rect.top;
 
         card.style.setProperty("--mouse-x", x + "px");
-
         card.style.setProperty("--mouse-y", y + "px");
-
     });
-
-
-    card.addEventListener("mouseleave", () => {
-
-        card.style.setProperty("--mouse-x", "50%");
-
-        card.style.setProperty("--mouse-y", "50%");
-
-    });
-
 });
 
-
-/* SKILL BAR ANIMATION */
+/* SKILL ANIMATION */
 
 const skillObserver = new IntersectionObserver(entries => {
-
     entries.forEach(entry => {
-
         if (entry.isIntersecting) {
-
-            const fills =
-                entry.target.querySelectorAll(".skill-fill");
-
-            fills.forEach(fill => {
-
+            entry.target.querySelectorAll(".skill-fill").forEach(fill => {
                 fill.style.width = fill.dataset.width;
-
             });
 
             skillObserver.unobserve(entry.target);
-
         }
-
     });
-
 }, {
-
     threshold: 0.3
-
 });
-
 
 document.querySelectorAll(".skills-grid > div").forEach(element => {
-
     skillObserver.observe(element);
-
 });
-
 
 /* CURRENT YEAR */
 
 document.getElementById("year").textContent =
     new Date().getFullYear();
-
 
 </script>
 
